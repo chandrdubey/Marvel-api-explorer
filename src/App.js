@@ -1,10 +1,10 @@
 import './App.css';
-import Navbar from './Components/Navbar';
+import Navbar from './components/Navbar';
 import {Switch , Route, Redirect} from 'react-router-dom'
-import Charecters from './Components/Home'; 
-import Contact from './Components/Contact';
-import About from './Components/About';
-import Service from './Components/Service';
+import Charecters from './components/CharectersComponet.js'; 
+import Contact from './components/Contact';
+import About from './components/About';
+import Service from './components/Service';
 import React, { Component } from 'react'
 //import api from 'marvel-api'
 import CryptoJS from 'crypto-js'
@@ -50,9 +50,9 @@ import CryptoJS from 'crypto-js'
       <Navbar />
       <Switch>
         <Route  path ='/' exact  component={Charecters} />
-        <Route  path ='/about' exact component={About} />
-        <Route  path ='/contact' exact component={Contact} />
-        <Route  path ='/service' exact component={Service} />
+        <Route  path ='/about'  component={About} />
+        <Route  path ='/contact'  component={Contact} />
+        <Route  path ='/service'  component={Service} />
         <Redirect to='/' />
       </Switch>
       

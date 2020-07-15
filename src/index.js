@@ -4,20 +4,21 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router}  from 'react-router-dom'
-import {createStore} from 'redux'
-import {Provider} from 'react-redux' //Provider provides the  store to react 
-var projectReducer;
+import {createStore, applyMiddleware} from 'redux'
+import {Provider} from 'react-redux' //Provider provides the redux store to react 
+import rootReducer from './reducer/rootReducer'
+import thunk from 'redux-thunk'
 
-//onst store = createStore(projectReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   
 
- //   <Provider store= {store} >
+    <Provider store= {store} >
       <Router>
     <App />
-    </Router>,
- //   </Provider>,
+    </Router>
+    </Provider>,
   document.getElementById('root')
 );
 

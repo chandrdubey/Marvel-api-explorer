@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import CryptoJS from 'crypto-js'
 import axios from 'axios'
 import DisplayContent from './DisplayContent';
-
+import {connect} from 'react-redux'
+ 
 let ts = new Date().getTime();
 let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
 let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
@@ -32,6 +33,7 @@ let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
    }
    
   render() {
+    console.log(this.props);
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
@@ -40,9 +42,14 @@ let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
               <div className="col-10 mx-auto">
                 <h1>Marvel Charecters</h1> 
                 <div className="row ">
-            
-                    <DisplayContent charecters = {this.state.charecters} />
-
+                 {
+                    this.state.charecters.map(charecter => (
+                  
+                        <div key={charecter.id} className = "col-4">
+                        <DisplayContent charecter = {charecter}  />
+                        </div>
+                    ))       
+                 }
                 </div>
               </div>
             </div>
@@ -52,23 +59,10 @@ let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
     );
   }
 }
+const mapStateToProps = (state) =>{
+    return {
+        charecters : state.charecters
+    }
+}
 
-// export default function Home() {
-//   let mag = 'https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg';
-//   return (
-//     <>
-//       <section id="header" className=" d-flex align-items-center">
-//         <div className="container-fluid nav_bg ">
-//           <div className="row">
-//             <div className="col-10 mx-auto"> 
-//               <div className="row ">
-//                 <div></div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
-export default CharecterComponent;
+export default connect(mapStateToProps)(CharecterComponent)

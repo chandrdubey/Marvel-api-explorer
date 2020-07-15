@@ -64,8 +64,16 @@ body {
   transition: 0.5s;
   text-decoration: none;
 }
+.card-body{
+  background-color:#2e2c2c ;
+  color: #ffffff;
+  transition: 0.5s;
+}
+.card-body:hover{
+  background-color:#a80b0b ;
+}
 .card img{
-  width: 18rem;
+  width: 100%;
   background-color: rgb(238, 143, 27);
 }
 #header .btn-get-started:hover{

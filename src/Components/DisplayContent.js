@@ -1,27 +1,21 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 const DisplayContent = (props)=> {
-    console.log(props.charecters);
-    let list = props.charecters.map(charecter => 
-    (
-        <div key = {charecter.id}><div className="card" >
-        <img src={charecter.thumbnail.path + '.'+charecter.thumbnail.extension } className="card-img-top" alt="..." />
+    console.log(props.charecter.urls[0].url);
+    let list = 
+        <div className="card" >
+        <img src={props.charecter.thumbnail.path + '.'+props.charecter.thumbnail.extension } className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title">{charecter.name}</h5>
+          <a href={props.charecter.urls[1].url} className="card-title">{props.charecter.name}</a>
           <p className="card-text">
-            {charecter.description}
+            {props.charecter.description}
           </p>
-          <a href="#" className="btn btn-primary" >
-            Go somewhere
-          </a>
         </div>
       </div>
-      </div>
-      )
-    )
   return (
       
-      <div className="col-4">
+         <div >
             {list}
           </div> 
   );  
