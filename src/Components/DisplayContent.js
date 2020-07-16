@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+
 
 const DisplayContent = (props)=> {
     console.log(props.charecter.urls[0].url);
@@ -7,7 +7,7 @@ const DisplayContent = (props)=> {
         <div className="card" >
         <img src={props.charecter.thumbnail.path + '.'+props.charecter.thumbnail.extension } className="card-img-top" alt="..." />
         <div className="card-body">
-          <a href={props.charecter.urls[1].url} className="card-title">{props.charecter.name}</a>
+          <a href={props.charecter.urls[0].url} className="card-title">{props.charecter.name}</a>
           <p className="card-text">
             {props.charecter.description}
           </p>

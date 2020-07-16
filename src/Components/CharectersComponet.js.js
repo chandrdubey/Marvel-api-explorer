@@ -1,39 +1,24 @@
 import {NavLink} from 'react-router-dom'
 import React, { Component } from 'react'
-import CryptoJS from 'crypto-js'
-import axios from 'axios'
+// import CryptoJS from 'crypto-js'
+// import axios from 'axios'
 import DisplayContent from './DisplayContent';
 import {connect} from 'react-redux'
+import {getDataAction} from '../actions/getDataAction';
  
-let ts = new Date().getTime();
-let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
-let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
+// let ts = new Date().getTime();
+// let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
+// let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
 
  class CharecterComponent extends Component {
-   constructor(props) {
-     super(props);
-     this.state={
-       charecters: []
-     }
-   }
+  
  componentDidMount(){
-        axios.get(`https://gateway.marvel.com:443/v1/public/characters${url}`)
-       .then( (response) => {
-         this.setState({
-           charecters : response.data.data.results
-         });
-       // handle success
-      console.log(response.data.data.results);
-     })
-     .catch(function (error) {
-    // handle error
-    console.log(error);
-    });
-
+        console.log(this.props);
+        this.props.getAllCharecters();
    }
    
   render() {
-    console.log(this.props);
+    console.log(this.props); 
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
@@ -43,7 +28,7 @@ let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
                 <h1>Marvel Charecters</h1> 
                 <div className="row ">
                  {
-                    this.state.charecters.map(charecter => (
+                    this.props.charecters.map(charecter => (
                   
                         <div key={charecter.id} className = "col-4">
                         <DisplayContent charecter = {charecter}  />
@@ -64,5 +49,10 @@ const mapStateToProps = (state) =>{
         charecters : state.charecters
     }
 }
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    getAllCharecters : () => dispatch(getDataAction())
+  }
+}
 
-export default connect(mapStateToProps)(CharecterComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(CharecterComponent)

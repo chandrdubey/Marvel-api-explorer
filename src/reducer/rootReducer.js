@@ -4,9 +4,19 @@ const initState = {
     stories: [],
     isLoding : false
 }
-const rootReducer = (state = initState, action)=>{
-   
-     return state;
+const rootReducer = (state = initState, action) =>{
+     switch (action.type)  {
+         case 'ALL_CHARECTERS' : {
+            return{
+                ...state,
+                charecters : action.payload
+            }
+         }
+         default : {
+             return state
+         }
+     }
+     
 }
 
 export default rootReducer

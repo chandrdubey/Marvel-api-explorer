@@ -1,0 +1,21 @@
+import axios from 'axios'
+import CryptoJS from 'crypto-js'
+ 
+let ts = new Date().getTime();
+let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
+let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
+
+export const getDataAction = () => {
+    return (dispatch) =>{
+        axios.get(`https://gateway.marvel.com:443/v1/public/characters${url}`)
+        .then( (response) => {
+            dispatch({type:'ALL_CHARECTERS', payload:response.data.data.results});
+        // handle success
+       console.log(response.data.data.results);
+      })
+      .catch(function (error) {
+     // handle error
+     console.log(error);
+     });
+    }
+}

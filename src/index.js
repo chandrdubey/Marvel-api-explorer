@@ -8,8 +8,10 @@ import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux' //Provider provides the redux store to react 
 import rootReducer from './reducer/rootReducer'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   

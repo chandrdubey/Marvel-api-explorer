@@ -62,20 +62,4 @@ import CryptoJS from 'crypto-js'
 }
 
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <Navbar />
-//       <Switch>
-//         <Route  path ='/' exact  component={Home} />
-//         <Route  path ='/about' exact component={About} />
-//         <Route  path ='/contact' exact component={Contact} />
-//         <Route  path ='/service' exact component={Service} />
-//         <Redirect to='/' />
-//       </Switch>
-      
-//     </div>
-//   );
-// }
-
 export default App;
