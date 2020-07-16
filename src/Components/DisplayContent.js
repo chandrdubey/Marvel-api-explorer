@@ -2,15 +2,11 @@ import React from "react";
 
 
 const DisplayContent = (props)=> {
-    console.log(props.charecter.urls[0].url);
     let list = 
         <div className="card" >
-        <img src={props.charecter.thumbnail.path + '.'+props.charecter.thumbnail.extension } className="card-img-top" alt="..." />
+        <img src={props.data.thumbnail.path + '.'+props.data.thumbnail.extension } className="card-img-top" alt="..." />
         <div className="card-body">
-          <a href={props.charecter.urls[0].url} className="card-title">{props.charecter.name}</a>
-          <p className="card-text">
-            {props.charecter.description}
-          </p>
+          <a href={props.data.urls[0].url} className="card-title">{props.data.name ? props.data.name :props.data.title }</a>
         </div>
       </div>
   return (

@@ -51,8 +51,8 @@ import CryptoJS from 'crypto-js'
       <Switch>
         <Route  path ='/' exact  component={Charecters} />
         <Route  path ='/about'  component={About} />
-        <Route  path ='/contact'  component={Contact} />
-        <Route  path ='/service'  component={Service} />
+        <Route  path ='/series'  component={Contact} />
+        <Route  path ='/comics'  component={Service} />
         <Redirect to='/' />
       </Switch>
       

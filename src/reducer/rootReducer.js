@@ -12,6 +12,12 @@ const rootReducer = (state = initState, action) =>{
                 charecters : action.payload
             }
          }
+         case 'ALL_COMICS' :{
+             return{
+                 ...state,
+                 comics: action.payload
+             }
+         }
          default : {
              return state
          }

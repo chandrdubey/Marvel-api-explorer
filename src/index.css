@@ -3,6 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Cabin', sans-serif;
+  background-color: rgb(175, 175, 175);
 }
 .navrow {
   background-color: #2e2c2c !important;

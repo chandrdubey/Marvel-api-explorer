@@ -31,12 +31,12 @@ export default function Navbar() {
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/service">
+                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/comics">
                      Comics
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/contact">
+                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/series">
                       Series
                     </NavLink>
                   </li>
