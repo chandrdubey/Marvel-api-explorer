@@ -72,9 +72,15 @@ body {
   text-decoration: none;
 }
 /* Card  */
+.card{
+  width: 200px;
+  height: 260px;
+  margin: 10px;
+}
 .card-body{
   background-color:#2e2c2c ;
   color: #ffffff;
+  
   transition: 0.5s;
 }
 .card-body:hover{
