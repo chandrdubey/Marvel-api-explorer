@@ -34,3 +34,42 @@ export const getComicsAction = () => {
    });
   }
 }
+
+export const getComicsSearchAction = (query) =>{
+    return  (dispatch) =>{
+        axios.get(`https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${query}&${url}`)
+        .then( (response) => {
+            dispatch({type:'SEARCH_COMICS', payload:response.data.data.results});
+        // handle success
+        console.log('hi');
+       console.log(response);
+      })
+      .catch(function (error) {
+     // handle error
+     console.log(error);
+     });
+}
+}
+
+export const getCharectersSearchAction = (query) =>{ 
+    return  (dispatch) =>{
+        axios.get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&${url}`)
+        .then( (response) => {
+            dispatch({type:'SEARCH_CHARECTERS', payload:response.data.data.results});
+        // handle success
+        console.log('hi');
+       console.log(response);
+      })
+      .catch(function (error) {
+     // handle error
+     console.log(error);
+     });
+}
+}
+export const isLoadingAction = () =>{
+    return (dispatch) => {
+        dispatch({type : 'LOADING'})
+    }
+}
+
+

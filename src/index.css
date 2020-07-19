@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Cabin', sans-serif;
-  background-color: rgb(175, 175, 175);
+  background-color: rgb(228, 228, 228);
 }
 .navrow {
   background-color: #2e2c2c !important;
@@ -48,7 +51,7 @@ body {
   text-align: center;
 }
 #header input{
-  width: 100%;
+  width: 60%;
 }
 #header .brand-name{
   color: #3498db;
@@ -68,6 +71,7 @@ body {
   transition: 0.5s;
   text-decoration: none;
 }
+/* Card  */
 .card-body{
   background-color:#2e2c2c ;
   color: #ffffff;
@@ -78,28 +82,54 @@ body {
 }
 .card img{
   width: 100%;
-  background-color: rgb(238, 143, 27);
+  background-color:#a80b0b ;
+ 
 }
 #header .btn-get-started:hover{
   background-color: #3498db;
   color: #fff;
 }
-#header .animated{
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+
+/* Spinner  */
+/* 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} */
+
+/* body {
+  font-family: Poppins, sans-serif;
+  min-height: 100vh;
+  background: #fff;
+  color: #2f3640;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+.spinner {
+  text-align: center;
+  margin-top: 50px;
 }
-@keyframes up-down{
-  0% {
-    translate: translateY(10px);
-  }
-  100% {
-    translate: translateY(-10px);
-  }
+
+.halfSpin {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 75px;
+  border-top-left-radius: 95px;
+  border-top-right-radius: 95px;
+  border: 20px solid #a80b0b;
+  border-bottom: 0;
+  transform-origin: bottom center;
+  animation: 1s infinite turner;
 }
-@-webkit-keyframes up-down{
-  0% {
-    translate: translateY(10px);
+
+@keyframes turner {
+  from {
+    transform: rotate(0turn);
   }
-  100% {
-    translate: translateY(-10px);
+  to {
+    transform: rotate(1turn);
   }
 }
