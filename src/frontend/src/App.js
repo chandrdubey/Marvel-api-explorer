@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import About from './components/About';
 import Service from './components/Service';
 import React, { Component } from 'react'
+import RegisterComponent from './components/RegisterComponent';
 
  
 
@@ -16,7 +17,8 @@ class App extends Component {
       <div className="App">
       <Navbar />
       <Switch>
-        <Route  path ='/' exact  component={Charecters} />
+        <Route  path ='/' exact  component={ Charecters} />
+        <Route  path= '/signup' component = {RegisterComponent} />
         <Route  path ='/about'  component={About} />
         <Route  path ='/series'  component={Contact} />
         <Route  path ='/comics'  component={Service} />
