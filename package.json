@@ -4,6 +4,7 @@
   "description": "\"creating  marvel api explorer by using marvel api to learn mern stack\"",
   "main": "app.js",
   "scripts": {
+    "devStart":"nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
