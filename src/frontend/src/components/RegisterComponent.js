@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from 'axios'
 export default class RegisterComponent extends Component {
   constructor(props) {
     super(props);
@@ -16,14 +16,20 @@ export default class RegisterComponent extends Component {
       [name] : value
     })
   }
- handleOnSubmit = () =>{
+ handleOnSubmit = (event) =>{
+   event.preventDefault();
    const data = { 
      name : this.state.name,
      password:this.state.password,
      email:this.state.email,
      confirm_password: this.state.confirm_password
    }
-   alert(`name = ${data.name} , password=${data.password}`); 
+    console.log(this.props.history);
+    alert(data);
+    axios.post('http://localhost:5000/signup', data)
+    .then(response => console.log(response));
+    this.props.history.push('/comics');
+
  }
   
   render() {
@@ -32,11 +38,11 @@ export default class RegisterComponent extends Component {
         <div className="row">
           <div className="col-10 mx-auto">
             <form  onSubmit ={this.handleOnSubmit}>
-              <div class="form-group">
-                <label for="exampleInputName">Name:</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputName">Name:</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="exampleInputName"
                  name="name"
                  value={this.state.name}
@@ -44,11 +50,11 @@ export default class RegisterComponent extends Component {
                   onChange = {this.handleChange}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address:</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Email address:</label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="exampleInputEmail1"
                  name= "email"
                  value={this.state.email}
@@ -57,29 +63,29 @@ export default class RegisterComponent extends Component {
                   onChange = {this.handleChange}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password:</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Password:</label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   name="password"
                   value={this.state.password}
                   id="exampleInputPassword1"
                   onChange = {this.handleChange}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Confirm password:</label>
+              <div className="form-group">
+                <label htmlFor="exampleInputConfirm1">Confirm password:</label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   name="confirm_password"
                   value={this.state.confirm_password}
-                  id="exampleInputPassword1"
+                  id="exampleInputConfirm1"
                   onChange = {this.handleChange}
                 />
               </div>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Submit
               </button>
             </form>

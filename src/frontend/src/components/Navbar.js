@@ -41,8 +41,8 @@ export default function Navbar() {
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/about">
-                      About
+                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/signup">
+                     signup
                     </NavLink>
                   </li>
                   </ul>

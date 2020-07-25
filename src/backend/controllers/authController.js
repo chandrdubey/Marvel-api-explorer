@@ -1,5 +1,5 @@
 module.exports = {
     register : async (req , res) =>{
-        res.json("hello world")
+        res.json(200, {body :req.body})
     }
 }

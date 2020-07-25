@@ -1,7 +1,7 @@
 const initState = {
     charecters: [],
     comics: [],
-    stories: [],
+    currenUser: {},
     isLoading : false
 }
 const rootReducer = (state = initState, action) =>{
