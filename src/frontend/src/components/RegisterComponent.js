@@ -25,6 +25,7 @@ export default class RegisterComponent extends Component {
      confirm_password: this.state.confirm_password
    }
     console.log(this.props.history);
+    //histry in props is used to redirect
     alert(data);
     axios.post('http://localhost:5000/signup', data)
     .then(response => console.log(response));

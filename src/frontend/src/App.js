@@ -16,7 +16,9 @@ class App extends Component {
     return (
       <div className="App">
       <Navbar />
-      <Switch>
+       {/* Switch matches the route one by one until it  matches the a route */}
+      <Switch>               
+       {/*Route provides the history in props so we  can redirect using props.history.push */}
         <Route  path ='/' exact  component={ Charecters} />
         <Route  path= '/signup' component = {RegisterComponent} />
         <Route  path ='/about'  component={About} />
