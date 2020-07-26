@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
-export default class RegisterComponent extends Component {
+ class RegisterComponent extends Component {
   constructor(props) {
     super(props);
     this.state= {
@@ -96,3 +96,4 @@ export default class RegisterComponent extends Component {
     );
   }
 }
+export default RegisterComponent

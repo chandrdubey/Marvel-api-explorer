@@ -14,7 +14,7 @@ passport.use(new LocalStrategy(
              return done(null, false); 
             } 
         if (!user.verifyPassword(password)) {
-            console.log('password does not matched')  //if password does not matched t
+            console.log('password does not matched')  //if password does not matched 
              return done(null, false);
              }
         return done(null, user);    // if user and password both are correct we return user
