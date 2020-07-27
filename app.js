@@ -11,7 +11,7 @@ const cors    = require('cors'); // express middleware which used to cross-orign
 
 const port  = process.env.PORT || 5000; //setting up our port
 app.use(require("express-session")({
-    secret:"gold",
+    secret:process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized:false
  }));

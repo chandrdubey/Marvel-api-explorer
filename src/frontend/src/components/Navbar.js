@@ -36,8 +36,8 @@ export default function Navbar() {
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/series">
-                      Series
+                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/login">
+                     login
                     </NavLink>
                   </li>
                   <li className="nav-item">

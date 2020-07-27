@@ -7,6 +7,7 @@ import About from './components/About';
 import Service from './components/Service';
 import React, { Component } from 'react'
 import RegisterComponent from './components/RegisterComponent';
+import LoginComponent from './components/LoginComponent';
 
  
 
@@ -22,7 +23,7 @@ class App extends Component {
         <Route  path ='/' exact  component={ Charecters} />
         <Route  path= '/signup' component = {RegisterComponent} />
         <Route  path ='/about'  component={About} />
-        <Route  path ='/series'  component={Contact} />
+        <Route  path ='/login'  component={LoginComponent} />
         <Route  path ='/comics'  component={Service} />
         <Redirect to='/' />
       </Switch>
