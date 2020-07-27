@@ -28,8 +28,11 @@ import axios from 'axios'
     //histry in props is used to redirect
     alert(data);
     axios.post('http://localhost:5000/signup', data)
-    .then(response => console.log(response));
-    this.props.history.push('/comics');
+    .then(response => console.log(response))
+    .catch(function (error) {
+      console.log(error);
+    });
+  //  this.props.history.push('/comics');
 
  }
   

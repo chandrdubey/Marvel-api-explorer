@@ -10,7 +10,11 @@ const routes =  require('./src/backend/routes'); // getting routes
 const cors    = require('cors'); // express middleware which used to cross-orign requset
 
 const port  = process.env.PORT || 5000; //setting up our port
-
+app.use(require("express-session")({
+    secret:"gold",
+    resave: false,
+    saveUninitialized:false
+ }));
 app.use(cors());
 app.use(express.json()); //it used to convert the body of a requset in json format
 
