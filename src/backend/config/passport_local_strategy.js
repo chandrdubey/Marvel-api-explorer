@@ -4,7 +4,7 @@ const User=require('../models/userModel');
 
 passport.use(new LocalStrategy(
   {  usernameField: 'email' },
-    function(email, password, done) {  // this function is used to auhenticate by using email and password
+    function(email, password, done) {  // this function is used to authenticate user by using email and password
       User.findOne({ email: email }, function (err, user) {
         if (err) { 
             return done(err); 

@@ -1,11 +1,12 @@
 const authValidation = require("../validations/authValidation");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+var jwt = require('jsonwebtoken');
 module.exports = {
   userRegister: async (req, res) => {
     console.log(req.body);
-    //validate the user detail
-    const { error } = await authValidation.registerValidation(req.body); //
+    //validate the user detail 
+    const { error } = await authValidation.registerValidation(req.body); 
     if (error) {
       console.log(error.details[0].message);
       return res.json({
@@ -83,8 +84,13 @@ module.exports = {
             message: 'passowrd is wrong',
           });
     }
-    res.status(200).json(req.body);
-     
+    var token = jwt.sign({ id :user._id }, process.env.JWT_SECRET);
+    res.status(200).json({
+      token,
+      data:{
+           id : user._id,
+           email: user.email
+      } });  
   }
   
 };

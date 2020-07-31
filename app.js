@@ -20,7 +20,7 @@ app.use(express.json()); //it used to convert the body of a requset in json form
 
 app.use(passport.initialize()); //intialising passport globally
 app.use(passport.session());  // it will maintain session for us
-app.use('/',routes);     // it handle the all the routes
+app.use('/',routes);     // it is used to handle  all routes
 
 
 app.listen(port , (err) =>{
