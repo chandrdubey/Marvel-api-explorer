@@ -19,7 +19,7 @@ export const loginUserAction = (data) => {
       .then((response) => {
           console.log(response);
           localStorage.setItem("token", response.data.token);
-          dispatch({type:'LOGIN_SUCCESS', payload:response.data.user});
+          dispatch({type:'LOGIN_SUCCESS', payload:response.data.data});
         })
       .catch(function (error) {
         console.log(error);

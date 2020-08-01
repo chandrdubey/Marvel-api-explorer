@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import {connect} from 'react-redux'
+import { Redirect} from 'react-router-dom'
 import { loginUserAction } from '../actions/authAction';
 
  class LoginComponent extends Component {
@@ -38,6 +38,11 @@ import { loginUserAction } from '../actions/authAction';
      }
       
     render() {
+      console.log(this.props.auth.isLoggedIn)
+        if(this.props.auth.isLoggedIn)
+        {
+          return( <Redirect to='/' />)
+        }
         return (
             <div className="container-fluid nav_bg ">
         <div className="row">
@@ -86,7 +91,7 @@ const mapDispatchToProps = (dispatch) =>{
 const mapStateToProps = ({auth}) =>{
   return{
      auth
-  }
+  };
 }
   
 

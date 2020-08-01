@@ -1,7 +1,9 @@
 import React from "react";
 import {NavLink} from 'react-router-dom'
+import { connect } from 'react-redux'
+  
 
-export default function Navbar() {
+function Navbar(props) {
   return (
     <>
       <div className="container-fluid nav_bg">
@@ -35,7 +37,13 @@ export default function Navbar() {
                      Comics
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  { 
+                     props.auth.isLoggedIn ? 
+                     (<li className="nav-item">
+                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/login">
+                    { props.auth.currentUser.name}
+                    </NavLink>
+                  </li>) : (<> <li className="nav-item">
                     <NavLink activeClassName='menu_active' className="nav-link" exact  to="/login">
                      login
                     </NavLink>
@@ -45,6 +53,10 @@ export default function Navbar() {
                      signup
                     </NavLink>
                   </li>
+                  </>)
+                    
+                  }
+                  
                   </ul>
               </div>
             </nav>
@@ -54,3 +66,9 @@ export default function Navbar() {
     </>
   );
 }
+const mapStateToProps = ({auth}) =>{
+  return{
+    auth
+  }
+}
+export default  connect(mapStateToProps)(Navbar)

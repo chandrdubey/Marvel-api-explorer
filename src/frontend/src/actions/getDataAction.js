@@ -12,7 +12,7 @@ export const getCharectersAction = () => {
             dispatch({type:'ALL_CHARECTERS', payload:response.data.data.results});
         // handle success
   //      console.log(`https://gateway.marvel.com:443/v1/public/characters?${url}`)
-  //     console.log(response.data.data.results);
+      console.log(response.data.data.results);
       })
       .catch(function (error) {
      // handle error
@@ -27,7 +27,7 @@ export const getComicsAction = () => {
       .then( (response) => {
           dispatch({type:'ALL_COMICS', payload:response.data.data.results});
       // handle success
- //    console.log(response.data.data.results);
+     console.log(response.data.data.results);
     })
     .catch(function (error) {
    // handle error

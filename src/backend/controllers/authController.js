@@ -51,7 +51,8 @@ module.exports = {
             token,
             data:{
                  id : user._id,
-                 email: user.email
+                 email: user.email,
+                 name:user.name
             } });  
         } catch (err) {
           res.status(404).send(err);
@@ -96,7 +97,8 @@ module.exports = {
       token,
       data:{
            id : user._id,
-           email: user.email
+           email: user.email,
+           name:user.name
       } });  
   }
   
