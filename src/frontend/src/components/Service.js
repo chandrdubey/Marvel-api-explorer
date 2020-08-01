@@ -57,8 +57,8 @@ class ComicsComponent extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        comics: state.comics,
-        isLoading: state.isLoading
+        comics: state.marvelData.comics,
+        isLoading: state.marvelData.isLoading
     }
 
 }

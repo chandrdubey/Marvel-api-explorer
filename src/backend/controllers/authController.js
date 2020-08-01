@@ -46,6 +46,13 @@ module.exports = {
             email: email,
             password: hashPassword,
           });
+          var token = jwt.sign({ id :user._id }, process.env.JWT_SECRET);
+          res.status(200).json({
+            token,
+            data:{
+                 id : user._id,
+                 email: user.email
+            } });  
         } catch (err) {
           res.status(404).send(err);
         }

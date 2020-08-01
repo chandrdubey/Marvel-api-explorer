@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {connect} from 'react-redux'
+import { loginUserAction } from '../actions/authAction';
 
  class LoginComponent extends Component {
     constructor(props) {
@@ -17,19 +19,21 @@ import axios from 'axios'
       }
      handleOnSubmit = (event) =>{
        event.preventDefault();
+
        const data = { 
-         password:this.state.password,
-         email:this.state.email
+         password: this.state.password,
+         email: this.state.email
        }
-        console.log(this.props.history);
-        //histry in props is used to redirect
-        alert(data);
-        axios.post('http://localhost:5000/login', data)
-        .then(response => console.log(response))
-        .catch(function (error) {
-          console.log(error);
-        });
-      //  this.props.history.push('/comics');
+       this.props.loginUser(data);
+      //   console.log(this.props.history);
+      //   //histry in props is used to redirect
+             
+      //   // axios.post('http://localhost:5000/login', data)
+      //   // .then(response => console.log(response))
+      //   // .catch(function (error) {
+      //   //   console.log(error);
+      //   // });
+      // //  this.props.history.push('/comics');
     
      }
       
@@ -74,6 +78,17 @@ import axios from 'axios'
         )
     }
 }
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    loginUser : (data) => dispatch(loginUserAction(data))
+  }
+}
+const mapStateToProps = ({auth}) =>{
+  return{
+     auth
+  }
+}
+  
 
 
-export default LoginComponent
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);

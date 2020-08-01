@@ -17,8 +17,8 @@ import Spinner from './spinner';
    }
    
  componentDidMount(){
-        console.log(this.props);
-        this.props.Lodading();
+     //   console.log(this.props);
+        this.props.Loading();
         this.props.getAllCharecters();
    }
    handleChange = (e) =>{
@@ -30,7 +30,7 @@ import Spinner from './spinner';
 handleSubmit = (e) =>{
    e.preventDefault();
    //this.props.getComicsSearch(this.state.query);
-   this.props.Lodading();
+   this.props.Loading();
    this.props.getCharectersSearch(this.state.query);
    
 }
@@ -61,16 +61,16 @@ handleSubmit = (e) =>{
   }
 }
 const mapStateToProps = (state) =>{
-    return {
-        charecters : state.charecters,
-        isLoading :  state.isLoading
-    }
+    return { 
+         charecters : state.marvelData.charecters,
+          isLoading :  state.marvelData.isLoading
+    };
 }
 const mapDispatchToProps = (dispatch) =>{
   return{
     getAllCharecters : () => dispatch(getCharectersAction()),
     getCharectersSearch : (query) => dispatch(getCharectersSearchAction(query)),
-    Lodading : () => dispatch(isLoadingAction())
+    Loading : () => dispatch(isLoadingAction())
   }
 }
 

@@ -1,4 +1,9 @@
-
+const initState = {
+    charecters: [],
+    comics: [],
+    isLoading : false
+    
+}
 const dataReducer = (state = initState, action) =>{
     switch (action.type)  {
         case 'ALL_CHARECTERS' : {
