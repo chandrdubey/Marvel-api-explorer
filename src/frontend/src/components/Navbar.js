@@ -1,16 +1,20 @@
 import React from "react";
-import {NavLink} from 'react-router-dom'
-import { connect } from 'react-redux'
-  
+import { NavLink } from "react-router-dom";
+import { connect} from "react-redux";
+import { logOutUserAction} from "../actions/authAction"          
 
 function Navbar(props) {
+  let handleLogOut = () =>{
+     props.dispatch(logOutUserAction());
+     console.log("hello");
+  }
   return (
     <>
       <div className="container-fluid nav_bg">
         <div className="row navrow">
           <div className="col-10 mx-auto">
             <nav className="navbar navbar-expand-lg navbar-dark bg-light">
-              <NavLink className="navbar-brand" exact  to="/">
+              <NavLink className="navbar-brand" exact to="/">
                 MARVEL
               </NavLink>
               <button
@@ -25,39 +29,81 @@ function Navbar(props) {
                 <span className="navbar-toggler-icon"></span>
               </button>
 
-              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <div
+                className="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/">
+                    <NavLink
+                      activeClassName="menu_active"
+                      className="nav-link"
+                      exact
+                      to="/"
+                    >
                       characters
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/comics">
-                     Comics
+                    <NavLink
+                      activeClassName="menu_active"
+                      className="nav-link"
+                      exact
+                      to="/comics"
+                    >
+                      Comics
                     </NavLink>
                   </li>
-                  { 
-                     props.auth.isLoggedIn ? 
-                     (<li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/login">
-                    { props.auth.currentUser.name}
-                    </NavLink>
-                  </li>) : (<> <li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/login">
-                     login
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink activeClassName='menu_active' className="nav-link" exact  to="/signup">
-                     signup
-                    </NavLink>
-                  </li>
-                  </>)
-                    
-                  }
-                  
-                  </ul>
+                  {props.auth.isLoggedIn ? (
+                    <>
+                      <li className="nav-item">
+                        <NavLink
+                          activeClassName="menu_active"
+                          className="nav-link"
+                          exact
+                          to="/login"
+                        >
+                          {props.auth.currentUser.name}
+                        </NavLink>
+                      </li>
+                      <li className="nav-item"  onClick = {handleLogOut}>
+                        <NavLink
+                          activeClassName="menu_active"
+                          className="nav-link"
+                          exact
+                          to="/login"
+                         
+                        >
+                          Log Out
+                        </NavLink>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                     
+                      <li className="nav-item">
+                        <NavLink
+                          activeClassName="menu_active"
+                          className="nav-link"
+                          exact
+                          to="/login"
+                        >
+                          log in
+                        </NavLink>
+                      </li>
+                      <li className="nav-item">
+                        <NavLink
+                          activeClassName="menu_active"
+                          className="nav-link"
+                          exact
+                          to="/signup"
+                        >
+                          sign up
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
+                </ul>
               </div>
             </nav>
           </div>
@@ -66,9 +112,10 @@ function Navbar(props) {
     </>
   );
 }
-const mapStateToProps = ({auth}) =>{
-  return{
-    auth
-  }
-}
-export default  connect(mapStateToProps)(Navbar)
+//const mapDispatchToProps = ()
+const mapStateToProps = ({ auth }) => {
+  return {
+    auth,
+  };
+};
+export default connect(mapStateToProps)(Navbar);

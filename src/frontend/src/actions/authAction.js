@@ -27,4 +27,11 @@ export const loginUserAction = (data) => {
   };
 }
 
+export const logOutUserAction = () => {
+  return (dispatch) => {
+          console.log('hell');
+          localStorage.removeItem("token");
+          dispatch({type:'LOGOUT'});
+  };
+}
 
