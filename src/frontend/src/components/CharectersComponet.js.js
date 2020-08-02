@@ -49,7 +49,7 @@ handleSubmit = (e) =>{
                      <input  type="search"  onChange = {this.handleChange} placeholder="Search" aria-label="Search" />
                      {/* <button className="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button> */}
                </form>
-               {this.props.isLoading ? <Spinner /> : <DisplayData allData={this.props.charecters} />}
+               {this.props.isLoading ? <Spinner /> : <DisplayData allData={this.props.charecters} reqParams='charecters' />}
 
             </div>
           </div>

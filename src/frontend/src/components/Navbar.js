@@ -13,7 +13,7 @@ function Navbar(props) {
       <div className="container-fluid nav_bg">
         <div className="row navrow">
           <div className="col-10 mx-auto">
-            <nav className="navbar navbar-expand-lg navbar-dark bg-light">
+            <nav className="navbar navbar-expand-lg navbar-dark navbar-default navbar-fixed-top">
               <NavLink className="navbar-brand" exact to="/">
                 MARVEL
               </NavLink>

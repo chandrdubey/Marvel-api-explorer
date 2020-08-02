@@ -18,7 +18,7 @@ export const loginUserAction = (data) => {
       .post("http://localhost:5000/login", data)
       .then((response) => {
           console.log(response);
-          if(response.status == 200)
+          if(response.status === 200)
           localStorage.setItem("token", response.data.token);
           dispatch({type:'LOGIN_SUCCESS', payload:response.data.data});
         })
