@@ -1,5 +1,9 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import { registerUserAction } from "../actions/authAction";
+import { connect } from "react-redux";
+import { Redirect} from 'react-router-dom';
+import jwtDecode from 'jwt-decode'
+
  class RegisterComponent extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +41,20 @@ import axios from 'axios'
     //   console.log(error);
     // });
   //  this.props.history.push('/comics');
-
+   this.props.dispatch(registerUserAction(data));
  }
   
   render() {
+    let token = localStorage.getItem('token');
+    console.log(token);
+    if(token )
+    {
+       localStorage.removeItem('token');
+      const user = jwtDecode(token);
+      console.log(user);
+      return <Redirect to='/' />
+    }
+      
     return (
       <div className="container-fluid nav_bg ">
         <div className="row">
@@ -101,6 +115,11 @@ import axios from 'axios'
         </div>
       </div>
     );
+  } 
+}
+const mapStateToProps = ({auth}) =>{
+  return{
+    auth
   }
 }
-export default RegisterComponent
+export default  connect(mapStateToProps)(RegisterComponent)

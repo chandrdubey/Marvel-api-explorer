@@ -7,7 +7,7 @@ export const registerUserAction = (data) => {
       .then((response) => {
         console.log(response);
         localStorage.setItem("token", response.data.token);
-        dispatch({type:'LOGIN_SUCCESS', payload:response.data.user});
+        dispatch({type:'LOGIN_SUCCESS', payload:response.data.data});
       })
   };
 };
@@ -18,6 +18,7 @@ export const loginUserAction = (data) => {
       .post("http://localhost:5000/login", data)
       .then((response) => {
           console.log(response);
+          if(response.status == 200)
           localStorage.setItem("token", response.data.token);
           dispatch({type:'LOGIN_SUCCESS', payload:response.data.data});
         })
@@ -29,7 +30,7 @@ export const loginUserAction = (data) => {
 
 export const logOutUserAction = () => {
   return (dispatch) => {
-          console.log('hell');
+  
           localStorage.removeItem("token");
           dispatch({type:'LOGOUT'});
   };

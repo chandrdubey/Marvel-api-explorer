@@ -1,12 +1,12 @@
 const authValidation = require("../validations/authValidation");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
-var jwt = require('jsonwebtoken');
+var jwt = require("jsonwebtoken");
 module.exports = {
   userRegister: async (req, res) => {
     console.log(req.body);
-    //validate the user detail 
-    const { error } = await authValidation.registerValidation(req.body); 
+    //validate the user detail
+    const { error } = await authValidation.registerValidation(req.body);
     if (error) {
       console.log(error.details[0].message);
       return res.json({
@@ -46,14 +46,18 @@ module.exports = {
             email: email,
             password: hashPassword,
           });
-          var token = jwt.sign({ id :user._id }, process.env.JWT_SECRET);
+          var token = jwt.sign(
+            { id: user._id, email: user.email, name: user.name },
+            process.env.JWT_SECRET
+          );
           res.status(200).json({
             token,
-            data:{
-                 id : user._id,
-                 email: user.email,
-                 name:user.name
-            } });  
+            data: {
+              id: user._id,
+              email: user.email,
+              name: user.name,
+            },
+          });
         } catch (err) {
           res.status(404).send(err);
         }
@@ -63,43 +67,49 @@ module.exports = {
   },
   userLogin: async (req, res) => {
     //validate the user detail
-    const { error } = await authValidation.loginValidation(req.body); 
+    const { error } = await authValidation.loginValidation(req.body);
 
-    // if there is an error thne error messeage will be send as res 
+    // if there is an error thne error messeage will be send as res
 
     if (error) {
-      console.log(error.details[0].message); 
+      console.log(error.details[0].message);
       return res.json({
         status: 404,
         message: error.details[0].message,
       });
     }
-    //checkking if email exist or not 
-    const user = await User.findOne({email : req.body.email}) ;
-    if(!user){
-        return res.json({
-            status: 404,
-            message: 'email does not exist',
-          });
+    //checkking if email exist or not
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res.json({
+        status: 404,
+        message: "email does not exist",
+      });
     }
-    //checking password 
+    //checking password
 
-    const validPassword = await bcrypt.compare(req.body.password, user.password);
-    if(!validPassword){
-        console.log('passowrd is wrong');
-        return res.json({
-            status: 404,
-            message: 'passowrd is wrong',
-          });
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!validPassword) {
+      console.log("passowrd is wrong");
+      return res.json({
+        status: 404,
+        message: "passowrd is wrong",
+      });
     }
-    var token = jwt.sign({ id :user._id }, process.env.JWT_SECRET);
+    var token = jwt.sign(
+      { id: user._id, email: user.email, name: user.name },
+      process.env.JWT_SECRET
+    );
     res.status(200).json({
       token,
-      data:{
-           id : user._id,
-           email: user.email,
-           name:user.name
-      } });  
-  }
-  
+      data: {
+        id: user._id,
+        email: user.email,
+        name: user.name,
+      },
+    });
+  },
 };

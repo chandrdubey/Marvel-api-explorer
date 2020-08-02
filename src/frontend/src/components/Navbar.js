@@ -6,7 +6,7 @@ import { logOutUserAction} from "../actions/authAction"
 function Navbar(props) {
   let handleLogOut = () =>{
      props.dispatch(logOutUserAction());
-     console.log("hello");
+     
   }
   return (
     <>
