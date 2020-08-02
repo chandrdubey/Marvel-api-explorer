@@ -39,7 +39,7 @@ function Navbar(props) {
                       activeClassName="menu_active"
                       className="nav-link"
                       exact
-                      to="/"
+                      to="/charecters"
                     >
                       characters
                     </NavLink>

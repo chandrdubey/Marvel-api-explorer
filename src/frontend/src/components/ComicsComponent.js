@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getComicsAction, getComicsSearchAction, isLoadingAction } from '../actions/getDataAction'
 import DisplayData from './DisplayData';
-import Spinner from './spinner';
+import Spinner from './Spinner';
 
 class ComicsComponent extends Component {
     constructor(props) {

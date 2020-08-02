@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {getCharectersAction, getCharectersSearchAction, isLoadingAction} from '../actions/getDataAction';
 import DisplayData from './DisplayData';
-import Spinner from './spinner';
+import Spinner from './Spinner';
  
 // let ts = new Date().getTime();
 // let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();

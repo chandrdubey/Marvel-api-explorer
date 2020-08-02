@@ -56,7 +56,7 @@ import jwtDecode from 'jwt-decode'
     }
       
     return (
-      <div className="container-fluid nav_bg ">
+      <div className="container-fluid na v_bg ">
         <div className="row">
           <div className="col-10 mx-auto">
             <form  onSubmit ={this.handleOnSubmit}>
