@@ -21,9 +21,13 @@ body {
   color: #a80b0b !important;
   transition: 0.3s;
 }
+.navbar-brand img{
+  width:  90px;
+}
 .navbar-brand:hover{
   color : #ffffff !important;
   background-color: #ffffff;
+ 
 }
 .navbar a{
   font-size: 1.3em;
@@ -65,11 +69,14 @@ body {
   font-size: 16px;
   padding: 10px 30px;
   border-radius: 50px ;
-  border: 2px solid #3498db;
+  border: 2px solid #a80b0b;
   display: inline-block;
-  color: #3498db;
+  color: #a80b0b;
   transition: 0.5s;
   text-decoration: none;
+}
+.btn-get-started:hover{
+  background-color:#a80b0b !important ;
 }
 /* Card  */
 .card{
@@ -125,10 +132,22 @@ body {
 
 /* Charecter Page */
 .charecterPage{
-  background-color: #ee8d6d;
+  background-color:rgb(228, 228, 228);
   text-align: center;
 }
 .page-image{
   height :400px;
   width: 320px;
+}
+.know-more-btn{
+  background-color: #a80b0b ;
+  color: #ffffff;
+}
+
+#header ul{
+  list-style-type: none;
+  padding-left: 10px;
+}
+hr{
+  margin : 5px auto;
 }

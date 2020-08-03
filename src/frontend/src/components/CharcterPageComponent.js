@@ -6,10 +6,6 @@ import MarvelPageItemComponent from "./marvelPageItemComponent";
 
 
 class CharcterPageComponent extends Component {
-constructor(props) {
-  super(props);
-  
-}
 
     componentDidMount (){
         const { match: { params } } = this.props;
@@ -20,15 +16,17 @@ constructor(props) {
     }
     
   render() {
-    let url;
+    let image,knowMorUrl;
     let total_comics,comics;
       if(!isEmpty(this.props.charecter)){
-        let x = this.props.charecter.thumbnail.path;
-        url =this.props.charecter.thumbnail.path + '.' +  this.props.charecter.thumbnail.extension;
-        let path = "http://i.annihil.us/u/prod/marvel/i/mg/1/b0/5269678709fb7.jpg";
+    
+        image=this.props.charecter.thumbnail.path + '.' +  this.props.charecter.thumbnail.extension;
+
         total_comics = this.props.charecter.comics.available;
         comics = this.props.charecter.comics.items;
-        console.log(comics);
+        knowMorUrl=this.props.charecter.urls;
+
+        console.log(knowMorUrl);
       }
     return (
       this.props.isLoading? (<Spinner />) : ( <>
@@ -38,21 +36,23 @@ constructor(props) {
             <div className="row ">
                 <div className ="col-6 charecterPage ">
                   
-                   <img src={url} className="img-fluid page-image" alt="cahrecter" />
+                   <img src={image} className="img-fluid page-image" alt="cahrecter" />
                 </div>
                 <div className ="col-6">
                 <h3>{this.props.charecter.name}</h3>
+                <hr/>
                 <p>{this.props.charecter.description}</p> 
                  <div>
-                   <h3>total comics : {total_comics}</h3>
-                   <ul>
-                  
+                   <h3>{this.props.charecter.name} : comics</h3>
+                   <hr/>
+                   <ul>                
                       <MarvelPageItemComponent comics = {comics}/>
-                     
-                
-                   </ul>
-                  
+                   </ul>      
                  </div>
+                 {
+                   knowMorUrl &&  <a href={knowMorUrl[0].url} className="btn btn-get-started">Know more</a>
+                 }
+                
                 </div>
             </div>
             </div>
