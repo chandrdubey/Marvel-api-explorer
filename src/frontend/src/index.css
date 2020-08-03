@@ -122,3 +122,13 @@ body {
     transform: rotate(1turn);
   }
 }
+
+/* Charecter Page */
+.charecterPage{
+  background-color: #ee8d6d;
+  text-align: center;
+}
+.page-image{
+  height :400px;
+  width: 320px;
+}

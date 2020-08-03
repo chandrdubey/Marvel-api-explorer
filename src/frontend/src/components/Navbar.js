@@ -15,7 +15,7 @@ function Navbar(props) {
           <div className="col-10 mx-auto">
             <nav className="navbar navbar-expand-lg navbar-dark navbar-default navbar-fixed-top">
               <NavLink className="navbar-brand" exact to="/">
-                MARVEL
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSs9gnknrxWOf5heO6HSKt15W5gRzXGhjqkXg&usqp=CAU" alt="marvel logo"></img>
               </NavLink>
               <button
                 className="navbar-toggler"
