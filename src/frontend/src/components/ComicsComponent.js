@@ -40,7 +40,7 @@ class ComicsComponent extends Component {
                             <div className="col-10 mx-auto">
                                 <h1>{title}</h1>
                                 <form className="form-inline my-2 my-lg-0" onSubmit={this.handleSubmit}>
-                                    <input type="search" onChange={this.handleChange} placeholder="Search" aria-label="Search" />
+                                    <input className="search-data" type="search" onChange={this.handleChange} placeholder="Search" aria-label="Search" />
                                     {/* <button className="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button> */}
                                 </form>
                                 {this.props.isLoading ? <Spinner /> : this.props.comics ? 

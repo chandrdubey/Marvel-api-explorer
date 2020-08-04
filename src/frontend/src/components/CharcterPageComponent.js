@@ -11,8 +11,17 @@ class CharcterPageComponent extends Component {
         const { match: { params } } = this.props;
         this.props.Loading();
         this.props.getCharecterById(params.id);
-     //   console.log(this.props.charecter);
-      
+     //   console.log(this.props.charecter);     
+    }
+    handleFavourite =() =>{
+      let token = localStorage.getItem('token');
+      if(!token)
+      {
+        this.props.history.push('/login');
+      }else{
+        console.log("lo");
+      }
+     
     }
     
   render() {
@@ -39,11 +48,13 @@ class CharcterPageComponent extends Component {
                    <img src={image} className="img-fluid page-image" alt="cahrecter" />
                 </div>
                 <div className ="col-6">
-                <h3>{this.props.charecter.name}</h3>
+                <h3>{this.props.charecter.name}
+                <span className="float-right" onClick={this.handleFavourite  }> <button className="btn btn-primary" >Favourite</button></span>
+                </h3>
                 <hr/>
                 <p>{this.props.charecter.description}</p> 
                  <div>
-                   <h3>{this.props.charecter.name} : comics</h3>
+                   <h3>{this.props.charecter.name} : comics ({total_comics})</h3>
                    <hr/>
                    <ul>                
                       <MarvelPageItemComponent comics = {comics}/>

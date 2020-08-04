@@ -89,4 +89,10 @@ export const getCharecterByIdAction = (id)=>{
   
 }
 
+export const addCharecterToFavAction = (id)=>{
+     return (dispatch)=>{
+         axios.get()
+     }
+
+}
 
