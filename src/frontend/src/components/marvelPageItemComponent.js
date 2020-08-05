@@ -7,7 +7,7 @@ import React from 'react'
         {
           props.comics && props.comics.map((comic,index) =>
           <div key={index}>
-          <li > {comic.name}</li>
+          <li > <p> {comic.name}</p></li>
           <hr />
           </div>
           )

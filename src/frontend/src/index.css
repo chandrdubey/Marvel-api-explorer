@@ -43,10 +43,10 @@ body {
   border-bottom:1px solid #ffffff;
 }
 
-#header{
+#header {
   width: 100%;
-
-  margin-top: 10px;
+  
+ 
 }
 #header h1{
   margin :0 0 0 0;
@@ -97,6 +97,7 @@ body {
   width: 200px;
   height: 300px;
   margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-body{
   background-color:#2e2c2c ;
@@ -145,16 +146,40 @@ body {
 }
 
 /* Charecter Page */
-.charecterPage{
-  background-color:rgb(228, 228, 228);
+.show-page{
+  background-image: url("https://i2.wp.com/wallur.com/wp-content/uploads/2016/12/marvel-cinematic-background-26.jpg?fit=1920%2C1080");
+  background-size: cover;
+  z-index: 0;
+  min-height: 100%;
+  min-width: 1024px;
+ width: 100%;
+}
+.charecter-image{
   text-align: center;
+  
 }
 .page-image{
+  border-radius: 10%;
   height :400px;
   width: 320px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.charecter-detail{
+  padding-left: 10px;
+  padding-top: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #2e2c2c;
+  border-radius: 1%;
+}
+.charecter-detail h3{
+  color:#a80b0b;
+  font-weight: 600;
+}
+.charecter-detail p{
+  color: white;
 }
 .know-more-btn{
-  background-color: #a80b0b ;
+  background-color: #a8a8a8 ;
   color: #ffffff;
 }
 
@@ -164,4 +189,21 @@ body {
 }
 hr{
   margin : 5px auto;
+  border-top: 1px solid rgba(168, 11, 11,0.5);
+}
+.set-row{
+  padding: 20px 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* Favourite Button */
+.fav-btn{
+  text-decoration: none;
+  color:white;
+  background-color: #a80b0b;
+}
+/* Form */
+
+.form-style{
+  width: 30%;
+  justify-content: center;
 }

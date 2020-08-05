@@ -56,7 +56,8 @@ module.exports = {
               id: user._id,
               email: user.email,
               name: user.name,
-            },
+              favcharecter: user.favcharecter
+            }
           });
         } catch (err) {
           res.status(404).send(err);
@@ -109,6 +110,7 @@ module.exports = {
         id: user._id,
         email: user.email,
         name: user.name,
+        favcharecter: user.favcharecter
       },
     });
   },

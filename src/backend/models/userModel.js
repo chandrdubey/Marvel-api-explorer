@@ -14,18 +14,8 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  favcharecter: [
-    {
-      type: Number,
-      default: 0,
-    },
-  ],
-  favcomics: [
-    {
-      type: Number,
-      default: 0,
-    },
-  ],
+  favcharecter: [String],
+  favcomics: [String]
 });
 
 module.exports = mongoose.model("User", userSchema);

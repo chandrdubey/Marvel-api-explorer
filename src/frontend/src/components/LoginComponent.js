@@ -46,8 +46,8 @@ import { loginUserAction } from '../actions/authAction';
         return (
             <div className="container-fluid nav_bg ">
         <div className="row">
-          <div className="col-10 mx-auto">
-            <form  onSubmit ={this.handleOnSubmit}>
+          <div className="col-10 mx-auto ">
+            <form className="form-style" onSubmit ={this.handleOnSubmit}>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email :</label>
                 <input

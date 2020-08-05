@@ -18,6 +18,13 @@ const authReducer = (state = initState, action) =>{
                 isLoggedIn: false
             }
         }
+        case 'ADD_FAVOURITE_CHARECTER' :{
+            return{
+                ...state.state,
+                currentUser: action.payload,
+                isLoggedIn: true
+            }
+        }
         default : {
             return state
         }

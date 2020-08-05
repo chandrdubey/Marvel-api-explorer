@@ -1,6 +1,7 @@
 import axios from 'axios'
 import CryptoJS from 'crypto-js'
 
+
  
 let ts = new Date().getTime();
 let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
@@ -89,9 +90,13 @@ export const getCharecterByIdAction = (id)=>{
   
 }
 
-export const addCharecterToFavAction = (id)=>{
-     return (dispatch)=>{
-         axios.get()
+export const addCharecterToFavAction = (data)=>{
+     return (dispatch)=>{   
+         axios.post(`http://localhost:5000/users/${data.userId}/charecters/favourite`, data)
+         .then(response=> {
+             console.log(response);
+            dispatch({type:'ADD_FAVOURITE_CHARECTER', payload:response.data.user});
+         })
      }
 
 }

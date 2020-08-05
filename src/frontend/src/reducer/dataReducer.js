@@ -43,6 +43,7 @@ const dataReducer = (state = initState, action) =>{
                 isLoading: false
             }
         }
+       
         case 'LOADING' : {
            return{
                ...state,
