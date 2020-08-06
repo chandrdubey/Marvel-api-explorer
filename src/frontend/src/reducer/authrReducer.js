@@ -1,13 +1,15 @@
 const initState = {
     isLoggedIn : false,
-    currentUser : {}
+    currentUser : {},
+    favCharecters : []
 }
 const authReducer = (state = initState, action) =>{
     switch (action.type)  {
         case 'LOGIN_SUCCESS' : {
            return{
                ...state,
-               currentUser : action.payload,
+               currentUser : action.payload.user_detail,
+               favCharecters :action.payload.favcharecters,
                isLoggedIn: true
            }
         }
@@ -19,10 +21,10 @@ const authReducer = (state = initState, action) =>{
             }
         }
         case 'ADD_FAVOURITE_CHARECTER' :{
+            
             return{
-                ...state.state,
-                currentUser: action.payload,
-                isLoggedIn: true
+                ...state,
+              favCharecters : action.payload
             }
         }
         default : {

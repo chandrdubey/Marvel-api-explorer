@@ -90,12 +90,12 @@ export const getCharecterByIdAction = (id)=>{
   
 }
 
-export const addCharecterToFavAction = (data)=>{
+export const addCharecterToFavAction = (userId,data)=>{
      return (dispatch)=>{   
-         axios.post(`http://localhost:5000/users/${data.userId}/charecters/favourite`, data)
+         axios.post(`http://localhost:5000/users/${userId}/charecters/favourite`, data)
          .then(response=> {
              console.log(response);
-            dispatch({type:'ADD_FAVOURITE_CHARECTER', payload:response.data.user});
+            dispatch({type:'ADD_FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
          })
      }
 

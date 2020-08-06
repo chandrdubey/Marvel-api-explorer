@@ -18,10 +18,11 @@ class CharcterPageComponent extends Component {
         this.props.Loading();
         this.props.getCharecterById(params.id);
         let user =this.props.currentUser;
+        console.log(this.props.favCharecters);
         console.log(user);
         if(this.props.isLoggedIn){
-           let isPresent = user.favcharecter.includes(params.id);
-          if(isPresent){
+           if(this.props.favCharecters.length > 0 && this.props.favCharecters.some(charecter=>charecter.name === this.props.charecter.name))
+            {
                   this.setState({
                     isFavourite:true
                   });
@@ -41,11 +42,13 @@ class CharcterPageComponent extends Component {
         });
         const { match: { params } } = this.props;
         console.log(`hello ${ this.props.currentUser.id}`)
-        const data ={
-          userId: this.props.currentUser.id,
-          charecterId: params.id
+        const userId=this.props.currentUser.id;
+        const data = {
+          charecter_id: params.id,
+          name : this.props.charecter.name,
+          image :this.props.charecter.thumbnail.path + '.' +  this.props.charecter.thumbnail.extension
         }
-        this.props.addCharecterFav(data);
+        this.props.addCharecterFav(userId,data);
       }
      
     }
@@ -125,14 +128,15 @@ const mapStateToProps = (state) =>{
          currentUser :state.auth.currentUser,
          charecter : state.marvelData.charecter,
           isLoading :  state.marvelData.isLoading,
-          isLoggedIn: state.auth.isLoggedIn
+          isLoggedIn: state.auth.isLoggedIn,
+          favCharecters:state.auth.favCharecters
     };
 }
 const mapDispatchToProps = (dispatch) =>{
   return{
     getCharecterById : (id) => dispatch(getCharecterByIdAction(id)),
     Loading : () => dispatch(isLoadingAction()),
-    addCharecterFav : (data)=> dispatch(addCharecterToFavAction(data))
+    addCharecterFav : (userId,data)=> dispatch(addCharecterToFavAction(userId,data))
   }
 }
 export default connect(mapStateToProps , mapDispatchToProps)(CharcterPageComponent);

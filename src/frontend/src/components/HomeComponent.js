@@ -7,7 +7,7 @@ import React, { Component } from "react";
         <div className="container-fluid ">
           <div className="row">
             <div className="col-10 mx-auto">
-                <h1>Home page</h1>
+                <h1>Marvel Api Explorer</h1>
             </div>
           </div>
         </div>

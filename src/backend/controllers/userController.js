@@ -1,33 +1,24 @@
 const User = require('../models/userModel')
-
+const Charecter = require('../models/charecterModel')
 module.exports = {
   addFavCharecter: async (req, res) => {
     try{
    //taking user id from the req
-   const { userId,charcterId } = req.body;
-   console.log(req.body)
-   let charId = charcterId;
-   const user = await User.findByIdAndUpdate(
-    { _id: userId },
-    {
-       $push: {    
-        favcharecter: charId        // Bold Part will be your answer object
-       }
-    },
-    {new: true }                 // To get the updated results in return            
-  ).exec();
-  //  console.log(user);
-  //  user.favcharecter.push(charcterId);
-  //  user.save();
-   console.log(user.favcharecter);
+   console.log(req.body);
+   console.log(req.user);
+   const charecter = await Charecter.create(req.body);
+   console.log(req.params);
+   console.log(charecter);
+   const user = await User.findById(req.params.userId);
    console.log(user);
+   user.favcharecters.push(charecter);
+   user.save();
+  
+   console.log(user);
+   console.log(user.favcharecters);
    res.status(200).json({
        data: {
-         id: user._id,
-         email: user.email,
-         name: user.name,
-         favcharecter: user.favcharecter,
-         favcomic: user.favcomic
+         favcharecters: user.favcharecters,
        }
      });
     }

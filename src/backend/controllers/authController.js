@@ -53,10 +53,12 @@ module.exports = {
           res.status(200).json({
             token,
             data: {
-              id: user._id,
-              email: user.email,
-              name: user.name,
-              favcharecter: user.favcharecter
+              user_detail :{
+                id: user._id,
+                email: user.email,
+                name: user.name,
+              },
+              favcharecters: user.favcharecters
             }
           });
         } catch (err) {
@@ -80,7 +82,9 @@ module.exports = {
       });
     }
     //checkking if email exist or not
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email }).populate('favcharecters').exec();
+    console.log(user);
+    console.log(user.populated());
     if (!user) {
       return res.json({
         status: 404,
@@ -104,13 +108,16 @@ module.exports = {
       { id: user._id, email: user.email, name: user.name },
       process.env.JWT_SECRET
     );
+    console.log("you are logged in !");
     res.status(200).json({
       token,
       data: {
-        id: user._id,
-        email: user.email,
-        name: user.name,
-        favcharecter: user.favcharecter
+        user_detail :{
+          id: user._id,
+          email: user.email,
+          name: user.name,
+        },
+        favcharecters: user.favcharecters
       },
     });
   },
