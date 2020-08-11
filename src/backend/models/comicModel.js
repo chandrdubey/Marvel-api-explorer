@@ -12,4 +12,4 @@ const comicSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Comic", charecterSchema);
+module.exports = mongoose.model("Comic", comicSchema);

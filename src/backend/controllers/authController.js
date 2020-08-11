@@ -69,7 +69,8 @@ module.exports = {
     //     res.status(200).json( {body: req.body.data});
   },
   userLogin: async (req, res) => {
-    //validate the user detail
+    try{
+         //validate the user detail
     const { error } = await authValidation.loginValidation(req.body);
 
     // if there is an error thne error messeage will be send as res
@@ -82,7 +83,7 @@ module.exports = {
       });
     }
     //checkking if email exist or not
-    const user = await User.findOne({ email: req.body.email }).populate('favcharecters').exec();
+    const user = await User.findOne({ email: req.body.email });
     console.log(user);
     console.log(user.populated());
     if (!user) {
@@ -120,5 +121,11 @@ module.exports = {
         favcharecters: user.favcharecters
       },
     });
+
+    }
+    catch(err){
+      console.log(`there is an error ${err}`);
+    }
+ 
   },
 };

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { getCharecterByIdAction, isLoadingAction , addCharecterToFavAction} from "../actions/getDataAction";
+import { getCharecterByIdAction, isLoadingAction , addCharecterToFavAction, removeCharecterToFavAction} from "../actions/getDataAction";
 import {connect} from 'react-redux'
 import Spinner from "./Spinner";
-import MarvelPageItemComponent from "./marvelPageItemComponent";
+import MarvelPageItemComponent from "./MarvelPageItemComponent";
 
 
 class CharcterPageComponent extends Component {
@@ -12,6 +12,11 @@ class CharcterPageComponent extends Component {
         isFavourite:false
       }
     }
+    // componentWillMount (){
+    //     if(this.props.isLoggedIn){
+    //       this.props.getFavCharecters(this.props.currentUser.id);
+    //     }
+    // }
     
     componentDidMount (){
         const { match: { params } } = this.props;
@@ -20,18 +25,21 @@ class CharcterPageComponent extends Component {
         let user =this.props.currentUser;
         console.log(this.props.favCharecters);
         console.log(user);
+      
         if(this.props.isLoggedIn){
-           if(this.props.favCharecters.length > 0 && this.props.favCharecters.some(charecter=>charecter.name === this.props.charecter.name))
+         
+           if(this.props.favCharecters.length > 0 && this.props.favCharecters.some(charecterMarvel=>charecterMarvel.name === this.props.charecter.name))
             {
+              console.log("hello indaia");
                   this.setState({
                     isFavourite:true
                   });
-          }
+           }
         }   
     }
     handleFavourite =() =>{
       let token = localStorage.getItem('token');
-      console.log(`he ${ token}`)
+      console.log(`he ${token}`)
       if(!token)
       {
         this.props.history.push('/login');
@@ -53,10 +61,13 @@ class CharcterPageComponent extends Component {
      
     }
     handleUnFavourite =() =>{
+      const { match: { params } } = this.props;
+      const userId=this.props.currentUser.id;
       console.log("hello")
       this.setState({
         isFavourite:false
       });
+      this.props.removeCharecterToFav(userId , params.id);
     }
   render() {
     let image,knowMorUrl;
@@ -79,7 +90,7 @@ class CharcterPageComponent extends Component {
             <div className="row ">
                 <div className ="col-5 charecter-image ">
                   
-                   <img src={image} className="img-fluid page-image" alt="cahrecter" />
+                   <img src={image} className="img-fluid page-image" alt="charecter" />
                 </div>
                 <div className ="col-7 charecter-detail ">
                 <div className="">  
@@ -136,7 +147,10 @@ const mapDispatchToProps = (dispatch) =>{
   return{
     getCharecterById : (id) => dispatch(getCharecterByIdAction(id)),
     Loading : () => dispatch(isLoadingAction()),
-    addCharecterFav : (userId,data)=> dispatch(addCharecterToFavAction(userId,data))
+    addCharecterFav : (userId,data)=> dispatch(addCharecterToFavAction(userId,data)),
+    removeCharecterToFav: (userId, charecterId) => dispatch(removeCharecterToFavAction(userId, charecterId))
+//    getFavCharecters : (userId) => dispatch(getFavCharectersAction(userId))
+    
   }
 }
 export default connect(mapStateToProps , mapDispatchToProps)(CharcterPageComponent);

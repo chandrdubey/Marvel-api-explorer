@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import * as jwtDecode from "jwt-decode";
 export const registerUserAction = (data) => {
   return (dispatch) => {
     axios
@@ -7,7 +7,8 @@ export const registerUserAction = (data) => {
       .then((response) => {
         console.log(response);
         localStorage.setItem("token", response.data.token);
-        dispatch({type:'LOGIN_SUCCESS', payload:response.data.data});
+     //  jwtDecode( response.data.token).then( (user) => dispatch({type:'LOGIN_SUCCESS', payload: user}) )
+    dispatch({type:'LOGIN_SUCCESS', payload:response.data.data.user_detail}) ;
       })
   };
 };
@@ -18,14 +19,23 @@ export const loginUserAction = (data) => {
       .post("http://localhost:5000/login", data)
       .then((response) => {
           console.log(response);
+          console.log(response.data.data.user_detail);
           if(response.status === 200)
           localStorage.setItem("token", response.data.token);
-          dispatch({type:'LOGIN_SUCCESS', payload:response.data.data});
+
+          dispatch({type:'LOGIN_SUCCESS', payload: response.data.data.user_detail}) ;
+          
         })
       .catch(function (error) {
         console.log(error);
       });
   };
+}
+export const authenticateUserAction = (user) =>{
+  return (dispatch) =>{
+    dispatch({type:'LOGIN_SUCCESS', payload: user});  
+     
+  }
 }
 
 export const logOutUserAction = () => {

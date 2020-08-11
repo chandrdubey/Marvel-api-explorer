@@ -91,13 +91,68 @@ export const getCharecterByIdAction = (id)=>{
 }
 
 export const addCharecterToFavAction = (userId,data)=>{
+  
      return (dispatch)=>{   
-         axios.post(`http://localhost:5000/users/${userId}/charecters/favourite`, data)
+        const token = localStorage.getItem('token');
+         const  jwttoken = "Bearer " + token;
+         console.log(jwttoken);
+         const config ={ headers: {
+            'Content-Type': 'application/json',
+            'Authorization': jwttoken 
+          }}
+         axios.post(`http://localhost:5000/users/${userId}/charecters/favourite`,data, config )
          .then(response=> {
              console.log(response);
-            dispatch({type:'ADD_FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
+            dispatch({type:'FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
          })
+         .catch(error=>{
+            console.log(error);
+        })
      }
 
+}
+
+
+export const removeCharecterToFavAction = (userId,charecterId)=>{
+  
+    return (dispatch)=>{   
+       const token = localStorage.getItem('token');
+        const  jwttoken = "Bearer " + token;
+        console.log(jwttoken);
+        const config ={ headers: {
+           'Content-Type': 'application/json',
+           'Authorization': jwttoken 
+         }}
+        axios.delete(`http://localhost:5000/users/${userId}/charecters/favourite`,charecterId, config )
+        .then(response=> {
+            console.log(response);
+           dispatch({type:'FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+
+}
+
+export const getFavCharectersAction =(userId) =>{
+  return (dispatch) =>{
+    const token = localStorage.getItem('token');
+    const  jwttoken = "Bearer " + token;
+    console.log(jwttoken);
+    const config ={ headers: {
+       'Content-Type': 'application/json',
+       'Authorization': jwttoken 
+     }}
+    axios.get(`http://localhost:5000/users/${userId}/charecters/favourite`, config )
+    .then(response=> {
+        console.log(response);
+       dispatch({type:'FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
+    })
+    .catch(error=>{
+        console.log(error);
+    })
+       
+  }
 }
 
