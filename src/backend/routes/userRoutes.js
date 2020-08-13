@@ -29,8 +29,8 @@ router.post('/:userId/charecters/favourite' , authenticateJWT, userController.ad
 //Route : adding comics to the user's favourite comics list 
 router.post('/:userId/comics/favourite' , userController.addFavComic);
 
-// //Route : it will remove the charecter from the fav charecter array of user
-// router.delete('/:userId/comics/favourite', userController.removeFavCharecter);
+//Route : it will remove the charecter from the fav charecter array of user
+router.post('/:userId/charecters/favourite/delete',authenticateJWT, userController.removeFavCharecter);
 
 //Route : it will provied the favourite charecters array as response of the api
 router.get('/:userId/charecters/favourite' , authenticateJWT, userController.getFavCharecters);

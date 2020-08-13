@@ -24,6 +24,7 @@ const authReducer = (state = initState, action) =>{
             return{
                 ...state,
               favCharecters : action.payload
+              
             }
         }
         default : {

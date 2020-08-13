@@ -25,10 +25,11 @@ class CharcterPageComponent extends Component {
         let user =this.props.currentUser;
         console.log(this.props.favCharecters);
         console.log(user);
+        console.log(`is ${this.props.isLoggedIn}`)
       
-        if(this.props.isLoggedIn){
+        if(this.props.favCharecters){
          
-           if(this.props.favCharecters.length > 0 && this.props.favCharecters.some(charecterMarvel=>charecterMarvel.name === this.props.charecter.name))
+           if(this.props.favCharecters.length > 0 && this.props.favCharecters.some(charecterMarvel=>charecterMarvel.charecter_id === params.id))
             {
               console.log("hello indaia");
                   this.setState({

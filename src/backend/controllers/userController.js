@@ -7,13 +7,17 @@ module.exports = {
    //taking user id from the req
    console.log(req.body);
    console.log(req.user);
-   const charecter = await Charecter.create(req.body);
-   console.log(req.params);
-   console.log(charecter);
+   const charecterFound = await Charecter.findOne({charecter_id : req.body.charecter_id});
    const user = await User.findById(req.params.userId).populate('favcharecters').exec();
-   console.log(user);
-   user.favcharecters.push(charecter);
+   if(charecterFound){
+    user.favcharecters.push(charecterFound);
+   }
+   else{
+    const charecter = await Charecter.create(req.body);
+    user.favcharecters.push(charecter);
+   } 
    user.save();
+
   
    console.log(user);
    console.log(user.favcharecters);
@@ -56,9 +60,30 @@ module.exports = {
       
    
   },
-  // removeFavCharecter : (req, res) =>{
-  //     console.log(req.body);
-  // },
+  removeFavCharecter : async (req, res) =>{
+    
+      console.log(req.body);
+      try{
+        //taking user id from the req
+       const {charecterId} = req.body;
+        console.log(req.user);
+        const user = await User.findById(req.params.userId).populate('favcharecters').exec();
+        user.favcharecters = user.favcharecters.filter(item => item.charecter_id != charecterId);
+       
+        console.log(user);
+        console.log(user.favcharecters);
+        res.status(200).json({
+            data: {
+              favcharecters: user.favcharecters,
+            }
+          });
+         }
+         catch(err){
+            console.log("there is an error " ,err)
+         }
+     
+      
+  },
   getFavCharecters : async (req ,res) =>{
     try {
       const user = await User.findById(req.params.userId).populate('favcharecters').exec();

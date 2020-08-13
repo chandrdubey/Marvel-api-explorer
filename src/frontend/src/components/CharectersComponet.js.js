@@ -87,7 +87,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getAllCharecters: () => dispatch(getCharectersAction()),
     getCharectersSearch: (query) => dispatch(getCharectersSearchAction(query)),
-    Loading: () => dispatch(isLoadingAction()),
+    Loading: () => dispatch(isLoadingAction()) 
   };
 };
 

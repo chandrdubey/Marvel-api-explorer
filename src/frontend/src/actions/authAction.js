@@ -2,14 +2,19 @@ import axios from "axios";
 import * as jwtDecode from "jwt-decode";
 export const registerUserAction = (data) => {
   return (dispatch) => {
-    axios
-      .post("http://localhost:5000/signup", data)
-      .then((response) => {
-        console.log(response);
-        localStorage.setItem("token", response.data.token);
-     //  jwtDecode( response.data.token).then( (user) => dispatch({type:'LOGIN_SUCCESS', payload: user}) )
-    dispatch({type:'LOGIN_SUCCESS', payload:response.data.data.user_detail}) ;
-      })
+    axios.post("http://localhost:5000/signup", data).then((response) => {
+      console.log(response);
+      localStorage.setItem("token", response.data.token);
+      //  jwtDecode( response.data.token).then( (user) => dispatch({type:'LOGIN_SUCCESS', payload: user}) )
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: response.data.data.user_detail,
+      });
+      dispatch({
+        type: "FAVOURITE_CHARECTER",
+        payload: response.data.data.favcharecters,
+      });
+    });
   };
 };
 
@@ -18,31 +23,31 @@ export const loginUserAction = (data) => {
     axios
       .post("http://localhost:5000/login", data)
       .then((response) => {
-          console.log(response);
-          console.log(response.data.data.user_detail);
-          if(response.status === 200)
+        console.log(response);
+        console.log(response.data.data.user_detail);
+        if (response.status === 200)
           localStorage.setItem("token", response.data.token);
 
-          dispatch({type:'LOGIN_SUCCESS', payload: response.data.data.user_detail}) ;
-          
-        })
+        dispatch({ type: "LOGIN_SUCCESS", payload: response.data.data.user_detail });
+        dispatch({
+          type: "FAVOURITE_CHARECTER",
+          payload: response.data.data.favcharecters,
+        });
+      })
       .catch(function (error) {
         console.log(error);
       });
   };
-}
-export const authenticateUserAction = (user) =>{
-  return (dispatch) =>{
-    dispatch({type:'LOGIN_SUCCESS', payload: user});  
-     
-  }
-}
+};
+export const authenticateUserAction = (user) => {
+  return (dispatch) => {
+    dispatch({ type: "LOGIN_SUCCESS", payload: user });
+  };
+};
 
 export const logOutUserAction = () => {
   return (dispatch) => {
-  
-          localStorage.removeItem("token");
-          dispatch({type:'LOGOUT'});
+    localStorage.removeItem("token");
+    dispatch({ type: "LOGOUT" });
   };
-}
-
+};

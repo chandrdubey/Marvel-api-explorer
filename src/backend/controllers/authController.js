@@ -38,7 +38,7 @@ module.exports = {
         try {
           // creating hash of password
           const salt = await bcrypt.genSalt(10);
-          hashPassword = await bcrypt.hash(password, salt);
+          hashPassword = await bcrypt.hash(password, salt)
           console.log(hashPassword);
           //saving user to the database
           const user = await User.create({
@@ -83,7 +83,7 @@ module.exports = {
       });
     }
     //checkking if email exist or not
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email }).populate('favcharecters').exec();
     console.log(user);
     console.log(user.populated());
     if (!user) {
@@ -118,7 +118,8 @@ module.exports = {
           email: user.email,
           name: user.name,
         },
-        favcharecters: user.favcharecters
+        favcharecters: user.favcharecters,
+        favcomics:   user.favcomics
       },
     });
 

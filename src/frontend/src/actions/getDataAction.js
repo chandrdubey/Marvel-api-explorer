@@ -123,7 +123,10 @@ export const removeCharecterToFavAction = (userId,charecterId)=>{
            'Content-Type': 'application/json',
            'Authorization': jwttoken 
          }}
-        axios.delete(`http://localhost:5000/users/${userId}/charecters/favourite`,charecterId, config )
+         const data = {
+             charecterId: charecterId
+         }
+        axios.post(`http://localhost:5000/users/${userId}/charecters/favourite/delete`, data, config )
         .then(response=> {
             console.log(response);
            dispatch({type:'FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
