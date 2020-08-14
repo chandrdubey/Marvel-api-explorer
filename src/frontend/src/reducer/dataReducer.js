@@ -2,7 +2,8 @@ const initState = {
     charecters: [],
     comics: [],
     isLoading : false,
-    charecter : {}
+    charecter : {},
+    comic : {}
 }
 const dataReducer = (state = initState, action) =>{
     switch (action.type)  {
@@ -43,15 +44,22 @@ const dataReducer = (state = initState, action) =>{
                 isLoading: false
             }
         }
+        case 'ONE_COMIC':{
+            return{
+                ...state,
+                comic:action.payload,
+                isLoading: false
+            }
+        }
        
         case 'LOADING' : {
            return{
                ...state,
                isLoading : true
          
-           } 
-         
+           }        
         }
+        
         default : {
             return state
         }

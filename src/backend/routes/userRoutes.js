@@ -24,7 +24,7 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 //Route : adding chaarcter to the user's favourite charecters list 
-router.post('/:userId/charecters/favourite' , authenticateJWT, userController.addFavCharecter);
+router.post('/:userId/charecters/favourite/add' , authenticateJWT, userController.addFavCharecter);
 
 //Route : adding comics to the user's favourite comics list 
 router.post('/:userId/comics/favourite' , userController.addFavComic);

@@ -5,7 +5,7 @@ const DisplayContent = (props) => {
  
    console.log(props);
    let reqParams = props.reqParams;
-   let charecterUrl ='/'+reqParams + '/' + props.data.id; 
+   let dataUrl ='/'+reqParams + '/' + props.data.id; 
    let image_src = props.data.thumbnail.path + "." + props.data.thumbnail.extension;
    let image_not ="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available." + props.data.thumbnail.extension;
   if(props.data.name && image_src === image_not)
@@ -20,7 +20,7 @@ const DisplayContent = (props) => {
         alt="..."
       />
       <div className="card-body">
-        <Link to={charecterUrl}  className="card-title">
+        <Link to={dataUrl}  className="card-title">
           {props.data.name ? props.data.name : props.data.title}
         </Link>
         <div>

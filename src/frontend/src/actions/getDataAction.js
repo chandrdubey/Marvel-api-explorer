@@ -74,7 +74,7 @@ export const isLoadingAction = () =>{
         dispatch({type : 'LOADING'})
     }
 }
-
+// Getting  charecter information from the marvel-api  by using this action
 export const getCharecterByIdAction = (id)=>{
     return (dispatch)=>{
         axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?${url}`)
@@ -89,6 +89,22 @@ export const getCharecterByIdAction = (id)=>{
     }
   
 }
+// Getting favourite charecters of user by this action
+export const getComicByIdAction = (id)=>{
+    return (dispatch)=>{
+        axios.get(`https://gateway.marvel.com:443/v1/public/comics/${id}?${url}`)
+        .then(response =>{
+             console.log(response.data.data.results[0]);
+             dispatch({type:'ONE_COMIC', payload:response.data.data.results[0]});
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+
+    }
+  
+}
+
 
 export const addCharecterToFavAction = (userId,data)=>{
   
@@ -100,7 +116,7 @@ export const addCharecterToFavAction = (userId,data)=>{
             'Content-Type': 'application/json',
             'Authorization': jwttoken 
           }}
-         axios.post(`http://localhost:5000/users/${userId}/charecters/favourite`,data, config )
+         axios.post(`http://localhost:5000/users/${userId}/charecters/favourite/add`,data, config )
          .then(response=> {
              console.log(response);
             dispatch({type:'FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});

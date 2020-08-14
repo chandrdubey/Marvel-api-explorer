@@ -44,7 +44,7 @@ class ComicsComponent extends Component {
                                     {/* <button className="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button> */}
                                 </form>
                                 {this.props.isLoading ? <Spinner /> : this.props.comics ? 
-                                <DisplayData allData={this.props.comics} /> : 
+                                <DisplayData allData={this.props.comics}  reqParams="comics" /> : 
                                 <h1 className="text-center">No result found</h1>}
                             </div>
                         </div>

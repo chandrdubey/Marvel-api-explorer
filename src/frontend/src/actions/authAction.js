@@ -10,10 +10,7 @@ export const registerUserAction = (data) => {
         type: "LOGIN_SUCCESS",
         payload: response.data.data.user_detail,
       });
-      dispatch({
-        type: "FAVOURITE_CHARECTER",
-        payload: response.data.data.favcharecters,
-      });
+
     });
   };
 };
@@ -29,10 +26,6 @@ export const loginUserAction = (data) => {
           localStorage.setItem("token", response.data.token);
 
         dispatch({ type: "LOGIN_SUCCESS", payload: response.data.data.user_detail });
-        dispatch({
-          type: "FAVOURITE_CHARECTER",
-          payload: response.data.data.favcharecters,
-        });
       })
       .catch(function (error) {
         console.log(error);

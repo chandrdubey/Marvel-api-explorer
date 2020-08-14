@@ -5,7 +5,7 @@ import React from 'react'
     return (
         <>
         {
-          props.comics && props.comics.map((comic,index) =>
+          props.comics && props.comics.map((comic,index) => index < 5 &&
           <div key={index}>
           <li > <p> {comic.name}</p></li>
           <hr />

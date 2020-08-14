@@ -12,6 +12,7 @@ import RegisterComponent from './components/RegisterComponent';
 import LoginComponent from './components/LoginComponent';
 import Home from './components/HomeComponent'
 import CharecterPage from './components/CharcterPageComponent'
+import ComicPage from './components/ComicPageComponent'
 import * as jwtDecode from "jwt-decode";
 import { authenticateUserAction } from './actions/authAction';
 import { getFavCharectersAction } from './actions/getDataAction';
@@ -40,6 +41,7 @@ class App extends Component {
         <Route  path ='/charecters/:id' component={CharecterPage} />
         <Route  path= '/signup' component = {RegisterComponent} />
         <Route  path ='/about'  component={About} />
+        <Route path='/comics/:id' component={ComicPage} />
         <Route  path ='/login'  component={LoginComponent} />
         <Route  path ='/comics'  component={Comics} />
         {/* <Route  path ='/comics/:id'  component={ComicPage} /> */}
