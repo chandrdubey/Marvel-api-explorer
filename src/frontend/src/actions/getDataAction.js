@@ -2,7 +2,7 @@ import axios from 'axios'
 import CryptoJS from 'crypto-js'
 
 
- 
+
 let ts = new Date().getTime();
 let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
 let url = `ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
@@ -214,6 +214,31 @@ export const addComicToFavAction = (userId,data)=>{
         .catch(error=>{
            console.log(error);
        })
+    }
+
+}
+// removing comic from the user's favorite list of comics
+export const removeComicToFavAction = (userId,comicId)=>{
+  
+    return (dispatch)=>{   
+       const token = localStorage.getItem('token');
+        const  jwttoken = "Bearer " + token;
+        console.log(jwttoken);
+        const config ={ headers: {
+           'Content-Type': 'application/json',
+           'Authorization': jwttoken 
+         }}
+         const data = {
+             comicId:comicId
+         }
+        axios.post(`http://localhost:5000/users/${userId}/comics/favourite/delete`, data, config )
+        .then(response=> {
+            console.log(response);
+           dispatch({type:'FAVOURITE_COMICS', payload:response.data.data.favcomics});
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
 
 }

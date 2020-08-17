@@ -40,5 +40,9 @@ router.get('/:userId/comics/favourite' , authenticateJWT, comicController.getFav
 
 //Route : adding comic to the user's favourite comics list 
 router.post('/:userId/comics/favourite/add' ,authenticateJWT ,comicController.addFavComic);
+
+//Route : it will remove the charecter from the fav charecters list of user
+router.post('/:userId/comics/favourite/delete',authenticateJWT, comicController.removeFavComic);
+
 module.exports = router;
 // passport.authenticate('jwt', { session: false })

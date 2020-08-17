@@ -34,7 +34,7 @@ module.exports = {
    
 
   },
-
+ //Remove charecter from the favourite list
   removeFavCharecter : async (req, res) =>{
     
       console.log(req.body);
@@ -42,6 +42,7 @@ module.exports = {
         //taking user id from the req
        const {charecterId} = req.body;
         console.log(req.user);
+        //now getting user detaiil from the database,here populate used to give all data of fav chrecters stored in data base
         const user = await User.findById(req.params.userId).populate('favcharecters').exec();
         user.favcharecters = user.favcharecters.filter(item => item.charecter_id != charecterId);
        
@@ -60,7 +61,7 @@ module.exports = {
      
       
   },
-  //getting list of fav charecters of user 
+  //getting list of fav charecters of user from the database
   getFavCharecters : async (req ,res) =>{
     try {
       const user = await User.findById(req.params.userId).populate('favcharecters').exec();

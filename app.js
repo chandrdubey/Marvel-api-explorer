@@ -23,7 +23,7 @@ app.use(passport.initialize()); //intialising passport globally
 app.use(passport.session());  // it will maintain session for us
 app.use('/',routes);     // it is used to handle  all routes
 
-
+console.log(process.env.MARVEL_API_PUBLIC_KEY,"hell");
 app.listen(port , (err) =>{
     if(err)
     {

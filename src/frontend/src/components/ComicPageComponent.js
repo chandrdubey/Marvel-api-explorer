@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Spinner from "./Spinner";
 
-import { getComicByIdAction, isLoadingAction, addComicToFavAction } from "../actions/getDataAction";
+import { getComicByIdAction, isLoadingAction, addComicToFavAction, removeComicToFavAction } from "../actions/getDataAction";
 
 
 class ComicPageComponent extends Component {
@@ -55,7 +55,18 @@ class ComicPageComponent extends Component {
       this.props.addComicFav(userId, data);
     }
   };
-
+  //this function used to handle the unfavourite button's functions
+  handleUnFavourite = () => {
+    const {
+      match: { params },
+    } = this.props;
+    const userId = this.props.currentUser.id;
+    console.log("hello");
+    this.setState({
+      isFavourite: false,
+    });
+    this.props.removeComicToFav(userId, params.id);
+  };
   render() {
     let image, knowMorUrl;
     let  publish, price, creators;
@@ -202,6 +213,7 @@ const mapDispatchToProps = (dispatch) => {
     getComicById: (id) => dispatch(getComicByIdAction(id)),
     Loading: () => dispatch(isLoadingAction()),
     addComicFav : (userId,data)=> dispatch(addComicToFavAction(userId, data)),
+    removeComicToFav :(userId, comicId) => dispatch(removeComicToFavAction(userId, comicId))
     // removeCharecterToFav: (userId, charecterId) => dispatch(removeCharecterToFavAction(userId, charecterId))
     //    getFavCharecters : (userId) => dispatch(getFavCharectersAction(userId))
   };
