@@ -201,6 +201,7 @@ hr{
   text-decoration: none;
   color:#a80b0b;
   border: 1px solid #a80b0b;
+  padding: 2px 5px;
 }
 .fav-btn:hover{
   color: #ffffff;

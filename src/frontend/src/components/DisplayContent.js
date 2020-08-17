@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 
 const DisplayContent = (props) => {
  
-   console.log(props);
    let reqParams = props.reqParams;
    let dataUrl ='/'+reqParams + '/' + props.data.id; 
    let image_src = props.data.thumbnail.path + "." + props.data.thumbnail.extension;

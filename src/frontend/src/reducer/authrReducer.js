@@ -1,7 +1,7 @@
 const initState = {
     isLoggedIn : false,
     currentUser : {},
-    favCharecters : []
+   
 }
 const authReducer = (state = initState, action) =>{
     switch (action.type)  {
@@ -19,14 +19,7 @@ const authReducer = (state = initState, action) =>{
                 isLoggedIn: false
             }
         }
-        case 'FAVOURITE_CHARECTER' :{
-            
-            return{
-                ...state,
-              favCharecters : action.payload
-              
-            }
-        }
+       
         default : {
             return state
         }

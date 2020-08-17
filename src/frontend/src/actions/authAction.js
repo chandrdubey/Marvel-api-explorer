@@ -1,11 +1,11 @@
 import axios from "axios";
-import * as jwtDecode from "jwt-decode";
+
 export const registerUserAction = (data) => {
   return (dispatch) => {
     axios.post("http://localhost:5000/signup", data).then((response) => {
       console.log(response);
       localStorage.setItem("token", response.data.token);
-      //  jwtDecode( response.data.token).then( (user) => dispatch({type:'LOGIN_SUCCESS', payload: user}) )
+     
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: response.data.data.user_detail,

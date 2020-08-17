@@ -3,7 +3,9 @@ const initState = {
     comics: [],
     isLoading : false,
     charecter : {},
-    comic : {}
+    comic : {},
+    favCharecters :[],
+    favComics : []
 }
 const dataReducer = (state = initState, action) =>{
     switch (action.type)  {
@@ -35,6 +37,22 @@ const dataReducer = (state = initState, action) =>{
                charecters:action.payload,
                isLoading: false
 
+            }
+        }
+        case 'FAVOURITE_CHARECTERS' :{
+            
+            return{
+                ...state,
+              favCharecters : action.payload
+              
+            }
+        }
+        case 'FAVOURITE_COMICS' :{
+            
+            return{
+                ...state,
+              favComics : action.payload
+              
             }
         }
         case 'ONE_CHARECTER' : {

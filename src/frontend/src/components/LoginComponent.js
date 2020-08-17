@@ -24,6 +24,7 @@ import { loginUserAction } from '../actions/authAction';
          password: this.state.password,
          email: this.state.email
        }
+
        this.props.loginUser(data);
       //   console.log(this.props.history);
       //   //histry in props is used to redirect

@@ -1,8 +1,9 @@
 const express = require('express');
-const userController = require('../controllers/userController');
+const charecterController = require('../controllers/charecterController');
+const comicController = require('../controllers/comicController');
 const router = express.Router();
-const passport=require('passport');
-const passportJwt=require('../config/passport-jwt-strategy');
+
+//const passportJwt=require('../config/passport-jwt-strategy');
 const jwt = require('jsonwebtoken');
 const authenticateJWT = (req, res, next) => {
     console.log(req.headers);
@@ -24,15 +25,20 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 //Route : adding chaarcter to the user's favourite charecters list 
-router.post('/:userId/charecters/favourite/add' , authenticateJWT, userController.addFavCharecter);
+router.post('/:userId/charecters/favourite/add' , authenticateJWT, charecterController.addFavCharecter);
 
-//Route : adding comics to the user's favourite comics list 
-router.post('/:userId/comics/favourite' , userController.addFavComic);
+
 
 //Route : it will remove the charecter from the fav charecter array of user
-router.post('/:userId/charecters/favourite/delete',authenticateJWT, userController.removeFavCharecter);
+router.post('/:userId/charecters/favourite/delete',authenticateJWT, charecterController.removeFavCharecter);
 
-//Route : it will provied the favourite charecters array as response of the api
-router.get('/:userId/charecters/favourite' , authenticateJWT, userController.getFavCharecters);
+//Route : it will provied the favourite charecters array as a response of the api
+router.get('/:userId/charecters/favourite' , authenticateJWT, charecterController.getFavCharecters);
+
+//Route : it will provied the favourite comics array as a response of the api
+router.get('/:userId/comics/favourite' , authenticateJWT, comicController.getFavComics);
+
+//Route : adding comic to the user's favourite comics list 
+router.post('/:userId/comics/favourite/add' ,authenticateJWT ,comicController.addFavComic);
 module.exports = router;
 // passport.authenticate('jwt', { session: false })

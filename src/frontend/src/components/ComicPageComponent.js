@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Spinner from "./Spinner";
-import MarvelPageItemComponent from "./MarvelPageItemComponent";
-import { getComicByIdAction, isLoadingAction } from "../actions/getDataAction";
+
+import { getComicByIdAction, isLoadingAction, addComicToFavAction } from "../actions/getDataAction";
+
 
 class ComicPageComponent extends Component {
   constructor(props) {
@@ -20,42 +21,53 @@ class ComicPageComponent extends Component {
     let user = this.props.currentUser;
     console.log(user);
     console.log(`is ${this.props.isLoggedIn}`);
+    console.log(this.props.favComics);
+    if(this.props.favComics){
 
-    // if(this.props.favCharecters){
-
-    //    if(this.props.favCharecters.length > 0 && this.props.favCharecters.some(charecterMarvel=>charecterMarvel.charecter_id === params.id))
-    //     {
-    //       console.log("hello indaia");
-    //           this.setState({
-    //             isFavourite:true
-    //           });
-    //    }
-    // }
+       if(this.props.favComics.length > 0 && this.props.favComics.some(comicMarvel=>comicMarvel.comic_id === params.id))
+        {
+          console.log("hello indaia");
+              this.setState({
+                isFavourite:true
+              });
+       }
+    }
   }
+  handleFavourite = () => {
+    if (!this.props.isLoggedIn) {
+      this.props.history.push("/login");
+    } else {
+      this.setState({
+        isFavourite: true,
+      });
+      
+      const userId = this.props.currentUser.id;
+      const data = {
+        comic_id: this.props.comic.id,
+        title: this.props.comic.title,
+        image:
+          this.props.comic.thumbnail.path +
+          "." +
+          this.props.comic.thumbnail.extension,
+      }
+      console.log("hil")
+      console.log(data);
+      this.props.addComicFav(userId, data);
+    }
+  };
 
   render() {
     let image, knowMorUrl;
-    let total_creators, creators, writer, penciler, publish, price, charecters;
+    let  publish, price, creators;
     if (!isEmpty(this.props.comic)) {
       image =
         this.props.comic.thumbnail.path +
         "." +
         this.props.comic.thumbnail.extension;
 
-      total_creators = this.props.comic.creators.available;
-      //const creators = this.props.comic.creators.items;
-      // creators = creators.map(item => item.role).filter((value, index, self) => self.indexOf(value) === index)
-
       creators = unique(this.props.comic.creators.items);
       console.log(creators);
       knowMorUrl = this.props.comic.urls;
-      // writer = creators.find((creator) => creator.role ==="writer");
-      // penciler = creators.find(
-      //   (creator) =>
-      //     (creator.role === "penciller" ||
-      //     creator.role === "inker" ||
-      //     creator.role ==="penciller (cover)")
-      // );
       if (creators.length === 0) creators = undefined;
       price = this.props.comic.prices[0].price;
       publish = this.props.comic.dates[0].date.substring(0, 10);
@@ -101,8 +113,15 @@ class ComicPageComponent extends Component {
                       )}
                     </div>
                   </div>
-                  <hr />
+                  <hr/>
                   <p>{this.props.comic.description}</p>
+                  {this.props.comic.series && (
+                    <>
+                      <h3> Series</h3>
+                      <hr />
+                      <p>{this.props.comic.series.name}</p>
+                    </>
+                  )}
 
                   {creators && (
                     <>
@@ -135,13 +154,7 @@ class ComicPageComponent extends Component {
                       <p>${price}</p>
                     </>
                   )}
-                  {this.props.comic.series && (
-                    <>
-                      <h3> Series</h3>
-                      <hr />
-                      <p>{this.props.comic.series.name}</p>
-                    </>
-                  )}
+                
                   {knowMorUrl && (
                     <a href={knowMorUrl[0].url} className="btn btn-get-started">
                       Know more
@@ -156,12 +169,15 @@ class ComicPageComponent extends Component {
     );
   }
 }
+//this function is used to check whther an object is empty or not
 function isEmpty(obj) {
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) return false;
   }
   return true;
 }
+
+//This function used to filter the creators
 function unique(arr) {
   let distinct = [];
 
@@ -178,14 +194,14 @@ const mapStateToProps = (state) => {
     comic: state.marvelData.comic,
     isLoading: state.marvelData.isLoading,
     isLoggedIn: state.auth.isLoggedIn,
-    //   favCharecters:state.auth.favCharecters
-  };
+    favComics:state.marvelData.favComics
+  }
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     getComicById: (id) => dispatch(getComicByIdAction(id)),
     Loading: () => dispatch(isLoadingAction()),
-    // addCharecterFav : (userId,data)=> dispatch(addCharecterToFavAction(userId,data)),
+    addComicFav : (userId,data)=> dispatch(addComicToFavAction(userId, data)),
     // removeCharecterToFav: (userId, charecterId) => dispatch(removeCharecterToFavAction(userId, charecterId))
     //    getFavCharecters : (userId) => dispatch(getFavCharectersAction(userId))
   };

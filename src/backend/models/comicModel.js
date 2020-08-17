@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const comicSchema = mongoose.Schema({
-  name: {
+  title: {
     type: String,
   },
   comic_id: {

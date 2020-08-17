@@ -13,7 +13,7 @@ export const getCharectersAction = () => {
         .then( (response) => {
             dispatch({type:'ALL_CHARECTERS', payload:response.data.data.results});
         // handle success
-  //      console.log(`https://gateway.marvel.com:443/v1/public/characters?${url}`)
+
       console.log(response.data.data.results);
       })
       .catch(function (error) {
@@ -44,8 +44,7 @@ export const getComicsSearchAction = (query) =>{
         .then( (response) => {
             dispatch({type:'SEARCH_COMICS', payload:response.data.data.results});
         // handle success
-  //      console.log('hi');
-  //     console.log(response);
+ 
       })
       .catch(function (error) {
      // handle error
@@ -60,8 +59,7 @@ export const getCharectersSearchAction = (query) =>{
         .then( (response) => {
             dispatch({type:'SEARCH_CHARECTERS', payload:response.data.data.results});
         // handle success
-      //  console.log('hi');
-     //  console.log(response);
+    
       })
       .catch(function (error) {
      // handle error
@@ -105,7 +103,7 @@ export const getComicByIdAction = (id)=>{
   
 }
 
-
+//Adding charecter to the favorite list of charcters
 export const addCharecterToFavAction = (userId,data)=>{
   
      return (dispatch)=>{   
@@ -119,7 +117,7 @@ export const addCharecterToFavAction = (userId,data)=>{
          axios.post(`http://localhost:5000/users/${userId}/charecters/favourite/add`,data, config )
          .then(response=> {
              console.log(response);
-            dispatch({type:'FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
+            dispatch({type:'FAVOURITE_CHARECTERS', payload:response.data.data.favcharecters});
          })
          .catch(error=>{
             console.log(error);
@@ -128,7 +126,7 @@ export const addCharecterToFavAction = (userId,data)=>{
 
 }
 
-
+// removing charecter from the user's favorite list of charecters
 export const removeCharecterToFavAction = (userId,charecterId)=>{
   
     return (dispatch)=>{   
@@ -145,7 +143,7 @@ export const removeCharecterToFavAction = (userId,charecterId)=>{
         axios.post(`http://localhost:5000/users/${userId}/charecters/favourite/delete`, data, config )
         .then(response=> {
             console.log(response);
-           dispatch({type:'FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
+           dispatch({type:'FAVOURITE_CHARECTERS', payload:response.data.data.favcharecters});
         })
         .catch(error=>{
             console.log(error);
@@ -153,7 +151,7 @@ export const removeCharecterToFavAction = (userId,charecterId)=>{
     }
 
 }
-
+// Getting favourite charecters of user
 export const getFavCharectersAction =(userId) =>{
   return (dispatch) =>{
     const token = localStorage.getItem('token');
@@ -166,7 +164,7 @@ export const getFavCharectersAction =(userId) =>{
     axios.get(`http://localhost:5000/users/${userId}/charecters/favourite`, config )
     .then(response=> {
         console.log(response);
-       dispatch({type:'FAVOURITE_CHARECTER', payload:response.data.data.favcharecters});
+       dispatch({type:'FAVOURITE_CHARECTERS', payload:response.data.data.favcharecters});
     })
     .catch(error=>{
         console.log(error);
@@ -175,3 +173,47 @@ export const getFavCharectersAction =(userId) =>{
   }
 }
 
+//Getting favourite  Comics of user 
+export const getFavComicsAction =(userId) =>{
+    return (dispatch) =>{
+      const token = localStorage.getItem('token');
+      const  jwttoken = "Bearer " + token;
+      console.log(jwttoken);
+      const config ={ headers: {
+         'Content-Type': 'application/json',
+         'Authorization': jwttoken 
+       }}
+      axios.get(`http://localhost:5000/users/${userId}/comics/favourite`, config )
+      .then(response=> {
+          console.log(response);
+         dispatch({type:'FAVOURITE_COMICS', payload:response.data.data.favcomics});
+      })
+      .catch(error=>{
+          console.log(error);
+      })
+         
+    }
+  }
+
+//Adding comic to the favorite list of comics of user
+export const addComicToFavAction = (userId,data)=>{
+  
+    return (dispatch)=>{   
+       const token = localStorage.getItem('token');
+        const  jwttoken = "Bearer " + token;
+        console.log(jwttoken);
+        const config ={ headers: {
+           'Content-Type': 'application/json',
+           'Authorization': jwttoken 
+         }}
+        axios.post(`http://localhost:5000/users/${userId}/comics/favourite/add`,data, config)
+        .then(response=> {
+            console.log(response);
+           dispatch({type:'FAVOURITE_COMICS', payload:response.data.data.favcomics});
+        })
+        .catch(error=>{
+           console.log(error);
+       })
+    }
+
+}

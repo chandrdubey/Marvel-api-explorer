@@ -43,19 +43,16 @@ class CharcterPageComponent extends Component {
     }
   }
   handleFavourite = () => {
-    let token = localStorage.getItem("token");
-    console.log(`he ${token}`);
-    if (!token) {
+    if (!this.props.isLoggedIn) {
       this.props.history.push("/login");
     } else {
-      console.log("lo");
+    //  console.log("lo");
       this.setState({
         isFavourite: true,
       });
       const {
         match: { params },
       } = this.props;
-      console.log(`hello ${this.props.currentUser.id}`);
       const userId = this.props.currentUser.id;
       const data = {
         charecter_id: params.id,
@@ -182,7 +179,7 @@ const mapStateToProps = (state) => {
     charecter: state.marvelData.charecter,
     isLoading: state.marvelData.isLoading,
     isLoggedIn: state.auth.isLoggedIn,
-    favCharecters: state.auth.favCharecters,
+    favCharecters: state.marvelData.favCharecters,
   };
 };
 const mapDispatchToProps = (dispatch) => {

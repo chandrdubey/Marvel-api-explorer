@@ -15,7 +15,7 @@ import CharecterPage from './components/CharcterPageComponent'
 import ComicPage from './components/ComicPageComponent'
 import * as jwtDecode from "jwt-decode";
 import { authenticateUserAction } from './actions/authAction';
-import { getFavCharectersAction } from './actions/getDataAction';
+import { getFavCharectersAction, getFavComicsAction } from './actions/getDataAction';
  
 
 class App extends Component {
@@ -25,6 +25,7 @@ class App extends Component {
         const user = jwtDecode(token);
         this.props.authenticateUser(user);
         this.props.getFavCharecters(user.id);
+        this.props.getFavComics(user.id)
     }
 
   }
@@ -56,7 +57,9 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) =>{
   return{
     authenticateUser : (user) => dispatch(authenticateUserAction(user)),
-    getFavCharecters : (userId) => dispatch(getFavCharectersAction(userId))
+    getFavCharecters : (userId) => dispatch(getFavCharectersAction(userId)),
+    getFavComics  : (userId) => dispatch(getFavComicsAction(userId))
+    
   }
 }
 
