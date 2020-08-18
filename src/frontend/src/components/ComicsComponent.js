@@ -7,12 +7,14 @@ import {
 } from "../actions/getDataAction";
 import DisplayData from "./DisplayData";
 import Spinner from "./Spinner";
-
+import Pagination from "react-js-pagination";
 class ComicsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       query: "",
+      activePage: 1,
+      dataPerPage: 15
     };
   }
 
@@ -34,8 +36,15 @@ class ComicsComponent extends Component {
     this.props.getComicsSearch(this.state.query);
     this.props.loading();
   };
+  handlePageChange(pageNumber) {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
+  }
   render() {
     const title = "Marvel Comics";
+    let indexLast = this.state.dataPerPage * this.state.activePage;
+    let indexFirst = indexLast - this.state.dataPerPage;
+     let pageComic = this.props.comics.slice(indexFirst, indexLast);
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
@@ -59,7 +68,16 @@ class ComicsComponent extends Component {
                 {this.props.isLoading ? (
                   <Spinner />
                 ) : this.props.comics ? (
-                  <DisplayData allData={this.props.comics} reqParams="comics" />
+                  <>
+                  <DisplayData allData={pageComic} reqParams="comics" />
+                  <Pagination
+                      activePage={this.state.activePage}
+                      itemsCountPerPage={this.state.dataPerPage}
+                      totalItemsCount={this.props.comics.length}
+                      pageRangeDisplayed={5}
+                      onChange={this.handlePageChange.bind(this)}
+                    />
+                  </>
                 ) : (
                   <h1 className="text-center">No result found</h1>
                 )}

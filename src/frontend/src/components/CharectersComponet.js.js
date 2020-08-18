@@ -7,6 +7,8 @@ import {
 } from "../actions/getDataAction";
 import DisplayData from "./DisplayData";
 import Spinner from "./Spinner";
+//import Pagination from "./Pagination";
+import Pagination from "react-js-pagination";
 
 // let ts = new Date().getTime();
 // let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
@@ -17,6 +19,8 @@ class CharecterComponent extends Component {
     super(props);
     this.state = {
       query: "",
+      activePage: 1,
+      dataPerPage: 15,
     };
   }
 
@@ -36,10 +40,19 @@ class CharecterComponent extends Component {
     this.props.Loading();
     this.props.getCharectersSearch(this.state.query);
   };
+  
+  handlePageChange(pageNumber) {
+    console.log(`active page is ${pageNumber}`);
+    this.setState({activePage: pageNumber});
+  }
   render() {
     console.log(this.props.isLoading);
 
     let title = "Marvel Charecters";
+    let indexLast = this.state.dataPerPage * this.state.activePage;
+    let indexFirst = indexLast - this.state.dataPerPage;
+     let pageChar = this.props.charecters.slice(indexFirst, indexLast);
+
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
@@ -64,10 +77,17 @@ class CharecterComponent extends Component {
                 {this.props.isLoading ? (
                   <Spinner />
                 ) : (
-                  <DisplayData
-                    allData={this.props.charecters}
-                    reqParams="charecters"
-                  />
+                  <>
+                    <DisplayData allData={pageChar} reqParams="charecters" />
+
+                    <Pagination
+                      activePage={this.state.activePage}
+                      itemsCountPerPage={this.state.dataPerPage}
+                      totalItemsCount={this.props.charecters.length}
+                      pageRangeDisplayed={5}
+                      onChange={this.handlePageChange.bind(this)}
+                    />
+                  </>
                 )}
               </div>
             </div>
@@ -87,7 +107,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getAllCharecters: () => dispatch(getCharectersAction()),
     getCharectersSearch: (query) => dispatch(getCharectersSearchAction(query)),
-    Loading: () => dispatch(isLoadingAction()) 
+    Loading: () => dispatch(isLoadingAction()),
   };
 };
 

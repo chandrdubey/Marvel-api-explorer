@@ -7,6 +7,7 @@ body {
   box-sizing: border-box;
   font-family: 'Cabin', sans-serif;
   background-color: rgb(228, 228, 228);
+  z-index: 0;
 }
 /* NAVBAR */
 .navrow {
@@ -146,12 +147,14 @@ body {
 }
 
 /* Charecter Page */
-.show-page{
+.char-show-page{
   background-image: url("https://i2.wp.com/wallur.com/wp-content/uploads/2016/12/marvel-cinematic-background-26.jpg?fit=1920%2C1080");
   background-size: cover;
   z-index: 0;
+  background-position: center; /* Center the image */
   min-height: 100%;
   min-width: 1024px;
+  
  width: 100%;
 }
 .charecter-image{
@@ -218,3 +221,37 @@ h4 {
   color:#a80b0b;
  
 }
+.comic-show-page{
+  background-image: url("https://i2.wp.com/wallur.com/wp-content/uploads/2016/12/marvel-cinematic-background-26.jpg?fit=1920%2C1080");
+  background-size: cover;
+  z-index: 0;
+  background-position: center; /* Center the image */
+  min-height: 100%;
+  min-width: 1024px;
+ width: 100%;
+}
+
+/* PAGINATION */
+
+.pagination{
+   justify-content: center;
+   
+}
+.pagination .active a {
+  background-color: #a80b0b;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+
+.pagination li a{
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid rgb(88, 85, 85);
+  margin: 0 4px;
+}
+
+.pagination li a:hover:not(.active) {background-color: #a80b0b;}

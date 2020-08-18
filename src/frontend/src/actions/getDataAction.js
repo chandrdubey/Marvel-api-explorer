@@ -9,7 +9,7 @@ let url = `ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
 
 export const getCharectersAction = () => {
     return (dispatch) =>{
-        axios.get(`https://gateway.marvel.com:443/v1/public/characters?${url}`)
+        axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&${url}`)
         .then( (response) => {
             dispatch({type:'ALL_CHARECTERS', payload:response.data.data.results});
         // handle success
@@ -25,7 +25,7 @@ export const getCharectersAction = () => {
 
 export const getComicsAction = () => {
   return (dispatch) =>{
-      axios.get(`https://gateway.marvel.com:443/v1/public/comics?orderBy=title&${url}`)
+      axios.get(`https://gateway.marvel.com:443/v1/public/comics?orderBy=title&limit=100&${url}`)
       .then( (response) => {
           dispatch({type:'ALL_COMICS', payload:response.data.data.results});
       // handle success
@@ -40,7 +40,7 @@ export const getComicsAction = () => {
 
 export const getComicsSearchAction = (query) =>{
     return  (dispatch) =>{
-        axios.get(`https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${query}&${url}`)
+        axios.get(`https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${query}&limit=100&${url}`)
         .then( (response) => {
             dispatch({type:'SEARCH_COMICS', payload:response.data.data.results});
         // handle success
@@ -55,7 +55,7 @@ export const getComicsSearchAction = (query) =>{
 
 export const getCharectersSearchAction = (query) =>{ 
     return  (dispatch) =>{
-        axios.get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&${url}`)
+        axios.get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&limit=100&${url}`)
         .then( (response) => {
             dispatch({type:'SEARCH_CHARECTERS', payload:response.data.data.results});
         // handle success

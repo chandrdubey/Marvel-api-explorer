@@ -97,7 +97,7 @@ class CharcterPageComponent extends Component {
       <Spinner />
     ) : (
       <>
-        <div id="header" className="container-fluid show-page">
+        <div id="header" className="container-fluid char-show-page">
           <div className="row set-row">
             <div className="col-10 mx-auto">
               <div className="row ">
