@@ -90,7 +90,7 @@ class ComicPageComponent extends Component {
       <Spinner />
     ) : (
       <>
-        <div id="header" className="container-fluid comic-show-page">
+        <div id="header" className="container-fluid show-page">
           <div className="row set-row">
             <div className="col-10 mx-auto">
               <div className="row ">

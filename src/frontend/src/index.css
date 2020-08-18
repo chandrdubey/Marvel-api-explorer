@@ -131,7 +131,7 @@ body {
   height: 75px;
   border-top-left-radius: 95px;
   border-top-right-radius: 95px;
-  border: 20px solid #a80b0b;
+  border: 5px solid #a80b0b;
   border-bottom: 0;
   transform-origin: bottom center;
   animation: 1s infinite turner;
@@ -147,7 +147,7 @@ body {
 }
 
 /* Charecter Page */
-.char-show-page{
+.show-page{
   background-image: url("https://i2.wp.com/wallur.com/wp-content/uploads/2016/12/marvel-cinematic-background-26.jpg?fit=1920%2C1080");
   background-size: cover;
   z-index: 0;
@@ -221,8 +221,8 @@ h4 {
   color:#a80b0b;
  
 }
-.comic-show-page{
-  background-image: url("https://i2.wp.com/wallur.com/wp-content/uploads/2016/12/marvel-cinematic-background-26.jpg?fit=1920%2C1080");
+.home-show-page{
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/180/976/853/thor-2-the-dark-world-avengers-age-of-ultron-the-avengers-spider-man-wallpaper-preview.jpg");
   background-size: cover;
   z-index: 0;
   background-position: center; /* Center the image */

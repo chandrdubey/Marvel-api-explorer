@@ -78,9 +78,19 @@ class CharcterPageComponent extends Component {
     this.props.removeCharecterToFav(userId, params.id);
   };
   render() {
+    
     let image, knowMorUrl;
     let total_comics, comics, series;
     if (!isEmpty(this.props.charecter)) {
+      const data = {
+        charecter_id: this.props.charecter.id,
+        name: this.props.charecter.name,
+        image:
+          this.props.charecter.thumbnail.path +
+          "." +
+          this.props.charecter.thumbnail.extension,
+      };
+      console.log(data);
       image =
         this.props.charecter.thumbnail.path +
         "." +
@@ -97,7 +107,7 @@ class CharcterPageComponent extends Component {
       <Spinner />
     ) : (
       <>
-        <div id="header" className="container-fluid char-show-page">
+        <div id="header" className="container-fluid show-page">
           <div className="row set-row">
             <div className="col-10 mx-auto">
               <div className="row ">

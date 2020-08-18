@@ -4,7 +4,7 @@ import React, { Component } from "react";
   render() {
     return (
       <>
-        <div className="container-fluid ">
+        <div className="container-fluid  home-show-page">
           <div className="row">
             <div className="col-10 mx-auto">
                 <h1>Marvel Api Explorer</h1>
