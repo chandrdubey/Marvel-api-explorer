@@ -61,9 +61,9 @@ function Navbar(props) {
                           activeClassName="menu_active"
                           className="nav-link"
                           exact
-                          to="/login"
+                          to={`/users/${props.auth.currentUser.id}/favourites`}
                         >
-                          {props.auth.currentUser.name}
+                          Favourites
                         </NavLink>
                       </li>
                       <li className="nav-item"  onClick = {handleLogOut}>

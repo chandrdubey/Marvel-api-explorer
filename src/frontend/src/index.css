@@ -49,11 +49,13 @@ body {
   
  
 }
+.marginPage{
+  padding-top: 20px;
+}
 #header h1{
-  margin-top: 20px;
   font-weight: 700;
   color : #a80b0b ;
-  font-size: 48px;
+  font-size: 38px;
   text-align: center;
 }
 #header .brand-name{
@@ -278,4 +280,22 @@ h4 {
 /* Home componet */
 .btn-more{
   width: 200px;
+}
+/* Drop down */
+#dropdownMenuButton{
+  color: #fff;
+  background: #2e2c2c;
+  box-shadow: none;
+}
+
+.dropdown-menu{
+  background: #2e2c2c ;
+}
+
+.dropdown-item:hover{
+  background: #a80b0b;
+  color: #fff;
+}
+.dropdown-item{
+  color: #fff;
 }
