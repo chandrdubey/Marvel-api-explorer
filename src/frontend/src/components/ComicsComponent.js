@@ -34,6 +34,9 @@ class ComicsComponent extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.getComicsSearch(this.state.query);
+    this.setState({
+      activePage : 1
+    });
     this.props.loading();
   };
   handlePageChange(pageNumber) {
@@ -41,7 +44,7 @@ class ComicsComponent extends Component {
     this.setState({activePage: pageNumber});
   }
   render() {
-    const title = "Marvel Comics";
+    const title = "Marvel Comics List";
     let indexLast = this.state.dataPerPage * this.state.activePage;
     let indexFirst = indexLast - this.state.dataPerPage;
      let pageComic = this.props.comics.slice(indexFirst, indexLast);
@@ -71,6 +74,7 @@ class ComicsComponent extends Component {
                   <>
                   <DisplayData allData={pageComic} reqParams="comics" />
                   <Pagination
+                      hideDisabled
                       activePage={this.state.activePage}
                       itemsCountPerPage={this.state.dataPerPage}
                       totalItemsCount={this.props.comics.length}

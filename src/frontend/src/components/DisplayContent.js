@@ -12,21 +12,24 @@ const DisplayContent = (props) => {
        image_src = "https://image.flaticon.com/icons/png/512/21/21104.png";
   }
   let list = (
-    <div className="card text-center" >
+    
+        <Link to={dataUrl} >
+        <div className="card text-center" >
       <img
         src={image_src}
         className="card-img-top"
         alt="..."
       />
       <div className="card-body">
-        <Link to={dataUrl}  className="card-title">
-          {props.data.name ? props.data.name : props.data.title}
-        </Link>
-        <div>
-        </div>
-       
+      <div  className="card-title">
+      {props.data.name ? props.data.name : props.data.title}
       </div>
+         
+          </div>
     </div>
+        </Link>
+       
+    
   );
   return <div>{list}</div>;
 };

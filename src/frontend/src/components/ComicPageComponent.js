@@ -71,6 +71,15 @@ class ComicPageComponent extends Component {
     let image, knowMorUrl;
     let  publish, price, creators;
     if (!isEmpty(this.props.comic)) {
+      const data = {
+        comic_id: this.props.comic.id,
+        title: this.props.comic.title,
+        image:
+          this.props.comic.thumbnail.path +
+          "." +
+          this.props.comic.thumbnail.extension,
+      }
+      console.log(data);
       image =
         this.props.comic.thumbnail.path +
         "." +

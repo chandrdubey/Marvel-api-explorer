@@ -37,6 +37,7 @@ class CharecterComponent extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     //this.props.getComicsSearch(this.state.query);
+    if(this.state.query)
     this.props.Loading();
     this.props.getCharectersSearch(this.state.query);
   };
@@ -48,7 +49,7 @@ class CharecterComponent extends Component {
   render() {
     console.log(this.props.isLoading);
 
-    let title = "Marvel Charecters";
+    let title = "Marvel Charecters List";
     let indexLast = this.state.dataPerPage * this.state.activePage;
     let indexFirst = indexLast - this.state.dataPerPage;
      let pageChar = this.props.charecters.slice(indexFirst, indexLast);
@@ -81,6 +82,7 @@ class CharecterComponent extends Component {
                     <DisplayData allData={pageChar} reqParams="charecters" />
 
                     <Pagination
+                      hideDisabled
                       activePage={this.state.activePage}
                       itemsCountPerPage={this.state.dataPerPage}
                       totalItemsCount={this.props.charecters.length}

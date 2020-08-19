@@ -50,7 +50,7 @@ body {
  
 }
 #header h1{
-  margin :0 0 0 0;
+  margin-top: 20px;
   font-weight: 700;
   color : #a80b0b ;
   font-size: 48px;
@@ -95,25 +95,37 @@ body {
 }
 /* Card  */
 .card{
+  background-color:#2e2c2c ;
+  color: #ffffff;
+  
+  transition: 0.4s;
   width: 200px;
-  height: 300px;
+  height: 310px;
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
-.card-body{
+/* .card-body{
   background-color:#2e2c2c ;
   color: #ffffff;
   
   transition: 0.5s;
-}
-.card-body:hover{
-  background-color:#a80b0b ;
-}
+} */
+/* .card-body:hover{
+ 
+} */
 .card img{
   width: 100%;
   height: 200px;
   background-color:#a80b0b ; 
-}#header .btn-get-started:hover{
+}
+.card:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.1); 
+  background-color:#a80b0b ;
+}
+#header .btn-get-started:hover{
   background-color: #3498db;
   color: #fff;
 }
@@ -165,7 +177,13 @@ body {
   border-radius: 10%;
   height :400px;
   width: 320px;
+  transition: 0.3s;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.page-image:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.1); 
 }
 .charecter-detail{
   padding-left: 10px;
@@ -245,13 +263,19 @@ h4 {
 
 
 .pagination li a{
-  color: black;
+  color: #fff;
   float: left;
   padding: 8px 16px;
+  background:#2e2c2c ;
   text-decoration: none;
   transition: background-color .3s;
-  border: 1px solid rgb(88, 85, 85);
+ 
   margin: 0 4px;
 }
 
 .pagination li a:hover:not(.active) {background-color: #a80b0b;}
+
+/* Home componet */
+.btn-more{
+  width: 200px;
+}
