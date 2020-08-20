@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 const DisplayHomeData = (props) => {
     let dataUrl ='/'+props.reqParams + '/'; 
     
+   
   return (
     <div className="row align-items-center text-center ">
       {props.allData.length &&

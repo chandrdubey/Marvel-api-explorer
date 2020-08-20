@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
+import DisplayContent from "./DisplayContent";
 class FavouriteComponet extends Component {
     constructor(props) {
         super(props);
@@ -21,6 +22,7 @@ class FavouriteComponet extends Component {
       console.log(num)
     }
   render() {
+    console.log(this.props.marvelData.favCharecters);
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
@@ -56,7 +58,7 @@ class FavouriteComponet extends Component {
                           Charecters
                         </button>
                       
-                        <button className="dropdown-item" onClick={()=> this.handleFavouriteList(2)} >
+                        <button className="dropdown-item" onClick={()=> this.handleFavouriteList(0)} >
                          Comics
                         </button>
                       </div>
@@ -68,14 +70,45 @@ class FavouriteComponet extends Component {
                   </div>
                 </div>
                 <hr />
-                {/* {this.state.favourite === 1 ? (<h1></h1>):(<h1></h1>)} */}
+               
+                {this.state.favourite ? 
+                  this.props.marvelData.favCharecters.length>0 ? (<>
+                  <h3>My Favourite charecters</h3>
+                  <div className="row"> 
+                  {this.props.marvelData.favCharecters.map((char) => <DisplayContent data={char} key={char.charecter_id} reqParams="charecters" />)}
+                  </div>
+                    
+                  
+                  </>):(<>
+                   
+                    <h4>Empty Charecters Favourite list</h4>
+                    <h3>You have no items in your favourite list. Start adding!</h3>
+                  </>): this.props.marvelData.favComics.length>0 ? (<>
+                  <h3>My Favourite comics</h3>
+                  <div className="row"> 
+                  {this.props.marvelData.favComics.map((comic) => <DisplayContent data={comic} key={comic.comic_id} reqParams="comics" />)}
+                  </div>
+                    
+                  
+                  </>):(<>
+                    <div className="text-center">
+                    <h3>Empty Comics Favourite list</h3>
+                    <h4>You have no items in your favourite list. Start adding!</h4>
+                    </div>
+                    
+                  </>) }
+                
               </div>
             </div>
           </div>
         </section>
-      </>
+      </> 
     );
   }
 }
-
-export default FavouriteComponet;
+const mapStateToProps = ({ marvelData }) => {
+  return {
+    marvelData,
+  };
+};
+export default connect(mapStateToProps)(FavouriteComponet);

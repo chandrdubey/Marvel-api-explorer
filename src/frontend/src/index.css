@@ -194,7 +194,7 @@ body {
   background-color: #2e2c2c;
   border-radius: 1%;
 }
-.charecter-detail h3{
+ h3{
   color:#a80b0b;
   font-weight: 600;
   font-size: 1.5rem;
@@ -284,6 +284,7 @@ h4 {
 /* Drop down */
 #dropdownMenuButton{
   color: #fff;
+  
   background: #2e2c2c;
   box-shadow: none;
 }
