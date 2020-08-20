@@ -104,7 +104,7 @@ class CharcterPageComponent extends Component {
       //  console.log(knowMorUrl);
     }
     return this.props.isLoading ? (
-      <Spinner />
+      <div className="margin-top"><Spinner /></div> 
     ) : (
       <>
         <div id="header" className="container-fluid show-page">
@@ -144,7 +144,7 @@ class CharcterPageComponent extends Component {
                     <p>{this.props.charecter.description}</p>
                     <div>
                       <h3>
-                        {this.props.charecter.name} : Comics ({total_comics})
+                        {this.props.charecter.name} featured in  comics ({total_comics})
                       </h3>
                       <hr />
                       <ul>
@@ -153,7 +153,7 @@ class CharcterPageComponent extends Component {
                     </div>
                    {series && (<div>
                       <h3>
-                        {this.props.charecter.name} : Series ({series.available})
+                        {this.props.charecter.name} featured in series ({series.available})
                       </h3>
                       <hr />
                       <ul>

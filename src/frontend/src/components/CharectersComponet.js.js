@@ -20,7 +20,7 @@ class CharecterComponent extends Component {
     this.state = {
       query: "",
       activePage: 1,
-      dataPerPage: 15,
+      dataPerPage: 12,
     };
   }
 

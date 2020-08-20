@@ -75,14 +75,18 @@ class FavouriteComponet extends Component {
                   this.props.marvelData.favCharecters.length>0 ? (<>
                   <h3>My Favourite charecters</h3>
                   <div className="row"> 
-                  {this.props.marvelData.favCharecters.map((char) => <DisplayContent data={char} key={char.charecter_id} reqParams="charecters" />)}
+                  {this.props.marvelData.favCharecters.map((char) =>(
+                    <div className="col-2">
+                     <DisplayContent data={char} key={char.charecter_id} reqParams="charecters" /></div>)
+                     )}
                   </div>
                     
                   
                   </>):(<>
-                   
+                    <div className="text-center">
                     <h4>Empty Charecters Favourite list</h4>
                     <h3>You have no items in your favourite list. Start adding!</h3>
+                    </div>
                   </>): this.props.marvelData.favComics.length>0 ? (<>
                   <h3>My Favourite comics</h3>
                   <div className="row"> 

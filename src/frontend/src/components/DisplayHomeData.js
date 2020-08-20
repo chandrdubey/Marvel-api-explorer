@@ -8,11 +8,15 @@ const DisplayHomeData = (props) => {
     <div className="row align-items-center text-center ">
       {props.allData.length &&
         props.allData.map((data) => (
-         
+            <div className="col-2">
+
+            
                 <Link to={dataUrl + data.id} key={data.id} >
                 <div key={data.id} className="">
             <div className="card text-center">
+            <div className="card-img">
               <img src={data.image} className="card-img-top" alt="..." />
+              </div>
               <div className="card-body">
                 <div className="card-title">
                    {data.name ? data.name : data.title}
@@ -23,7 +27,7 @@ const DisplayHomeData = (props) => {
             </div>
           </div>
                 </Link>
-              
+                </div>
         ))}
         <div className="btn-more">
             <Link to={"/" + props.reqParams} className="btn btn-get-started">All {props.reqParams}</Link>

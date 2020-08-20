@@ -10,10 +10,11 @@ function Navbar(props) {
   }
   return (
     <>
-      <div className="container-fluid nav_bg">
+      <div className="container">
         <div className="row navrow">
-          <div className="col-10 mx-auto">
-            <nav className="navbar navbar-expand-lg navbar-dark navbar-default navbar-fixed-top">
+        <div className="col-10 mx-auto">
+            <nav className="navbar navbar-expand-lg navbar-dark fixed-top ">
+       
               <NavLink className="navbar-brand" exact to="/">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSs9gnknrxWOf5heO6HSKt15W5gRzXGhjqkXg&usqp=CAU" alt="marvel logo"></img>
               </NavLink>
@@ -106,6 +107,7 @@ function Navbar(props) {
                 </ul>
               </div>
             </nav>
+       
           </div>
         </div>
       </div>
