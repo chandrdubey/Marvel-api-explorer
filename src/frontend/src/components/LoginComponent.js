@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { Redirect} from 'react-router-dom'
 import { loginUserAction } from '../actions/authAction';
-
+import { Link } from "react-router-dom";
  class LoginComponent extends Component {
     constructor(props) {
         super(props);
@@ -45,12 +45,14 @@ import { loginUserAction } from '../actions/authAction';
           return( <Redirect to='/' />)
         }
         return (
-            <div className="container-fluid nav_bg ">
+            <div id ="header" className="container-fluid ">
         <div className="row">
-          <div className="col-10 mx-auto ">
-            <form className="form-style" onSubmit ={this.handleOnSubmit}>
+          <div className="col-10 mx-auto d-flex justify-content-center ">
+            
+            <form className="form-style " onSubmit ={this.handleOnSubmit}>
+              <h1>Log In</h1>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email :</label>
+                <label htmlFor="exampleInputEmail1"><h4>Email :</h4></label>
                 <input
                   type="email"
                   className="form-control"
@@ -63,7 +65,7 @@ import { loginUserAction } from '../actions/authAction';
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password:</label>
+                <label htmlFor="exampleInputPassword1"><h4>Password:</h4></label>
                 <input
                   type="password"
                   className="form-control"
@@ -74,9 +76,14 @@ import { loginUserAction } from '../actions/authAction';
                   placeholder="Password"
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-get-started">
                 Submit
               </button>
+              <div className="auth">
+              <p>new user ? <Link to ="/signup" >Register</Link></p>
+             
+              </div>
+              
             </form>
           </div>
         </div>

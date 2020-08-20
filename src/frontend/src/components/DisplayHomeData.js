@@ -8,7 +8,7 @@ const DisplayHomeData = (props) => {
     <div className="row align-items-center text-center ">
       {props.allData.length &&
         props.allData.map((data) => (
-            <div className="col-2">
+            <div className="col-lg-2 col-md-4 col-sm-6">
 
             
                 <Link to={dataUrl + data.id} key={data.id} >

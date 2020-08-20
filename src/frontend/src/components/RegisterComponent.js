@@ -56,12 +56,13 @@ import jwtDecode from 'jwt-decode'
     }
       
     return (
-      <div className="container-fluid na v_bg ">
+      <div id ="header" className="container-fluid na v_bg ">
         <div className="row">
-          <div className="col-10 mx-auto">
-            <form  onSubmit ={this.handleOnSubmit}>
+          <div className="col-10 mx-auto d-flex justify-content-center">
+            <form className="form-style" onSubmit ={this.handleOnSubmit}>
               <div className="form-group">
-                <label htmlFor="exampleInputName">Name:</label>
+              <h1>Sign Up</h1>
+                <label htmlFor="exampleInputName"><h4>Name:</h4></label>
                 <input
                   type="text"
                   className="form-control"
@@ -73,7 +74,7 @@ import jwtDecode from 'jwt-decode'
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address:</label>
+                <label htmlFor="exampleInputEmail1"><h4>Email :</h4></label>
                 <input
                   type="email"
                   className="form-control"
@@ -86,7 +87,7 @@ import jwtDecode from 'jwt-decode'
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password:</label>
+                <label htmlFor="exampleInputPassword1"><h4>Password:</h4></label>
                 <input
                   type="password"
                   className="form-control"
@@ -97,7 +98,7 @@ import jwtDecode from 'jwt-decode'
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputConfirm1">Confirm password:</label>
+                <label htmlFor="exampleInputConfirm1"><h4>Confirm password:</h4></label>
                 <input
                   type="password"
                   className="form-control"
@@ -107,7 +108,7 @@ import jwtDecode from 'jwt-decode'
                   onChange = {this.handleChange}
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-get-started">
                 Submit
               </button>
             </form>

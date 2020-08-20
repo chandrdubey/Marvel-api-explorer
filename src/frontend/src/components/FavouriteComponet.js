@@ -1,28 +1,32 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DisplayContent from "./DisplayContent";
+import { Redirect} from 'react-router-dom'
 class FavouriteComponet extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            favourite:1
-        }
-       
-    }
-    
-    handleDropdown = () =>{
-       const dropdown = document.getElementById("dropdownMenuButton");
-       dropdown.style.background= "#a80b0b";
-    }
-    handleFavouriteList =(num)=>{
-       
-        this.setState({
-            favourite: num
-        });
-      console.log(num)
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      favourite: 1,
+    };
+  }
+
+  handleDropdown = () => {
+    const dropdown = document.getElementById("dropdownMenuButton");
+    dropdown.style.background = "#a80b0b";
+  };
+  handleFavouriteList = (num) => {
+    this.setState({
+      favourite: num,
+    });
+    console.log(num);
+  };
   render() {
-    console.log(this.props.marvelData.favCharecters);
+    let token = localStorage.getItem('token');
+    if(!token)
+    {
+      return <Redirect to="/login" />
+    }
+     
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
@@ -54,12 +58,18 @@ class FavouriteComponet extends Component {
                         className="dropdown-menu"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <button className="dropdown-item" onClick={()=> this.handleFavouriteList(1)}>
+                        <button
+                          className="dropdown-item"
+                          onClick={() => this.handleFavouriteList(1)}
+                        >
                           Charecters
                         </button>
-                      
-                        <button className="dropdown-item" onClick={()=> this.handleFavouriteList(0)} >
-                         Comics
+
+                        <button
+                          className="dropdown-item"
+                          onClick={() => this.handleFavouriteList(0)}
+                        >
+                          Comics
                         </button>
                       </div>
                     </div>
@@ -70,43 +80,64 @@ class FavouriteComponet extends Component {
                   </div>
                 </div>
                 <hr />
-               
-                {this.state.favourite ? 
-                  this.props.marvelData.favCharecters.length>0 ? (<>
-                  <h3>My Favourite charecters</h3>
-                  <div className="row"> 
-                  {this.props.marvelData.favCharecters.map((char) =>(
-                    <div className="col-2">
-                     <DisplayContent data={char} key={char.charecter_id} reqParams="charecters" /></div>)
-                     )}
-                  </div>
-                    
-                  
-                  </>):(<>
-                    <div className="text-center">
-                    <h4>Empty Charecters Favourite list</h4>
-                    <h3>You have no items in your favourite list. Start adding!</h3>
+
+                {this.state.favourite ? (
+                  this.props.marvelData.favCharecters.length > 0 ? (
+                    <>
+                      <h3>My Favourite charecters</h3>
+                      <div className="row">
+                        {this.props.marvelData.favCharecters.map((char) => (
+                          <div className="col-lg-2 col-md-4 col-sm-6">
+                            <DisplayContent
+                              data={char}
+                              key={char.charecter_id}
+                              reqParams="charecters"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-center">
+                        <h4>Empty Charecters Favourite list</h4>
+                        <h3>
+                          You have no items in your favourite list. Start
+                          adding!
+                        </h3>
+                      </div>
+                    </>
+                  )
+                ) : this.props.marvelData.favComics.length > 0 ? (
+                  <>
+                    <h3>My Favourite comics</h3>
+                    <div className="row">
+                      {this.props.marvelData.favComics.map((comic) => (
+                        <div className="col-lg-2 col-md-4 col-sm-6">
+                          <DisplayContent
+                            data={comic}
+                            key={comic.comic_id}
+                            reqParams="comics"
+                          />{" "}
+                        </div>
+                      ))}
                     </div>
-                  </>): this.props.marvelData.favComics.length>0 ? (<>
-                  <h3>My Favourite comics</h3>
-                  <div className="row"> 
-                  {this.props.marvelData.favComics.map((comic) => <DisplayContent data={comic} key={comic.comic_id} reqParams="comics" />)}
-                  </div>
-                    
-                  
-                  </>):(<>
+                  </>
+                ) : (
+                  <>
                     <div className="text-center">
-                    <h3>Empty Comics Favourite list</h3>
-                    <h4>You have no items in your favourite list. Start adding!</h4>
+                      <h3>Empty Comics Favourite list</h3>
+                      <h4>
+                        You have no items in your favourite list. Start adding!
+                      </h4>
                     </div>
-                    
-                  </>) }
-                
+                  </>
+                )}
               </div>
             </div>
           </div>
         </section>
-      </> 
+      </>
     );
   }
 }
