@@ -96,7 +96,7 @@ class ComicPageComponent extends Component {
       //  console.log(knowMorUrl);
     }
     return this.props.isLoading ? (
-      <Spinner />
+      <div className="margin-top"><Spinner /></div> 
     ) : (
       <>
         <div id="header" className="container-fluid show-page">
@@ -223,8 +223,7 @@ const mapDispatchToProps = (dispatch) => {
     Loading: () => dispatch(isLoadingAction()),
     addComicFav : (userId,data)=> dispatch(addComicToFavAction(userId, data)),
     removeComicToFav :(userId, comicId) => dispatch(removeComicToFavAction(userId, comicId))
-    // removeCharecterToFav: (userId, charecterId) => dispatch(removeCharecterToFavAction(userId, charecterId))
-    //    getFavCharecters : (userId) => dispatch(getFavCharectersAction(userId))
+   
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ComicPageComponent);

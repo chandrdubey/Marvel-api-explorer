@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-
+html{
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Cabin', sans-serif;
   background-color: rgb(228, 228, 228);
+  height: 100%;
   z-index: 0;
 }
 /* NAVBAR */
@@ -176,13 +179,20 @@ body {
 
 /* Charecter Page */
 .show-page{
-  background-image: url("https://i2.wp.com/wallur.com/wp-content/uploads/2016/12/marvel-cinematic-background-26.jpg?fit=1920%2C1080");
-  background-size: cover;
-  z-index: 0;
-  background-position: center; /* Center the image */
-  min-height: 100%;
-  min-width: 1024px;
   
+  background: url("https://i2.wp.com/wallur.com/wp-content/uploads/2016/12/marvel-cinematic-background-26.jpg?fit=1920%2C1080");
+ 
+  z-index: 0;
+  /* min-height: 100%;
+  min-width: 1024px; */
+  /* Full height */
+ height: 100%;
+ min-height: 600px;
+
+ /* Center and scale the image nicely */
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
  width: 100%;
 }
 .charecter-image{
@@ -232,6 +242,7 @@ hr{
 .set-row{
   padding: 20px 0;
   background: rgba(0, 0, 0, 0.5);
+  min-height: 600px;
 }
 /* Favourite Button */
 .fav-btn{
@@ -263,12 +274,17 @@ h4 {
 }
 .home-show-page{
   background-image: url("https://c4.wallpaperflare.com/wallpaper/180/976/853/thor-2-the-dark-world-avengers-age-of-ultron-the-avengers-spider-man-wallpaper-preview.jpg");
-  background-size: cover;
+ 
   z-index: 0;
-  background-position: center; /* Center the image */
-  min-height: 100%;
-  min-width: 1024px;
- width: 100%;
+  
+  
+ /* Full height */
+ height: 100%;
+
+ /* Center and scale the image nicely */
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
 }
 
 /* PAGINATION */
@@ -337,5 +353,5 @@ h4 {
   color: #a80b0b;;
 }
 a{
-  text-decoration: none;
+  outline: none;
 }

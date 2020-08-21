@@ -33,17 +33,19 @@ class ComicsComponent extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.getComicsSearch(this.state.query);
-    this.setState({
-      activePage : 1
-    });
+    
+    // this.setState({
+    //   activePage : 1
+    // });
     this.props.loading();
+    this.props.getComicsSearch(this.state.query);
   };
   handlePageChange(pageNumber) {
     console.log(`active page is ${pageNumber}`);
     this.setState({activePage: pageNumber});
   }
   render() {
+    window.scrollTo(0, 0);
     const title = "Marvel Comics List";
     let indexLast = this.state.dataPerPage * this.state.activePage;
     let indexFirst = indexLast - this.state.dataPerPage;

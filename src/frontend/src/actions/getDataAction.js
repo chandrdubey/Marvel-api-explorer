@@ -6,9 +6,11 @@ import CryptoJS from 'crypto-js'
 let ts = new Date().getTime();
 let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
 let url = `ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
-
+// let hash = CryptoJS.MD5(ts + process.env.MARVEL_API_PRIVATE_KEY + process.env.MARVEL_API_PUBLIC_KEY).toString();
+// let url = `ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
 export const getCharectersAction = () => {
     return (dispatch) =>{
+        console.log(process.env.MARVEL_API_PRIVATE_KEY);
         axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&${url}`)
         .then( (response) => {
             dispatch({type:'ALL_CHARECTERS', payload:response.data.data.results});

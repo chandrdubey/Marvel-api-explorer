@@ -87,10 +87,10 @@ class FavouriteComponet extends Component {
                       <h3>My Favourite charecters</h3>
                       <div className="row">
                         {this.props.marvelData.favCharecters.map((char) => (
-                          <div className="col-lg-2 col-md-4 col-sm-6">
+                          <div className="col-lg-2 col-md-4 col-sm-6"  key={char.charecter_id}>
                             <DisplayContent
                               data={char}
-                              key={char.charecter_id}
+                             
                               reqParams="charecters"
                             />
                           </div>
@@ -113,12 +113,12 @@ class FavouriteComponet extends Component {
                     <h3>My Favourite comics</h3>
                     <div className="row">
                       {this.props.marvelData.favComics.map((comic) => (
-                        <div className="col-lg-2 col-md-4 col-sm-6">
+                        <div className="col-lg-2 col-md-4 col-sm-6"  key={comic.comic_id}>
                           <DisplayContent
                             data={comic}
-                            key={comic.comic_id}
+                           
                             reqParams="comics"
-                          />{" "}
+                          />
                         </div>
                       ))}
                     </div>

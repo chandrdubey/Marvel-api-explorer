@@ -39,12 +39,13 @@ class App extends Component {
           {/*Route provides the history in props so we  can redirect using props.history.push */}
           <Route path="/" exact component={Home} />
           <Route path="/charecters" exact component={Charecters} />
+          <Route path="/comics" component={Comics} />
           <Route path="/charecters/:id" component={CharecterPage} />
           <Route path="/signup" component={RegisterComponent} />
           <Route path="/users/:id/favourites" component={FavouriteComponet} />
           <Route path="/comics/:id" component={ComicPage} />
           <Route path="/login" component={LoginComponent} />
-          <Route path="/comics" component={Comics} />
+          
 
           {/* <Route  path ='/comics/:id'  component={ComicPage} /> */}
           <Redirect to="/" />

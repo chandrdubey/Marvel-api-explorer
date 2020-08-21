@@ -93,6 +93,7 @@ import jwtDecode from 'jwt-decode'
                   className="form-control"
                   name="password"
                   value={this.state.password}
+                  placeholder="Password"
                   id="exampleInputPassword1"
                   onChange = {this.handleChange}
                 />
@@ -105,6 +106,7 @@ import jwtDecode from 'jwt-decode'
                   name="confirm_password"
                   value={this.state.confirm_password}
                   id="exampleInputConfirm1"
+                  placeholder="Confirm password"
                   onChange = {this.handleChange}
                 />
               </div>

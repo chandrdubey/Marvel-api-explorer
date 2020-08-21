@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { Redirect} from 'react-router-dom'
+import { Redirect,Link} from 'react-router-dom'
 import { loginUserAction } from '../actions/authAction';
-import { Link } from "react-router-dom";
+
  class LoginComponent extends Component {
     constructor(props) {
         super(props);
@@ -52,7 +52,7 @@ import { Link } from "react-router-dom";
             <form className="form-style " onSubmit ={this.handleOnSubmit}>
               <h1>Log In</h1>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1"><h4>Email :</h4></label>
+                <label htmlFor="exampleInputEmail1"><h4>Email </h4></label>
                 <input
                   type="email"
                   className="form-control"
@@ -65,7 +65,7 @@ import { Link } from "react-router-dom";
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1"><h4>Password:</h4></label>
+                <label htmlFor="exampleInputPassword1"><h4>Password</h4></label>
                 <input
                   type="password"
                   className="form-control"
