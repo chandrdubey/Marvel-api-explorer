@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DisplayContent from "./DisplayContent";
-import { Redirect} from 'react-router-dom'
+import { Redirect,Link} from 'react-router-dom'
 class FavouriteComponet extends Component {
   constructor(props) {
     super(props);
     this.state = {
       favourite: 1,
+      fav:"Charecters"
     };
   }
 
@@ -15,8 +16,11 @@ class FavouriteComponet extends Component {
     dropdown.style.background = "#a80b0b";
   };
   handleFavouriteList = (num) => {
+    let data ;
+    data =!num ? "Comics" : "Charecters"; 
     this.setState({
       favourite: num,
+      fav: data
     });
     console.log(num);
   };
@@ -52,7 +56,7 @@ class FavouriteComponet extends Component {
                         aria-expanded="false"
                         onClick={this.handleDropdown}
                       >
-                        Favourite
+                        {this.state.fav}
                       </button>
                       <div
                         className="dropdown-menu"
@@ -73,10 +77,6 @@ class FavouriteComponet extends Component {
                         </button>
                       </div>
                     </div>
-                    {/* <DisplayHomeData
-                    allData={marvel.marvelComics}
-                    reqParams="comics"
-                  /> */}
                   </div>
                 </div>
                 <hr />
@@ -99,12 +99,15 @@ class FavouriteComponet extends Component {
                     </>
                   ) : (
                     <>
-                      <div className="text-center">
-                        <h4>Empty Charecters Favourite list</h4>
-                        <h3>
+                      <div className="text-center fav-p">
+                        <h3>Empty Charecters Favourite list</h3>
+                        <p>
                           You have no items in your favourite list. Start
                           adding!
-                        </h3>
+                        </p>
+                        <Link to={"/charecters"} className="btn btn-get-started">
+                           All charecters
+                        </Link>
                       </div>
                     </>
                   )
@@ -125,11 +128,14 @@ class FavouriteComponet extends Component {
                   </>
                 ) : (
                   <>
-                    <div className="text-center">
+                    <div className=" fav-p text-center">
                       <h3>Empty Comics Favourite list</h3>
-                      <h4>
+                      <p>
                         You have no items in your favourite list. Start adding!
-                      </h4>
+                      </p>
+                      <Link to={"/comics"} className="btn btn-get-started">
+                     All comics
+                     </Link>
                     </div>
                   </>
                 )}

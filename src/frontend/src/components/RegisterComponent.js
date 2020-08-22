@@ -28,19 +28,7 @@ import jwtDecode from 'jwt-decode'
      email:this.state.email,
      confirm_password: this.state.confirm_password
    }
-    // console.log(this.props.history);
-    // //histry in props is used to redirect
-    // alert(data);
-    // axios.post('http://localhost:5000/signup', data)
-    // .then(response => {
-    //   console.log(response);
-    //   localStorage.setItem("token", data.data.token);
-    // }
-    // )
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-  //  this.props.history.push('/comics');
+  
    this.props.dispatch(registerUserAction(data));
  }
   

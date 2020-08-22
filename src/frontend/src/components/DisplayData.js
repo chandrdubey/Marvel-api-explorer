@@ -6,7 +6,7 @@ export default function DisplayData(props) {
                  {
                   props.allData.length  && props.allData.map(data => 
                   
-                        <div key={data.id} className = "col-lg-2 col-md-4 col-sm-6">
+                        <div key={data.id} className = "col-lg-2 col-md-4 col-sm-6 ">
                         <DisplayContent data = {data} reqParams = {props.reqParams} />
                         </div>
                     )       

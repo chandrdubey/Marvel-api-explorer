@@ -80,7 +80,7 @@ import { loginUserAction } from '../actions/authAction';
                 Submit
               </button>
               <div className="auth">
-              <p>new user ? <Link to ="/signup" >Register</Link></p>
+              <p>new user ? <Link to ="/signup" >Sign up</Link></p>
              
               </div>
               

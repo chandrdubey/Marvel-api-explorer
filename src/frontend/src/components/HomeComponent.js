@@ -3,6 +3,7 @@ import marvel from "../uploads/homeData";
 import DisplayHomeData from "./DisplayHomeData";
 
 class HomeComponent extends Component {
+  
   render() {
     console.log(marvel.marvelCharecters);
     return (

@@ -20,7 +20,7 @@ module.exports = {
       //it will check the confirm  password equal to the password or not
       return res.json({
         status: 404,
-        message: "confirm password does not equal to password",
+        message: "Password and confirm password does not match",
       });
     }
 
@@ -32,7 +32,7 @@ module.exports = {
         //checking if  email is unique or not
         return res.json({
           status: 404,
-          message: "email already exist ",
+          message: "Email already exist ",
         });
       } else {
         try {
@@ -48,7 +48,7 @@ module.exports = {
           });
           var token = jwt.sign(
             { id: user._id, email: user.email, name: user.name },
-            process.env.JWT_SECRET
+            process.env.JWT_SECRET,{expiresIn:"2d"}
           );
           res.status(200).json({
             token,
@@ -58,7 +58,6 @@ module.exports = {
                 email: user.email,
                 name: user.name,
               },
-              favcharecters: user.favcharecters
             }
           });
         } catch (err) {
@@ -89,7 +88,7 @@ module.exports = {
     if (!user) {
       return res.json({
         status: 404,
-        message: "email does not exist",
+        message: "Email does not exist",
       });
     }
     //checking password
@@ -99,15 +98,15 @@ module.exports = {
       user.password
     );
     if (!validPassword) {
-      console.log("passowrd is wrong");
+      console.log("Wrong password");
       return res.json({
         status: 404,
-        message: "passowrd is wrong",
+        message: "Wrong password",
       });
     }
     var token = jwt.sign(
       { id: user._id, email: user.email, name: user.name },
-      process.env.JWT_SECRET
+      process.env.JWT_SECRET, {expiresIn:"2d"}
     );
     console.log("you are logged in !");
     res.status(200).json({

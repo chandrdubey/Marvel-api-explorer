@@ -80,27 +80,24 @@ class CharcterPageComponent extends Component {
   render() {
     
     let image, knowMorUrl;
-    let total_comics, comics, series;
+    let total_comics, comics, series,series_avai;
     if (!isEmpty(this.props.charecter)) {
-      const data = {
-        charecter_id: this.props.charecter.id,
-        name: this.props.charecter.name,
-        image:
-          this.props.charecter.thumbnail.path +
-          "." +
-          this.props.charecter.thumbnail.extension,
-      };
-      console.log(data);
+    
+  
+    
       image =
         this.props.charecter.thumbnail.path +
         "." +
         this.props.charecter.thumbnail.extension;
-
+        let image_not ="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
+         if ( image === image_not) {
+        image = "https://image.flaticon.com/icons/png/512/21/21104.png";
+      }
       total_comics = this.props.charecter.comics.available;
       comics = this.props.charecter.comics.items;
       series = this.props.charecter.series;
       knowMorUrl = this.props.charecter.urls;
-
+       series_avai= series.available;
       //  console.log(knowMorUrl);
     }
     return this.props.isLoading ? (
@@ -142,16 +139,17 @@ class CharcterPageComponent extends Component {
                     </h3>
                     <hr />
                     <p>{this.props.charecter.description}</p>
-                    <div>
+                    {total_comics && ( <div>
                       <h3>
                         {this.props.charecter.name} featured in  comics ({total_comics})
                       </h3>
                       <hr />
                       <ul>
-                        <MarvelPageItemComponent comics={comics} />
+                        <MarvelPageItemComponent act ={1} comics={comics} />
                       </ul>
-                    </div>
-                   {series && (<div>
+                    </div>)}
+                   
+                   {series_avai > 0 && (<div>
                       <h3>
                         {this.props.charecter.name} featured in series ({series.available})
                       </h3>

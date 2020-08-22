@@ -7,6 +7,7 @@ import {
 } from "../actions/getDataAction";
 import DisplayData from "./DisplayData";
 import Spinner from "./Spinner";
+
 //import Pagination from "./Pagination";
 import Pagination from "react-js-pagination";
 
@@ -26,6 +27,8 @@ class CharecterComponent extends Component {
   }
 
   componentDidMount() {
+    
+
     this.props.Loading();
     this.props.getAllCharecters();
   }
@@ -62,7 +65,7 @@ class CharecterComponent extends Component {
         <section id="header" className=" d-flex align-items-center">
           <div className="container-fluid nav_bg ">
             <div className="row">
-              <div className="col-10 mx-auto  marginPage">
+              <div className="col-10 mx-auto text-sm-left  marginPage">
                 <h1>{title}</h1>
 
                 <form
