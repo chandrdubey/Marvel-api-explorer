@@ -55,9 +55,11 @@ body {
 }
 .marginPage{
   margin-top: 20px;
+  padding: 0;
 }
 .margin-top{
   margin-top: 100px;
+  
 }
 #header h1{
   font-weight: 700;
@@ -115,14 +117,13 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
 }
-/* .card-body{
-  background-color:#2e2c2c ;
+.card-body{
   color: #ffffff;
-  
   transition: 0.5s;
-} */
+  outline: none;
+}
 .card:hover{
- background: #a80b0b;
+ background-color: #a80b0b;
 }
 .card-img{
   overflow: hidden; 
@@ -132,6 +133,9 @@ body {
   height: 200px;
   background-color:#a80b0b ; 
   transition: 0.4s;
+}
+.card-len{
+  margin:3.5px;
 }
 /*  -ms-transform: scale(1.5); /* IE 9 */
   /* -webkit-transform: scale(1.5); Safari 3-8 */
@@ -205,6 +209,7 @@ body {
   width: 320px;
   transition: 0.3s;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
   background: #a80b0b;
 }
 .page-image:hover {
@@ -259,7 +264,7 @@ hr{
 /* Form */
 
 .form-style{
-  width: 30%;
+  width: 20rem;
   justify-content: center;
   margin-top: 1rem;
   padding: 1rem;
@@ -353,9 +358,12 @@ h4 {
 .auth a{
   color: #a80b0b;;
 }
-a{
-  outline: none;
+.form-auth{
+  width: 300px;
 }
+/* a{
+  outline: none;
+} */
 .fav-p p{
   font-weight: 600;
   color: #2e2c2c;
@@ -384,3 +392,18 @@ a{
   background-color: rgba(227, 235, 229, 0.69);
   border: 3px solid white;
 } */
+
+/* 404 Page */
+/* body {
+  background: #dedede;
+}
+.page-wrap {
+  min-height: 100vh;
+} */
+.marvel-page{
+  padding: 0;
+}
+.data-all-col{
+ 
+ 
+} 

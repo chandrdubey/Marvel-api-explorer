@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Charecters from "./components/CharectersComponet.js";
-import About from "./components/About";
 import Comics from "./components/ComicsComponent";
 import React, { Component } from "react";
 import RegisterComponent from "./components/RegisterComponent";
@@ -18,6 +17,7 @@ import {
   getFavComicsAction,
 } from "./actions/getDataAction";
 import FavouriteComponet from "./components/FavouriteComponet";
+import Page404 from "./components/404pageComponent"
 
 class App extends Component {
   componentDidMount() {
@@ -48,7 +48,7 @@ class App extends Component {
           <Route path="/comics" component={Comics} />
 
           {/* <Route  path ='/comics/:id'  component={ComicPage} /> */}
-          <Redirect to="/" />
+          <Redirect to="/404" component={Page404} />
         </Switch>
       </div>
     );

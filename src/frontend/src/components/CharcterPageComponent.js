@@ -108,14 +108,14 @@ class CharcterPageComponent extends Component {
           <div className="row set-row">
             <div className="col-10 mx-auto">
               <div className="row ">
-                <div className="col-5 charecter-image ">
+                <div className="col-lg-5 col-md-12 charecter-image ">
                   <img
                     src={image}
                     className="img-fluid page-image"
                     alt="charecter"
                   />
                 </div>
-                <div className="col-7 charecter-detail ">
+                <div className="col-lg-7 col-md-12 charecter-detail ">
                   <div className="">
                     <h3>
                       {this.props.charecter.name}

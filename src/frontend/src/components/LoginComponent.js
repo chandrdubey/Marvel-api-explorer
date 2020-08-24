@@ -47,9 +47,9 @@ import { loginUserAction } from '../actions/authAction';
         return (
             <div id ="header" className="container-fluid ">
         <div className="row">
-          <div className="col-10 mx-auto d-flex justify-content-center ">
-            
-            <form className="form-style " onSubmit ={this.handleOnSubmit}>
+          <div className="col-10 mx-auto  ">
+           
+            <form className="form-style mx-auto" onSubmit ={this.handleOnSubmit}>
               <h1>Log In</h1>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1"><h4>Email </h4></label>
@@ -85,6 +85,8 @@ import { loginUserAction } from '../actions/authAction';
               </div>
               
             </form>
+            
+           
           </div>
         </div>
       </div>

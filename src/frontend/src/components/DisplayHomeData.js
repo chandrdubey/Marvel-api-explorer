@@ -4,13 +4,13 @@ const DisplayHomeData = (props) => {
   let dataUrl = "/" + props.reqParams + "/";
 
   return (
-    <div className="row align-items-center text-center ">
+    <div className="row mx-auto align-items-center text-center ">
       {props.allData.length &&
         props.allData.map((data) => (
-          <div className="col-lg-2 col-md-4 col-sm-6" key={data.id}>
-            <Link to={dataUrl + data.id}>
-              <div key={data.id} className="">
-                <div className="card text-center">
+          <div className="mx-auto">
+            <Link to={dataUrl + data.id}  key={data.id}>
+           
+                <div className="card text-center mx-auto">
                   <div className="card-img">
                     <img src={data.image} className="card-img-top" alt="..." />
                   </div>
@@ -20,7 +20,6 @@ const DisplayHomeData = (props) => {
                     </div>
                   </div>
                 </div>
-              </div>
             </Link>
           </div>
         ))}

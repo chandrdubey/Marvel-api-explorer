@@ -83,11 +83,12 @@ class FavouriteComponet extends Component {
 
                 {this.state.favourite ? (
                   this.props.marvelData.favCharecters.length > 0 ? (
-                    <>
-                      <h3>My Favourite charecters</h3>
-                      <div className="row">
+                    <div>
+                    
+                      <div className="row mx-auto">
+                      <h3 className="col-12 ">My Favourite charecters</h3>
                         {this.props.marvelData.favCharecters.map((char) => (
-                          <div className="col-lg-2 col-md-4 col-sm-6"  key={char.charecter_id}>
+                          <div className="card-len"   key={char.charecter_id}>
                             <DisplayContent
                               data={char}
                              
@@ -96,7 +97,7 @@ class FavouriteComponet extends Component {
                           </div>
                         ))}
                       </div>
-                    </>
+                    </div>
                   ) : (
                     <>
                       <div className="text-center fav-p">
@@ -112,11 +113,12 @@ class FavouriteComponet extends Component {
                     </>
                   )
                 ) : this.props.marvelData.favComics.length > 0 ? (
-                  <>
-                    <h3>My Favourite comics</h3>
-                    <div className="row">
+                  <div >
+                   
+                    <div className="row mx-auto">
+                    <h3 className="col-12 ">My Favourite comics</h3>
                       {this.props.marvelData.favComics.map((comic) => (
-                        <div className="col-lg-2 col-md-4 col-sm-6"  key={comic.comic_id}>
+                        <div className="card-len"  key={comic.comic_id}>
                           <DisplayContent
                             data={comic}
                            
@@ -125,7 +127,7 @@ class FavouriteComponet extends Component {
                         </div>
                       ))}
                     </div>
-                  </>
+                    </div>
                 ) : (
                   <>
                     <div className=" fav-p text-center">
