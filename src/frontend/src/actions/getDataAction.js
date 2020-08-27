@@ -59,6 +59,7 @@ export const getCharectersSearchAction = (query) =>{
     return  (dispatch) =>{
         axios.get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&limit=100&${url}`)
         .then( (response) => {
+            console.log(response)
             dispatch({type:'SEARCH_CHARECTERS', payload:response.data.data.results});
         // handle success
     
@@ -79,8 +80,16 @@ export const getCharecterByIdAction = (id)=>{
     return (dispatch)=>{
         axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?${url}`)
         .then(response =>{
-             console.log(response.data.data.results[0]);
-             dispatch({type:'ONE_CHARECTER', payload:response.data.data.results[0]});
+            console.log(response.error);
+            console.log(`https://gateway.marvel.com:443/v1/public/characters/${id}?${url}`);
+            if(response.status===200){
+                console.log(response.data.data.results[0]);
+                dispatch({type:'ONE_CHARECTER', payload:response.data.data.results[0]});
+            }
+            else{
+                console.log("there are errors", response.status);
+            }
+            
         })
         .catch(error=>{
             console.log(error);

@@ -69,7 +69,7 @@ class CharecterComponent extends Component {
                 <h1>{title}</h1>
 
                 <form
-                  className="form-inline my-2 ml-2 "
+                  className="form-inline my-2 ml-2  "
                   onSubmit={this.handleSubmit}
                 >
                   <input
@@ -83,7 +83,7 @@ class CharecterComponent extends Component {
                 </form>
                 {this.props.isLoading ? (
                   <Spinner />
-                ) : (
+                ) : this.props.charecters.length>0 ?(
                   <>
                     <DisplayData allData={pageChar} reqParams="charecters" />
 
@@ -96,6 +96,8 @@ class CharecterComponent extends Component {
                       onChange={this.handlePageChange.bind(this)}
                     />
                   </>
+                ): (
+                  <h1 className="text-center">No result found</h1>
                 )}
               </div>
             </div>

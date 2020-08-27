@@ -115,7 +115,7 @@ class CharcterPageComponent extends Component {
                     alt="charecter"
                   />
                 </div>
-                <div className="col-lg-7 col-md-12 charecter-detail ">
+                <div className="col-lg-7 charecter-detail ">
                   <div className="">
                     <h3>
                       {this.props.charecter.name}
@@ -144,7 +144,7 @@ class CharcterPageComponent extends Component {
                         {this.props.charecter.name} featured in  comics ({total_comics})
                       </h3>
                       <hr />
-                      <ul>
+                      <ul className="char-page">
                         <MarvelPageItemComponent act ={1} comics={comics} />
                       </ul>
                     </div>)}

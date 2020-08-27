@@ -85,8 +85,8 @@ class FavouriteComponet extends Component {
                   this.props.marvelData.favCharecters.length > 0 ? (
                     <div>
                     
-                      <div className="row mx-auto">
-                      <h3 className="col-12 ">My Favourite charecters</h3>
+                      <div className="row content-row mx-auto">
+                      <h3 className="col-12 fav-heading  px-0">My Favourite charecters</h3>
                         {this.props.marvelData.favCharecters.map((char) => (
                           <div className="card-len"   key={char.charecter_id}>
                             <DisplayContent
@@ -115,8 +115,8 @@ class FavouriteComponet extends Component {
                 ) : this.props.marvelData.favComics.length > 0 ? (
                   <div >
                    
-                    <div className="row mx-auto">
-                    <h3 className="col-12 ">My Favourite comics</h3>
+                    <div className="row mx-auto content-row">
+                    <h3 className="col-12 px-0 fav-heading">My Favourite comics</h3>
                       {this.props.marvelData.favComics.map((comic) => (
                         <div className="card-len"  key={comic.comic_id}>
                           <DisplayContent

@@ -58,7 +58,7 @@ class ComicsComponent extends Component {
               <div className="col-10 mx-auto  marginPage">
                 <h1>{title}</h1>
                 <form
-                  className="form-inline my-2 my-lg-0"
+                  className="form-inline my-2 ml-2"
                   onSubmit={this.handleSubmit}
                 >
                   <input
@@ -72,7 +72,7 @@ class ComicsComponent extends Component {
                 </form>
                 {this.props.isLoading ? (
                   <Spinner />
-                ) : this.props.comics ? (
+                ) : this.props.comics.length>0 ? (
                   <>
                   <DisplayData allData={pageComic} reqParams="comics" />
                   <Pagination

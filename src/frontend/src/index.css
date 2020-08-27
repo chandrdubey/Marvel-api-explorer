@@ -135,7 +135,7 @@ body {
   transition: 0.4s;
 }
 .card-len{
-  margin:3.5px;
+  margin:3.6px;
 }
 /*  -ms-transform: scale(1.5); /* IE 9 */
   /* -webkit-transform: scale(1.5); Safari 3-8 */
@@ -237,7 +237,7 @@ body {
   color: #ffffff;
 }
 
-#header ul{
+.char-page{
   list-style-type: none;
   padding-left: 10px;
 }
@@ -298,6 +298,7 @@ h4 {
 .pagination{
    justify-content: center;
    margin-top: 10px;
+   padding-left: 0;
 }
 .pagination .active a {
   background-color: #a80b0b;
@@ -321,7 +322,7 @@ h4 {
 
 /* Home componet */
 .btn-more{
-  width: 200px;
+ margin-left: 20px;
 }
 /* Drop down */
 #dropdownMenuButton{
@@ -403,7 +404,30 @@ h4 {
 .marvel-page{
   padding: 0;
 }
-.data-all-col{
- 
- 
-} 
+.color-text{
+  color: #a80b0b;
+
+}
+@media (max-width: 690px) {
+.card{
+   margin: auto;
+   
+}
+.content-row{
+  justify-content: center;
+}
+.search-data{
+  margin-left: 10px;
+}
+.fav-heading{
+  margin-left:40px
+}
+.btn-more{
+
+  margin:10px 0;
+ }
+ .page-image{
+  height :350px;
+  width: 250px;
+ }
+}

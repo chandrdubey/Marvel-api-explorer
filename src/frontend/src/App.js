@@ -17,7 +17,7 @@ import {
   getFavComicsAction,
 } from "./actions/getDataAction";
 import FavouriteComponet from "./components/FavouriteComponet";
-import Page404 from "./components/404pageComponent"
+import Page404 from "./components/Page404Component"
 
 class App extends Component {
   componentDidMount() {
@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        {/* Switch matches the route one by one until it  matches the a route */}
+        {/* Switch matches the route one by one until it  matches a route */}
         <Switch>
           {/*Route provides the history in props so we  can redirect using props.history.push */}
           <Route path="/" exact component={Home} />
@@ -48,7 +48,7 @@ class App extends Component {
           <Route path="/comics" component={Comics} />
 
           {/* <Route  path ='/comics/:id'  component={ComicPage} /> */}
-          <Redirect to="/404" component={Page404} />
+          <Route to="/404" component={Page404} />
         </Switch>
       </div>
     );

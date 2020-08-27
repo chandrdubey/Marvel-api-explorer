@@ -2,7 +2,7 @@ import React from 'react'
 import DisplayContent from './DisplayContent';
 export default function DisplayData(props) {
     return (
-                <div className="row mx-auto">
+                <div className="row mx-auto content-row">
                  {
                   props.allData.length  && props.allData.map(data => 
                   
