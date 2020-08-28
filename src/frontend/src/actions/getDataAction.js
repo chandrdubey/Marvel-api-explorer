@@ -75,24 +75,30 @@ export const isLoadingAction = () =>{
         dispatch({type : 'LOADING'})
     }
 }
+
+export const setErrorFalseAction = () =>{
+    return (dispatch) => {
+        dispatch({type : 'SET_ERROR_FALSE'})
+    }
+}
 // Getting  charecter information from the marvel-api  by using this action
 export const getCharecterByIdAction = (id)=>{
     return (dispatch)=>{
         axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?${url}`)
         .then(response =>{
-            console.log(response.error);
+            console.log(response);
             console.log(`https://gateway.marvel.com:443/v1/public/characters/${id}?${url}`);
-            if(response.status===200){
+           
                 console.log(response.data.data.results[0]);
                 dispatch({type:'ONE_CHARECTER', payload:response.data.data.results[0]});
-            }
-            else{
-                console.log("there are errors", response.status);
-            }
+          
             
         })
         .catch(error=>{
-            console.log(error);
+            console.log(error.response);
+            dispatch({type:'PAGE_NOT_FOUND'});
+            dispatch({type : 'UNLOADING'});
+           
         })
 
     }
@@ -107,9 +113,11 @@ export const getComicByIdAction = (id)=>{
              dispatch({type:'ONE_COMIC', payload:response.data.data.results[0]});
         })
         .catch(error=>{
-            console.log(error);
+            console.log(error.response);
+            dispatch({type:'PAGE_NOT_FOUND'});
+            dispatch({type : 'UNLOADING'});
+           
         })
-
     }
   
 }

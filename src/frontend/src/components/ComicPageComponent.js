@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Spinner from "./Spinner";
 
-import { getComicByIdAction, isLoadingAction, addComicToFavAction, removeComicToFavAction } from "../actions/getDataAction";
+import { getComicByIdAction, setErrorFalseAction, isLoadingAction, addComicToFavAction, removeComicToFavAction } from "../actions/getDataAction";
+import Page404 from "./Page404Component";
 
 
 class ComicPageComponent extends Component {
@@ -33,6 +34,9 @@ class ComicPageComponent extends Component {
        }
     }
   }
+  componentWillUnmount (){
+    this.props.setErrorFalse();
+   }
   handleFavourite = () => {
     if (!this.props.isLoggedIn) {
       this.props.history.push("/login");
@@ -68,6 +72,10 @@ class ComicPageComponent extends Component {
     this.props.removeComicToFav(userId, params.id);
   };
   render() {
+    if(this.props.pageNotFound)
+    {
+      return <Page404 />
+    }
     let image, knowMorUrl;
     let  publish, price, creators;
     if (!isEmpty(this.props.comic)) {
@@ -214,7 +222,8 @@ const mapStateToProps = (state) => {
     comic: state.marvelData.comic,
     isLoading: state.marvelData.isLoading,
     isLoggedIn: state.auth.isLoggedIn,
-    favComics:state.marvelData.favComics
+    favComics:state.marvelData.favComics,
+    pageNotFound:state.marvelData.pageNotFound
   }
 };
 const mapDispatchToProps = (dispatch) => {
@@ -222,8 +231,8 @@ const mapDispatchToProps = (dispatch) => {
     getComicById: (id) => dispatch(getComicByIdAction(id)),
     Loading: () => dispatch(isLoadingAction()),
     addComicFav : (userId,data)=> dispatch(addComicToFavAction(userId, data)),
-    removeComicToFav :(userId, comicId) => dispatch(removeComicToFavAction(userId, comicId))
-   
+    removeComicToFav :(userId, comicId) => dispatch(removeComicToFavAction(userId, comicId)),
+    setErrorFalse : ()=>dispatch( setErrorFalseAction())
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ComicPageComponent);

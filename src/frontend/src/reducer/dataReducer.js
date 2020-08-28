@@ -5,7 +5,8 @@ const initState = {
     charecter : {},
     comic : {},
     favCharecters :[],
-    favComics : []
+    favComics : [],
+    pageNotFound: false
 }
 const dataReducer = (state = initState, action) =>{
     switch (action.type)  {
@@ -77,7 +78,27 @@ const dataReducer = (state = initState, action) =>{
          
            }        
         }
-        
+        case 'UNLOADING' : {
+            return{
+                ...state,
+                isLoading : false
+          
+            }        
+        }
+        case 'PAGE_NOT_FOUND' :{
+            return{
+                ...state,
+                pageNotFound: true
+          
+            }    
+        }
+        case 'SET_ERROR_FALSE' :{
+            return{
+                ...state,
+                pageNotFound: false
+          
+            }    
+        }
         default : {
             return state
         }

@@ -26,10 +26,14 @@ class FavouriteComponet extends Component {
   };
   render() {
     let token = localStorage.getItem('token');
-    if(!token)
+    const {
+      match: { params },
+    } = this.props;
+    if(!token || this.props.auth.currentUser.id !== params.id )
     {
       return <Redirect to="/login" />
     }
+   
      
     return (
       <>
@@ -149,9 +153,10 @@ class FavouriteComponet extends Component {
     );
   }
 }
-const mapStateToProps = ({ marvelData }) => {
+const mapStateToProps = ({ marvelData,auth }) => {
   return {
     marvelData,
+    auth
   };
 };
 export default connect(mapStateToProps)(FavouriteComponet);

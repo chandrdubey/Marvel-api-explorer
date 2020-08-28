@@ -8,6 +8,11 @@ function Navbar(props) {
      props.dispatch(logOutUserAction());
      
   }
+  //  const userName;
+  //   if(this.props.auth.isLoggedIn)
+  //   {
+  //    userName =
+  //   }
   return (
     <>
       <div className="container">
@@ -57,6 +62,7 @@ function Navbar(props) {
                   </li>
                   {props.auth.isLoggedIn ? (
                     <>
+                       
                       <li className="nav-item">
                         <NavLink
                           activeClassName="menu_active"
@@ -65,6 +71,16 @@ function Navbar(props) {
                           to={`/users/${props.auth.currentUser.id}/favourites`}
                         >
                           Favourites
+                        </NavLink>
+                      </li>
+                      <li className="nav-item">
+                        <NavLink
+                          activeClassName="menu_active"
+                          className="nav-link"
+                          exact
+                          to={`/users/${props.auth.currentUser.id}/favourites`}
+                        >
+                          { props.auth.currentUser.name.split(' ')[0]}
                         </NavLink>
                       </li>
                       <li className="nav-item"  onClick = {handleLogOut}>

@@ -48,7 +48,7 @@ class App extends Component {
           <Route path="/comics" component={Comics} />
 
           {/* <Route  path ='/comics/:id'  component={ComicPage} /> */}
-          <Route to="/404" component={Page404} />
+          <Route component={Page404} />
         </Switch>
       </div>
     );
