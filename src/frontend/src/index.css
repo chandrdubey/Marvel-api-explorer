@@ -12,6 +12,7 @@ body {
   height: 100%;
   z-index: 0;
 }
+
 /* NAVBAR */
 .navrow {
   background-color: #2e2c2c !important;
@@ -34,6 +35,10 @@ body {
   color : #ffffff !important;
   background-color: #ffffff;
  
+}
+.navbar p{
+  font-size: 1.3em;
+  text-transform: capitalize;
 }
 .navbar a{
   font-size: 1.3em;
@@ -124,9 +129,11 @@ body {
 }
 .card:hover{
  background-color: #a80b0b;
+ 
 }
 .card-img{
   overflow: hidden; 
+  
 }
 .card img{
   width: 100%;
@@ -212,11 +219,17 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 20px;
   background: #a80b0b;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .charecter-image img:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.1); 
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.09); 
+  
+ 
 }
 .charecter-detail{
   padding-left: 10px;
@@ -363,9 +376,9 @@ h4 {
 .form-auth{
   width: 300px;
 }
-/* a{
+a{
   outline: none;
-} */
+}
 .fav-p p{
   font-weight: 600;
   color: #2e2c2c;
@@ -427,7 +440,7 @@ h4 {
 
   margin:10px 0;
  }
- .page-image{
+ .charecter-image img{
   height :350px;
   width: 250px;
  }

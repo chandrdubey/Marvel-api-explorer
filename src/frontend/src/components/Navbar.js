@@ -73,7 +73,7 @@ function Navbar(props) {
                           Favourites
                         </NavLink>
                       </li>
-                      <li className="nav-item">
+                      {/* <li className="nav-item">
                         <NavLink
                           activeClassName="menu_active"
                           className="nav-link"
@@ -82,7 +82,7 @@ function Navbar(props) {
                         >
                           { props.auth.currentUser.name.split(' ')[0]}
                         </NavLink>
-                      </li>
+                      </li> */}
                       <li className="nav-item"  onClick = {handleLogOut}>
                         <NavLink
                           activeClassName="menu_active"

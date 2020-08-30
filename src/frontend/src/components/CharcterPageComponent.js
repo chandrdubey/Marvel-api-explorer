@@ -118,7 +118,7 @@ class CharcterPageComponent extends Component {
                 <div className="col-lg-5 col-md-12 charecter-image ">
                   <img
                     src={image}
-                    className="img-fluid page-image"
+                    className="img-fluid"
                     alt="charecter"
                   />
                 </div>
@@ -161,7 +161,7 @@ class CharcterPageComponent extends Component {
                         {this.props.charecter.name} featured in series ({series.available})
                       </h3>
                       <hr />
-                      <ul>
+                      <ul className="char-page">
                         <MarvelPageItemComponent comics={series.items} />
                       </ul>
                     </div>) }

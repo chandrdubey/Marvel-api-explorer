@@ -123,7 +123,7 @@ class ComicPageComponent extends Component {
                     <div className="col-md-10 col-sm-9 data-title">
                       <h3>{this.props.comic.title} </h3>
                     </div>
-                    <div className="col-md-2  col-sm-3 ">
+                    <div className="col-md-2  col-sm-2 ">
                       {this.state.isFavourite ? (
                         <button
                           className="btn  fav-btn"

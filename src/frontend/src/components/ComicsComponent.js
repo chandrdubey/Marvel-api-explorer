@@ -47,6 +47,7 @@ class ComicsComponent extends Component {
   render() {
     window.scrollTo(0, 0);
     const title = "Marvel Comics List";
+    let total_page = Math.ceil(this.props.comics.length/this.state.dataPerPage)
     let indexLast = this.state.dataPerPage * this.state.activePage;
     let indexFirst = indexLast - this.state.dataPerPage;
      let pageComic = this.props.comics.slice(indexFirst, indexLast);
@@ -75,7 +76,8 @@ class ComicsComponent extends Component {
                 ) : this.props.comics.length>0 ? (
                   <>
                   <DisplayData allData={pageComic} reqParams="comics" />
-                  <Pagination
+                  {total_page !== 1 && (
+                    <Pagination
                       hideDisabled
                       activePage={this.state.activePage}
                       itemsCountPerPage={this.state.dataPerPage}
@@ -83,6 +85,8 @@ class ComicsComponent extends Component {
                       pageRangeDisplayed={5}
                       onChange={this.handlePageChange.bind(this)}
                     />
+                    )}
+               
                   </>
                 ) : (
                   <h1 className="text-center">No result found</h1>

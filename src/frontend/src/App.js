@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import { connect } from "react-redux";
 import Charecters from "./components/CharectersComponet.js";
 import Comics from "./components/ComicsComponent";

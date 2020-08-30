@@ -54,7 +54,8 @@ class CharecterComponent extends Component {
     window.scrollTo(0, 0);
 
     console.log(this.props.isLoading);
-
+    let total_page = Math.ceil(this.props.charecters.length/this.state.dataPerPage)
+    console.log(total_page);
     let title = "Marvel Charecters List";
     let indexLast = this.state.dataPerPage * this.state.activePage;
     let indexFirst = indexLast - this.state.dataPerPage;
@@ -86,15 +87,17 @@ class CharecterComponent extends Component {
                 ) : this.props.charecters.length>0 ?(
                   <>
                     <DisplayData allData={pageChar} reqParams="charecters" />
-
-                    <Pagination
+                   {
+                     total_page !== 1 && ( <Pagination
                       hideDisabled
                       activePage={this.state.activePage}
                       itemsCountPerPage={this.state.dataPerPage}
                       totalItemsCount={this.props.charecters.length}
                       pageRangeDisplayed={5}
                       onChange={this.handlePageChange.bind(this)}
-                    />
+                    />)
+                   }
+                   
                   </>
                 ): (
                   <h1 className="text-center">No result found</h1>
