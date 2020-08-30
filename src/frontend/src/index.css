@@ -15,10 +15,10 @@ body {
 
 /* NAVBAR */
 .navrow {
-  background-color: #2e2c2c !important;
+  background-color: #1f1b1b !important;
 }
 .navbar{
-  background-color: #2e2c2c !important;
+  background-color: #1f1b1b !important;
   width: 100%;
  padding-left: 7rem;
  padding-right: 7rem;
@@ -84,7 +84,7 @@ body {
   width: 40%;
   border:none;
   margin-bottom: 10px;
-  border-bottom: 2px solid #2e2c2c;
+  border-bottom: 2px solid #1f1b1b;
   background-color:  rgb(228, 228, 228);
   text-decoration: none;
   transition: 0.5s;
@@ -106,16 +106,18 @@ body {
   color: #a80b0b;
   transition: 0.5s;
   text-decoration: none;
+  margin-bottom:5px;
 }
 .btn-get-started:hover{
   background-color:#a80b0b !important ;
 }
 /* Card  */
 .card{
-  background-color:#2e2c2c ;
+  background-color:#1f1b1b ;
   color: #ffffff;
   overflow: hidden; 
   transition: 0.3s;
+  border-radius: 5%;
   width: 180px;
   height: 320px;
   margin-bottom: 10px;
@@ -235,8 +237,9 @@ body {
   padding-left: 10px;
   padding-top: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #2e2c2c;
+  background-color: #2b2626;
   border-radius: 2%;
+  margin-bottom: 10px;
 }
  h3{
   color:#a80b0b;
@@ -249,6 +252,7 @@ body {
 .know-more-btn{
   background-color: #a8a8a8 ;
   color: #ffffff;
+ 
 }
 
 .char-page{
@@ -325,7 +329,7 @@ h4 {
   color: #fff;
   float: left;
   padding: 8px 16px;
-  background:#2e2c2c ;
+  background:#1f1b1b ;
   text-decoration: none;
   transition: background-color .3s;
  
@@ -347,7 +351,7 @@ h4 {
 }
 
 .dropdown-menu{
-  background: #2e2c2c ;
+  background: #1f1b1b ;
 }
 
 .dropdown-item:hover{
@@ -378,10 +382,11 @@ h4 {
 }
 a{
   outline: none;
+  text-decoration: none;
 }
 .fav-p p{
   font-weight: 600;
-  color: #2e2c2c;
+  color: #1f1b1b;
 }
 
 /* Swal style */
@@ -434,7 +439,8 @@ a{
   margin-left: 10px;
 }
 .fav-heading{
-  margin-left:40px
+ 
+  text-align: center;
 }
 .btn-more{
 
