@@ -1,11 +1,8 @@
-marvel api explorer by using marvel api
-<h1 align="center"> Agrimart </h1>
-<p align="center">http://agrimart.tech/</p><br>
-<p align="center">
+
+
   <a href="http://agrimart.tech">
-    <img alt="Agrimart" title="Agrimart" src="https://www.pinclipart.com/picdir/big/141-1414730_flower-stem-template-1-buy-clip-art-seedling.png" width="150">
+    <img alt="marvel" title="marvel" src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvel-logo-card-1560x876_2.jpg" width="150">
   </a>
-</p>
 
 <p align="center">
   Ecommerce Web App Based on MERN Stack, Hosted on AWS EC2.
