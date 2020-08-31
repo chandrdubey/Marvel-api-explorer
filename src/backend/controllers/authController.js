@@ -84,13 +84,14 @@ module.exports = {
     //checkking if email exist or not
     const user = await User.findOne({ email: req.body.email }).populate('favcharecters').exec();
     console.log(user);
-    console.log(user.populated());
+    
     if (!user) {
       return res.json({
         status: 404,
         message: "Email does not exist",
       });
     }
+    console.log(user.populated());
     //checking password
 
     const validPassword = await bcrypt.compare(

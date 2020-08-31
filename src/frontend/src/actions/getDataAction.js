@@ -1,17 +1,11 @@
 import axios from 'axios'
-import CryptoJS from 'crypto-js'
+import marvel from '../api-config/apiConfig'
 
-
-
-let ts = new Date().getTime();
-let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
-let url = `ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
-// let hash = CryptoJS.MD5(ts + process.env.MARVEL_API_PRIVATE_KEY + process.env.MARVEL_API_PUBLIC_KEY).toString();
-// let url = `ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
 export const getCharectersAction = () => {
     return (dispatch) =>{
         console.log(process.env.MARVEL_API_PRIVATE_KEY);
-        axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&${url}`)
+        console.log(marvel.marvelKey)
+        axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&${marvel.marvelKey}`)
         .then( (response) => {
             dispatch({type:'ALL_CHARECTERS', payload:response.data.data.results});
         // handle success
@@ -27,7 +21,7 @@ export const getCharectersAction = () => {
 
 export const getComicsAction = () => {
   return (dispatch) =>{
-      axios.get(`https://gateway.marvel.com:443/v1/public/comics?orderBy=title&limit=100&${url}`)
+      axios.get(`https://gateway.marvel.com:443/v1/public/comics?orderBy=title&limit=100&${marvel.marvelKey}`)
       .then( (response) => {
           dispatch({type:'ALL_COMICS', payload:response.data.data.results});
       // handle success
@@ -42,7 +36,7 @@ export const getComicsAction = () => {
 
 export const getComicsSearchAction = (query) =>{
     return  (dispatch) =>{
-        axios.get(`https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${query}&limit=100&${url}`)
+        axios.get(`https://gateway.marvel.com:443/v1/public/comics?titleStartsWith=${query}&limit=100&${marvel.marvelKey}`)
         .then( (response) => {
             dispatch({type:'SEARCH_COMICS', payload:response.data.data.results});
         // handle success
@@ -57,7 +51,7 @@ export const getComicsSearchAction = (query) =>{
 
 export const getCharectersSearchAction = (query) =>{ 
     return  (dispatch) =>{
-        axios.get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&limit=100&${url}`)
+        axios.get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${query}&limit=100&${marvel.marvelKey}`)
         .then( (response) => {
             console.log(response)
             dispatch({type:'SEARCH_CHARECTERS', payload:response.data.data.results});
@@ -84,10 +78,10 @@ export const setErrorFalseAction = () =>{
 // Getting  charecter information from the marvel-api  by using this action
 export const getCharecterByIdAction = (id)=>{
     return (dispatch)=>{
-        axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?${url}`)
+        axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?${marvel.marvelKey}`)
         .then(response =>{
             console.log(response);
-            console.log(`https://gateway.marvel.com:443/v1/public/characters/${id}?${url}`);
+            console.log(`https://gateway.marvel.com:443/v1/public/characters/${id}?${marvel.marvelKey}`);
            
                 console.log(response.data.data.results[0]);
                 dispatch({type:'ONE_CHARECTER', payload:response.data.data.results[0]});
@@ -107,7 +101,7 @@ export const getCharecterByIdAction = (id)=>{
 // Getting favourite charecters of user by this action
 export const getComicByIdAction = (id)=>{
     return (dispatch)=>{
-        axios.get(`https://gateway.marvel.com:443/v1/public/comics/${id}?${url}`)
+        axios.get(`https://gateway.marvel.com:443/v1/public/comics/${id}?${marvel.marvelKey}`)
         .then(response =>{
              console.log(response.data.data.results[0]);
              dispatch({type:'ONE_COMIC', payload:response.data.data.results[0]});

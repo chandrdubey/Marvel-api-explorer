@@ -7,7 +7,7 @@ import { BrowserRouter as Router}  from 'react-router-dom'
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux' //Provider provides the redux store to react 
 import rootReducer from './reducer/rootReducer'
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk' //beacuse of thunk we can use dispatch as a function so we can perform promises in it
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 

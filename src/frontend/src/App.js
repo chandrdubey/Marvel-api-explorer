@@ -28,9 +28,11 @@ class App extends Component {
       this.props.getFavCharecters(user.id);
       this.props.getFavComics(user.id);
     }
+   
   }
 
   render() {
+    
     return (
       <div className="App">
         <Navbar />

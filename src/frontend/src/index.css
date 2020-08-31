@@ -31,11 +31,7 @@ body {
 .navbar-brand img{
   width:  90px;
 }
-.navbar-brand:hover{
-  color : #ffffff !important;
-  background-color: #ffffff;
- 
-}
+
 .navbar p{
   font-size: 1.3em;
   text-transform: capitalize;
@@ -290,6 +286,7 @@ hr{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 1;
   border-radius: 10%;
+  
 }
 /* Comic page */
 h4 {
@@ -437,6 +434,7 @@ a{
 }
 .search-data{
   margin-left: 10px;
+  justify-self: center;
 }
 .fav-heading{
  
