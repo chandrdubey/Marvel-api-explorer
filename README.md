@@ -1,11 +1,11 @@
 
-
+<p align="center">
   <a href="http://agrimart.tech">
     <img alt="marvel" title="marvel" src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvel-logo-card-1560x876_2.jpg" width="150">
   </a>
-
+</p>
 <p align="center">
-  Ecommerce Web App Based on MERN Stack, Hosted on AWS EC2.
+  Marvel api explorer based on MERN stack 
 </p>
 
 <p align="center">
@@ -44,46 +44,28 @@ Welcome to Agrimart, your number one source for all your agricultural needs. We'
       <td width="25%" align="center">
         <span> <b>Node JS</b> </span><br><br>
         <img height="50px" src="https://cdn.svgporn.com/logos/nodejs.svg">
-      </td>
-      <td width="25%" align="center">
-        <span> <b>HAPI JS</b> </span><br><br>
-        <img height="50px" src="https://cdn.svgporn.com/logos/hapi.svg">
-      </td>
-      <td width="25%" align="center">
-        <span> <b>JQuery</b> </span><br><br>
-        <img height="36px" src="https://cdn.svgporn.com/logos/jquery.svg">
-      </td>
+      </td>    
       <td width="25%" align="center">
         <span> <b>MongoDB</b> </span><br><br>
         <img height="30px" src="https://cdn.svgporn.com/logos/mongodb.svg">
       </td>
-    </tr>
-    <tr valign="top">
       <td width="25%" align="center">
         <span> <b>Express JS</b> </span><br><br>
         <img height="36px" src="https://cdn.svgporn.com/logos/express.svg">
       </td>
-      <td width="25%" align="center">
+       <td width="25%" align="center">
         <span><b> Json WebToken </b></span><br><br>
         <img height="46px" src="https://vegibit.com/wp-content/uploads/2018/07/JSON-Web-Token-Authentication-With-Node.png">
       </td>
+    </tr>
+    <tr valign="top">
       <td width="25%" align="center">
         <span> <b>Passport JS</b> </span><br><br>
         <img height="64px" src="https://cdn.svgporn.com/logos/passport.svg">
       </td>
       <td width="25%" align="center">
-        <span> <b>Stripe Payments</b> </span><br><br>
-        <img height="40px" src="https://cdn.svgporn.com/logos/stripe.svg">
-      </td>
-    </tr>
-    <tr valign="top">
-      <td width="25%" align="center">
         <span> <b>VS Code</b> </span><br><br>
         <img height="64px" src="https://cdn.svgporn.com/logos/visual-studio-code.svg">
-      </td>
-      <td width="25%" align="center">
-        <span> <b>Moment JS</b> </span><br><br>
-        <img height="64px" src="https://cdn.svgporn.com/logos/momentjs.svg">
       </td>
       <td width="25%" align="center">
         <span> <b>React</b> </span><br><br>
@@ -95,41 +77,16 @@ Welcome to Agrimart, your number one source for all your agricultural needs. We'
       </td>
     </tr>
     <tr valign="top">
-      <td width="25%" align="center">
+       <td width="25%" align="center">
         <span> <b>Redux</b> </span><br><br>
         <img height="64px" src="https://cdn.svgporn.com/logos/redux.svg">
       </td>
       <td width="25%" align="center">
-        <span> <b>HTML</b> </span><br><br>
-        <img height="64px" src="https://cdn.svgporn.com/logos/html-5.svg">
-      </td>
-      <td width="25%" align="center">
-        <span> <b>CSS</b> </span><br><br>
-        <img height="64px" src="https://cdn.svgporn.com/logos/css-3.svg">
-      </td>
-      <td width="25%" align="center">
-        <span> <b>JavaScript</b> </span><br><br>
-        <img height="64px" src="https://cdn.svgporn.com/logos/javascript.svg">
-      </td>
-    </tr>
-    <tr valign="top">
-      <td width="25%" align="center">
         <span> <b>GIT</b></span><br><br>
         <img height="64px" src="https://cdn.svgporn.com/logos/git-icon.svg">
       </td>
-      <td width="25%" align="center">
-        <span> <b>WebPack</b> </span><br><br>
-        <img height="64px" src="https://cdn.svgporn.com/logos/webpack.svg">
-      </td>
-      <td width="25%" align="center">
-        <span> <b>AWS EC2</b> </span><br><br>
-        <img height="64px" src="https://cdn.svgporn.com/logos/aws-ec2.svg">
-      </td>
-      <td width="25%" align="center">
-        <span> <b>AWS</b> </span><br><br>
-        <img height="64px" src="https://cdn.svgporn.com/logos/aws.svg">
-      </td>
     </tr>
+    
   </tbody>
 </table>
 
