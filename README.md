@@ -13,15 +13,6 @@
 </p>
 <br/>
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Contributors](#contributors)
-- [Development](#development)
-- [Component Structure](#component-structure)
-<br/>
-
 ## Introduction
 
 [![Build Status](https://img.shields.io/badge/Build-Success-brightgreen)](success)
