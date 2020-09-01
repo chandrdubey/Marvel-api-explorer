@@ -7,7 +7,7 @@ const DisplayHomeData = (props) => {
     <div className="row mx-auto content-row align-items-center  ">
       {props.allData.length &&
         props.allData.map((data) => (
-          <div className="card-len" key={data.id}>
+          <div className="card-len " key={data.id}>
             <Link to={dataUrl + data.id}>
               <div className="card text-center">
                 <div className="card-img">

@@ -2,7 +2,7 @@ const express = require('express');
 const app     =  express();
 const passport = require('passport');
 const db  = require('./src/backend/config/mongoose');  // get mongoose configratuiton
-const passportLocal =require("./src/backend/config/passport_local_strategy");
+// const passportLocal =require("./src/backend/config/passport_local_strategy");
 const passportJwt = require("./src/backend/config/passport-jwt-strategy");
 
 require('dotenv').config();

@@ -54,9 +54,13 @@ body {
   margin-top:71px ;
  
 }
+.container-page{
+  padding:0 8.2vw 
+}
 .marginPage{
   margin-top: 20px;
   padding: 0;
+ 
 }
 .margin-top{
   margin-top: 100px;
@@ -86,7 +90,7 @@ body {
   transition: 0.5s;
 }
 .search-data:focus {
-  width: 90%;
+  width: 80%;
   border-bottom: 2px solid #700707;
   border-color: #a80b0b;
   outline: none;
@@ -282,10 +286,11 @@ hr{
   justify-content: center;
   margin-top: 1rem;
   padding: 1rem;
-  border:1px solid #a80b0b;
+  /* border:1px solid #a80b0b; */
+  background-color: rgb(189, 189, 189);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 1;
-  border-radius: 10%;
+  
   
 }
 /* Comic page */
@@ -429,21 +434,27 @@ a{
    margin: auto;
    
 }
-.content-row{
-  justify-content: center;
+/* .content-row{
+  /* justify-content: center; */
+/* } */ 
+.container-page{
+  padding: 0 9px
 }
-.search-data{
-  margin-left: 10px;
-  justify-self: center;
+/* .form-search{
+ 
+ 
+} */
+.marginPage{
+  width: 100%;
 }
 .fav-heading{
  
   text-align: center;
 }
-.btn-more{
+/* .btn-more{
 
   margin:10px 0;
- }
+ } */
  .charecter-image img{
   height :350px;
   width: 250px;

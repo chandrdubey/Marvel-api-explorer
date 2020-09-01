@@ -11,7 +11,6 @@ import Spinner from "./Spinner";
 //import Pagination from "./Pagination";
 import Pagination from "react-js-pagination";
 
-
 // let ts = new Date().getTime();
 // let hash = CryptoJS.MD5(ts + '2dafafc5122792c3486bddeb1fe227aab1dd0def' + 'ee182f248ccfa43f509148540e539433').toString();
 // let url = `?ts=${ts}&apikey=ee182f248ccfa43f509148540e539433&hash=${hash}`
@@ -27,8 +26,6 @@ class CharecterComponent extends Component {
   }
 
   componentDidMount() {
-    
-
     this.props.Loading();
     this.props.getAllCharecters();
   }
@@ -54,7 +51,9 @@ class CharecterComponent extends Component {
     window.scrollTo(0, 0);
 
     console.log(this.props.isLoading);
-    let total_page = Math.ceil(this.props.charecters.length/this.state.dataPerPage)
+    let total_page = Math.ceil(
+      this.props.charecters.length / this.state.dataPerPage
+    );
     console.log(total_page);
     let title = "Marvel Charecters List";
     let indexLast = this.state.dataPerPage * this.state.activePage;
@@ -64,13 +63,13 @@ class CharecterComponent extends Component {
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
-          <div className="container-fluid nav_bg ">
-            <div className="row">
-              <div className=" col-10 mx-auto text-sm-left marginPage">
+          <div className="container-fluid nav_bg container-page ">
+            {/* <div className="row"> */}
+              <div className="  mx-auto text-sm-left marginPage">
                 <h1>{title}</h1>
 
                 <form
-                  className="form-inline my-2 ml-2  "
+                  className="form-inline my-2 ml-2 form-search  "
                   onSubmit={this.handleSubmit}
                 >
                   <input
@@ -84,27 +83,26 @@ class CharecterComponent extends Component {
                 </form>
                 {this.props.isLoading ? (
                   <Spinner />
-                ) : this.props.charecters.length>0 ?(
+                ) : this.props.charecters.length > 0 ? (
                   <>
                     <DisplayData allData={pageChar} reqParams="charecters" />
-                   {
-                     total_page !== 1 && ( <Pagination
-                      hideDisabled
-                      activePage={this.state.activePage}
-                      itemsCountPerPage={this.state.dataPerPage}
-                      totalItemsCount={this.props.charecters.length}
-                      pageRangeDisplayed={5}
-                      onChange={this.handlePageChange.bind(this)}
-                    />)
-                   }
-                   
+                    {total_page !== 1 && (
+                      <Pagination
+                        hideDisabled
+                        activePage={this.state.activePage}
+                        itemsCountPerPage={this.state.dataPerPage}
+                        totalItemsCount={this.props.charecters.length}
+                        pageRangeDisplayed={5}
+                        onChange={this.handlePageChange.bind(this)}
+                      />
+                    )}
                   </>
-                ): (
+                ) : (
                   <h1 className="text-center">No result found</h1>
                 )}
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </section>
       </>
     );

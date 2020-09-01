@@ -9,9 +9,9 @@ class HomeComponent extends Component {
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
-          <div className="container-fluid nav_bg ">
-            <div className="row">
-              <div className="col-10 mx-auto marginPage">
+          <div className="container-fluid nav_bg container-page">
+           
+              <div className="mx-auto marginPage">
                 <div>
                   <h1>Marvel Charecters</h1>
                   <DisplayHomeData
@@ -29,7 +29,7 @@ class HomeComponent extends Component {
                 </div>
               </div>
             </div>
-          </div>
+         
         </section>
       </>
     );
