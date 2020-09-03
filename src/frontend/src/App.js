@@ -42,7 +42,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/charecters" exact component={Charecters} />
          
-          <Route path="/charecters/:id" component={CharecterPage} />
+          <Route path="/charecters/:id" exact component={CharecterPage} />
           <Route path="/signup" component={RegisterComponent} />
           <Route path="/users/:id/favourites" component={FavouriteComponet} />
           <Route path="/comics/:id" component={ComicPage} />

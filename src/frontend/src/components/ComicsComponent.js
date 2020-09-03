@@ -54,23 +54,18 @@ class ComicsComponent extends Component {
     return (
       <>
         <section id="header" className=" d-flex align-items-center">
-          <div className="container-fluid nav_bg container-page">
+          <div className="container-fluid nav_bg container-page ">
            
               <div className="mx-auto  marginPage">
                 <h1>{title}</h1>
-                <form
-                  className="form-inline my-2 ml-2"
-                  onSubmit={this.handleSubmit}
-                >
-                  <input
-                    className="search-data"
-                    type="search"
-                    onChange={this.handleChange}
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  {/* <button className="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button> */}
-                </form>
+               
+      {/* <!-- Actual search  box --> */}
+     
+        <form class="form-group has-search"  onSubmit={this.handleSubmit}>
+       <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control shadow " placeholder="Search"  onChange={this.handleChange} />
+     </form>
+     
                 {this.props.isLoading ? (
                   <Spinner />
                 ) : this.props.comics.length>0 ? (
@@ -84,6 +79,7 @@ class ComicsComponent extends Component {
                       totalItemsCount={this.props.comics.length}
                       pageRangeDisplayed={5}
                       onChange={this.handlePageChange.bind(this)}
+                     
                     />
                     )}
                

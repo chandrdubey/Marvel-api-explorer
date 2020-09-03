@@ -4,7 +4,7 @@ const DisplayHomeData = (props) => {
   let dataUrl = "/" + props.reqParams + "/";
 
   return (
-    <div className="row mx-auto content-row align-items-center  ">
+    <div className="row  content-row align-items-center  ">
       {props.allData.length &&
         props.allData.map((data) => (
           <div className="card-len " key={data.id}>
@@ -12,11 +12,18 @@ const DisplayHomeData = (props) => {
               <div className="card text-center">
                 <div className="card-img">
                   <img src={data.image} className="card-img-top" alt="..." />
+                  {/* <div className="card-img-overlay text-right p-0">
+                  <i className="fa fa-heart"></i>
+                  </div> */}
                 </div>
-                <div className="card-body">
+                <div className="card-body ">
+                {/* <div className="text-right p-0">
+                  <i className="fa fa-heart"></i>
+                  </div>  */}
                   <div className="card-title">
-                    {data.name ? data.name : data.title}
+                    {data.name ? data.name : data.title} 
                   </div>
+
                 </div>
               </div>
             </Link>

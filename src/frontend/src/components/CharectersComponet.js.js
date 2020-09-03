@@ -65,43 +65,41 @@ class CharecterComponent extends Component {
         <section id="header" className=" d-flex align-items-center">
           <div className="container-fluid nav_bg container-page ">
             {/* <div className="row"> */}
-              <div className="  mx-auto text-sm-left marginPage">
-                <h1>{title}</h1>
-
-                <form
-                  className="form-inline my-2 ml-2 form-search  "
-                  onSubmit={this.handleSubmit}
-                >
-                  <input
-                    className="search-data "
-                    type="search"
-                    onChange={this.handleChange}
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  {/* <button className="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button> */}
-                </form>
-                {this.props.isLoading ? (
-                  <Spinner />
-                ) : this.props.charecters.length > 0 ? (
-                  <>
-                    <DisplayData allData={pageChar} reqParams="charecters" />
-                    {total_page !== 1 && (
-                      <Pagination
-                        hideDisabled
-                        activePage={this.state.activePage}
-                        itemsCountPerPage={this.state.dataPerPage}
-                        totalItemsCount={this.props.charecters.length}
-                        pageRangeDisplayed={5}
-                        onChange={this.handlePageChange.bind(this)}
-                      />
-                    )}
-                  </>
-                ) : (
-                  <h1 className="text-center">No result found</h1>
-                )}
-              </div>
+            <div className="  mx-auto text-sm-left marginPage">
+              <h1 >{title}</h1>
+             
+     
+      {/* <!-- Actual search  box --> */}
+      <div className=" ">
+        <form class="form-group has-search "  onSubmit={this.handleSubmit}>
+       <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control shadow" placeholder="Search"  onChange={this.handleChange} />
+     </form>
+      </div>
+  
+             
+         
+              {this.props.isLoading ? (
+                <Spinner />
+              ) : this.props.charecters.length > 0 ? (
+                <>
+                  <DisplayData allData={pageChar} reqParams="charecters" />
+                  {total_page !== 1 && (
+                    <Pagination
+                      hideDisabled
+                      activePage={this.state.activePage}
+                      itemsCountPerPage={this.state.dataPerPage}
+                      totalItemsCount={this.props.charecters.length}
+                      pageRangeDisplayed={5}
+                      onChange={this.handlePageChange.bind(this)}
+                    />
+                  )}
+                </>
+              ) : (
+                <h1 className="text-center">No result found</h1>
+              )}
             </div>
+          </div>
           {/* </div> */}
         </section>
       </>

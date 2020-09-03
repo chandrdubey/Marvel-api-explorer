@@ -27,6 +27,7 @@ body {
   font-size: 1.9em !important ;
   color: #a80b0b !important;
   transition: 0.3s;
+  padding: 0;
 }
 .navbar-brand img{
   width:  90px;
@@ -37,7 +38,7 @@ body {
   text-transform: capitalize;
 }
 .navbar a{
-  font-size: 1.3em;
+  font-size: 1.2em;
   text-transform: capitalize;
 }
 .navbar a:hover{
@@ -51,7 +52,7 @@ body {
 
 #header {
   width: 100%;
-  margin-top:71px ;
+  margin-top:60px ;
  
 }
 .container-page{
@@ -63,7 +64,7 @@ body {
  
 }
 .margin-top{
-  margin-top: 100px;
+  margin-top: 70px;
   
 }
 #header h1{
@@ -80,20 +81,24 @@ body {
   font-size: 24px;
 }
 
-.search-data{
+.form-search input{
   width: 40%;
-  border:none;
+  background-image: url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-512.png');
+  background-position: 0px 0px; 
+  background-repeat: no-repeat;
+  border-radius: 50px;
   margin-bottom: 10px;
-  border-bottom: 2px solid #1f1b1b;
-  background-color:  rgb(228, 228, 228);
+  /* background-color:  rgb(228, 228, 228); */
   text-decoration: none;
   transition: 0.5s;
 }
-.search-data:focus {
+.form-search input:focus {
   width: 80%;
-  border-bottom: 2px solid #700707;
-  border-color: #a80b0b;
-  outline: none;
+  /* border-bottom: 2px solid #700707; */
+  /* border-color: inherit; */
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border:none
 }
 
 #header .btn-get-started{
@@ -117,7 +122,7 @@ body {
   color: #ffffff;
   overflow: hidden; 
   transition: 0.3s;
-  border-radius: 5%;
+  border-radius: 4%;
   width: 180px;
   height: 320px;
   margin-bottom: 10px;
@@ -266,7 +271,7 @@ hr{
 .set-row{
   padding-top: 20px;
   background: rgba(0, 0, 0, 0.5);
-  min-height: 555px;
+  min-height: 565px;
 }
 /* Favourite Button */
 .fav-btn{
@@ -287,7 +292,7 @@ hr{
   margin-top: 1rem;
   padding: 1rem;
   /* border:1px solid #a80b0b; */
-  background-color: rgb(189, 189, 189);
+  background-color: rgb(170, 170, 170);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 1;
   
@@ -437,19 +442,15 @@ a{
 /* .content-row{
   /* justify-content: center; */
 /* } */ 
-.container-page{
+/* .container-page{
   padding: 0 9px
-}
+} */
 /* .form-search{
  
  
 } */
 .marginPage{
   width: 100%;
-}
-.fav-heading{
- 
-  text-align: center;
 }
 /* .btn-more{
 
@@ -470,7 +471,7 @@ height: 100%;
  background-repeat: no-repeat;
  background-size: cover;
  width: 100%;
- margin-top: 70px;
+ margin-top: 60px;
 }
 .error-text{
   background: rgba(0, 0, 0, 0.7);
@@ -478,4 +479,40 @@ height: 100%;
 }
 .lead{
   color: #fff;
+}
+
+.content-row{
+  justify-content: center;
+}
+
+
+/*  */
+.has-search .form-control {
+  padding-left: 2.375rem;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  width: 40%;
+  transition: 0.4s;
+  justify-self: center;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: rgb(26, 23, 23);
+  
+}
+.has-search .form-control:focus {
+  width: 100%;
+  /* border-bottom: 2px solid #700707; */
+  /* border-color: inherit; */
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border:none
 }

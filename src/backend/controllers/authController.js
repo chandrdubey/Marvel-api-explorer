@@ -82,7 +82,7 @@ module.exports = {
       });
     }
     //checkking if email exist or not
-    const user = await User.findOne({ email: req.body.email }).populate('favcharecters').exec();
+    const user = await User.findOne({ email: req.body.email }).populate('favcharecters').populate('favcomics').exec();
     console.log(user);
     
     if (!user) {
@@ -118,8 +118,8 @@ module.exports = {
           email: user.email,
           name: user.name,
         },
-        favcharecters: user.favcharecters,
-        favcomics:   user.favcomics
+         favcharecters: user.favcharecters,
+         favcomics:   user.favcomics
       },
     });
 

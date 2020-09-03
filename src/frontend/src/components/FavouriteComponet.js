@@ -44,10 +44,7 @@ class FavouriteComponet extends Component {
                 <div className="row">
                   <div className="col-6">
                     <h1>My Favourite List</h1>
-                    {/* <DisplayHomeData
-                    allData={marvel.marvelCharecters}
-                    reqParams="charecters"
-                  /> */}
+                   
                   </div>
                   <div className="col-6 text-center">
                     <div className="dropdown">
@@ -90,7 +87,7 @@ class FavouriteComponet extends Component {
                     <div>
                     
                       <div className="row content-row mx-auto">
-                      <h3 className="col-12 fav-heading  px-0">My Favourite charecters</h3>
+                      <h3 className="col-12 text-center  px-0">My Favourite charecters</h3>
                         {this.props.marvelData.favCharecters.map((char) => (
                           <div className="card-len"   key={char.charecter_id}>
                             <DisplayContent
@@ -120,7 +117,7 @@ class FavouriteComponet extends Component {
                   <div >
                    
                     <div className="row mx-auto content-row">
-                    <h3 className="col-12 px-0 fav-heading">My Favourite comics</h3>
+                    <h3 className="col-12 px-0  text-center">My Favourite comics</h3>
                       {this.props.marvelData.favComics.map((comic) => (
                         <div className="card-len"  key={comic.comic_id}>
                           <DisplayContent

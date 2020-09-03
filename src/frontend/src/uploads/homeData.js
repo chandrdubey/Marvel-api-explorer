@@ -26,21 +26,21 @@ const marvelCharecters = [
     image: "http://i.annihil.us/u/prod/marvel/i/mg/2/60/537bcaef0f6cf.jpg",
     name: "Wolverine",
   },
-  {
-    id: 1009351,
-    image: "http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0.jpg",
-    name: "Hulk",
-  },
-  {
-    id: 1010788,
-    image: "http://i.annihil.us/u/prod/marvel/i/mg/5/50/531773a2ac20a.jpg",
-    name: "Venom (Mac Gargan)",
-  },
-  {
-    id: 1009220,
-    image: "http://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087.jpg",
-    name: "Captain America",
-  },
+  // {
+  //   id: 1009351,
+  //   image: "http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0.jpg",
+  //   name: "Hulk",
+  // },
+  // {
+  //   id: 1010788,
+  //   image: "http://i.annihil.us/u/prod/marvel/i/mg/5/50/531773a2ac20a.jpg",
+  //   name: "Venom (Mac Gargan)",
+  // },
+  // {
+  //   id: 1009220,
+  //   image: "http://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087.jpg",
+  //   name: "Captain America",
+  // },
 ];
 //marvel Comics
 const marvelComics = [
@@ -69,21 +69,21 @@ const marvelComics = [
     image: "http://i.annihil.us/u/prod/marvel/i/mg/3/03/5601855c253f1.jpg",
     title: "1602 Witch Hunter Angela (2015) #4",
   },
-  {
-    id: 52,
-    image: "http://i.annihil.us/u/prod/marvel/i/mg/5/e0/5841c31f01da8.jpg",
-    title: "4 (2004) #12",
-  },
-  {
-    id: 80446,
-    image: "http://i.annihil.us/u/prod/marvel/i/mg/c/50/5e28b33c9bca6.jpg",
-    title: "Black Widow: Widowmaker (Trade Paperback)",
-  },
-  {
-    id: 51966,
-    image: "http://i.annihil.us/u/prod/marvel/i/mg/3/b0/55351f09088fb.jpg",
-    title: "Hulk (2014) #15",
-  },
+  // {
+  //   id: 52,
+  //   image: "http://i.annihil.us/u/prod/marvel/i/mg/5/e0/5841c31f01da8.jpg",
+  //   title: "4 (2004) #12",
+  // },
+  // {
+  //   id: 80446,
+  //   image: "http://i.annihil.us/u/prod/marvel/i/mg/c/50/5e28b33c9bca6.jpg",
+  //   title: "Black Widow: Widowmaker (Trade Paperback)",
+  // },
+  // {
+  //   id: 51966,
+  //   image: "http://i.annihil.us/u/prod/marvel/i/mg/3/b0/55351f09088fb.jpg",
+  //   title: "Hulk (2014) #15",
+  // },
 ];
 
 export default {
