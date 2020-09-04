@@ -10,7 +10,8 @@ import LoginComponent from "./components/LoginComponent";
 import Home from "./components/HomeComponent";
 import CharecterPage from "./components/CharcterPageComponent";
 import ComicPage from "./components/ComicPageComponent";
-import * as jwtDecode from "jwt-decode";
+// import * as jwtDecode from "jwt-decode";
+import jwt from "jsonwebtoken"
 import { authenticateUserAction } from "./actions/authAction";
 import {
   getFavCharectersAction,
@@ -22,11 +23,28 @@ import Page404 from "./components/Page404Component"
 class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem("token");
+    
     if (token) {
-      const user = jwtDecode(token);
-      this.props.authenticateUser(user);
-      this.props.getFavCharecters(user.id);
-      this.props.getFavComics(user.id);
+     
+      jwt.verify(token, 'shhhhh', function(err, decoded) {
+        if (err) {
+          /*
+            err = {
+              name: 'TokenExpiredError',
+              message: 'jwt expired',
+              expiredAt: 1408621000
+            }
+          */
+         localStorage.removeItem("token");
+        
+        }
+        else{
+          this.props.authenticateUser(decoded);
+          this.props.getFavCharecters(decoded.id);
+          this.props.getFavComics(decoded.id);
+         }
+      });
+    
     }
    
   }

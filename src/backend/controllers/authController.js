@@ -107,7 +107,7 @@ module.exports = {
     }
     var token = jwt.sign(
       { id: user._id, email: user.email, name: user.name },
-      process.env.JWT_SECRET, {expiresIn:"2d"}
+      process.env.JWT_SECRET, {expiresIn:"1m"}
     );
     console.log("you are logged in !");
     res.status(200).json({

@@ -73,16 +73,16 @@ function Navbar(props) {
                           Favourites
                         </NavLink>
                       </li>
-                      {/* <li className="nav-item">
+                      <li className="nav-item">
                         <NavLink
-                          activeClassName="menu_active"
-                          className="nav-link"
+                          
+                          className="nav-link user-name"
                           exact
-                          to={`/users/${props.auth.currentUser.id}/favourites`}
+                          to="#"
                         >
                           { props.auth.currentUser.name.split(' ')[0]}
                         </NavLink>
-                      </li> */}
+                      </li>
                       <li className="nav-item"  onClick = {handleLogOut}>
                         <NavLink
                           activeClassName="menu_active"

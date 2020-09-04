@@ -70,12 +70,12 @@ class CharecterComponent extends Component {
              
      
       {/* <!-- Actual search  box --> */}
-      <div className=" ">
-        <form class="form-group has-search "  onSubmit={this.handleSubmit}>
-       <span class="fa fa-search form-control-feedback"></span>
-      <input type="text" class="form-control shadow" placeholder="Search"  onChange={this.handleChange} />
+      
+        <form className="form-group has-search "  onSubmit={this.handleSubmit}>
+       <span className="fa fa-search form-control-feedback"></span>
+      <input type="text" className="form-control shadow" placeholder="Search"  onChange={this.handleChange} />
      </form>
-      </div>
+     
   
              
          
