@@ -93,8 +93,8 @@ this is a marvel api explorer based on the MERN stack. It uses official marvel a
 ## Installation
 - Clone the repository using `git clone` and then change the directory to root of the project
 ``` 
-    git clone https://github.com/ahmadkhan242/Entry-manager.git
-    cd Entry-manager
+   https://github.com/chandrdubey/Marvel-api-explorer.git
+    cd Marvel-api-explorer
 ```
 - Use npm to install dependencies for the project.
 ```
@@ -102,30 +102,21 @@ this is a marvel api explorer based on the MERN stack. It uses official marvel a
 
 > npm run fn-install  #For Frontend dependencies 
 ```
-- Set up your database using pg admin.
+
 - Create .env file in root folder and add necessary credentials with varibles given below.
-> IS_DEV is true, so that server should run on development which allow to resync the database again and again after some changes on backend in `development`.
 ```bash
   DATABASE_NAME = 'database name'
-  DB_USER = 'user name'
-  PASSWORD = 'user password'
+  JWT_SECRET ='jwt secret key'
   
-  IS_DEV='true' 
-  
-  SENDGRIDAPIKEY = 'sendgrid api key'
-
-  ACCOUNT_SID ='twilio accout sid'
-  AUTH_TOKEN = 'twilio auth token'
-  twilioNumber = 'Number provided by twilio'
 ```
 - Run the program by npm using
 ```
-> npm run dev
+> npm run app
 ```
 - Above command will start both frontend and backend server.
 > Frontend => http://localhost:3000
 
-> Backend => http://localhost:4000
+> Backend => http://localhost:5000
 ***
 ## Features
 * Add marvel charecters and comics to favourite list
