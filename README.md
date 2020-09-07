@@ -107,6 +107,8 @@ this is a marvel api explorer based on the MERN stack. It uses official marvel a
 ```bash
   DATABASE_NAME = 'database name'
   JWT_SECRET ='jwt secret key'
+  REACT_APP_MARVEL_API_PUBLIC_KEY='public key of marvel api' 
+  REACT_APP_MARVEL_API_PRIVATE_KEY='private key of marvel api'
   
 ```
 - Run the program by npm using
@@ -123,6 +125,7 @@ this is a marvel api explorer based on the MERN stack. It uses official marvel a
 * Easily Search marvel charecters and comics
 * Responsive
 * Login
+* Pagination 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
