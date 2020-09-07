@@ -20,7 +20,7 @@
 - [Installation](#installation)
 - [Features](#features)
 - [Screenshots](#screenshots)
-- [Component Structure](#component-structure)
+
 <br/>
 
 ## About
