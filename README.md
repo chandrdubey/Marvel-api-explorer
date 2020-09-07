@@ -16,18 +16,18 @@
 ## Table of Contents
 
 - [About](#About)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
 - [Features](#features)
-- [Contributors](#contributors)
-- [Development](#development)
 - [Component Structure](#component-structure)
 <br/>
 
 ## About
 
 [![Build Status](https://img.shields.io/badge/Build-Success-brightgreen)](success)
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](contributors)
 
-this is a marvel api explorer based on the MERN stack. It uses official marvel api.
+
+This is a marvel api explorer based on the MERN stack. It uses official marvel api.
 <p align="center">
  
 <br/>
@@ -100,7 +100,7 @@ this is a marvel api explorer based on the MERN stack. It uses official marvel a
 ```
 > npm i  #For Backend dependencies
 
-> npm run fn-install  #For Frontend dependencies 
+> npm run f-install  #For Frontend dependencies 
 ```
 
 - Create .env file in root folder and add necessary credentials with varibles given below.
@@ -122,10 +122,11 @@ this is a marvel api explorer based on the MERN stack. It uses official marvel a
 ***
 ## Features
 * Add marvel charecters and comics to favourite list
+* Remove marvel charecters and comics from favourite list
 * Easily Search marvel charecters and comics
 * Responsive
 * Login
-* Pagination 
+* Pagination for comics and charecters page
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
