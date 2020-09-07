@@ -15,10 +15,11 @@
 
 ## Table of Contents
 
-- [About](#About)
+- [About](#about)
 - [Technology Stack](#technology-stack)
 - [Installation](#installation)
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Component Structure](#component-structure)
 <br/>
 
@@ -27,7 +28,7 @@
 [![Build Status](https://img.shields.io/badge/Build-Success-brightgreen)](success)
 
 
-This is a marvel api explorer based on the MERN stack. It uses official marvel api.
+ A marvel api explorer based on the MERN stack. It uses official marvel api.
 <p align="center">
  
 <br/>
@@ -128,5 +129,5 @@ This is a marvel api explorer based on the MERN stack. It uses official marvel a
 * Login
 * Pagination for comics and charecters page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Screenshots
 
