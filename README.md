@@ -28,7 +28,7 @@
 [![Build Status](https://img.shields.io/badge/Build-Success-brightgreen)](success)
 
 
- A marvel api explorer based on the MERN stack. It uses official marvel api.
+ A marvel api explorer based on the MERN stack. It uses the official marvel api.
 <p align="center">
  
 <br/>
