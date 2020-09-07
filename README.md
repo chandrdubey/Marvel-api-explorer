@@ -131,3 +131,34 @@
 
 ## Screenshots
 
+> Home Page
+
+![ScreenShot](/screenshots/homePage.png)
+
+> Marvel Charecters List
+
+![ScreenShot](/screenshots/charecterList.png)
+
+> Marvel Comics List
+
+![ScreenShot](/screenshots/comicsList.png)
+
+> Marvel Charecter
+
+![ScreenShot](/screenshots/charecterPage.png)
+
+> Marvel Comic
+
+![ScreenShot](/screenshots/comicPage.png)
+
+>Log In
+
+![ScreenShot](/screenshots/logIn.png)
+
+>Sign Up
+
+![ScreenShot](/screenshots/signUp.png)
+
+>Favourite List
+
+![ScreenShot](/screenshots/favouriteList.png)
