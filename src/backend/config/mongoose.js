@@ -1,6 +1,6 @@
 const  mongoose = require('mongoose');
 //Set up default mongoose connection
-const mongoDB = 'mongodb://localhost:27017/marvel-api';
+const mongoDB = 'mongodb://localhost:27017/' + process.env.DATABASE_NAME;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true  });
  //Get the default connection
 var db = mongoose.connection.on('connected', () =>

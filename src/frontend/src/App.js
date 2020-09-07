@@ -10,7 +10,6 @@ import LoginComponent from "./components/LoginComponent";
 import Home from "./components/HomeComponent";
 import CharecterPage from "./components/CharcterPageComponent";
 import ComicPage from "./components/ComicPageComponent";
-// import * as jwtDecode from "jwt-decode";
 import jwt from "jsonwebtoken"
 import { authenticateUserAction } from "./actions/authAction";
 import {

@@ -52,7 +52,7 @@ import { loginUserAction } from '../actions/authAction';
             <form className="form-style mx-auto" onSubmit ={this.handleOnSubmit}>
               <h1>Log In</h1>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1"><h4>Email </h4></label>
+                <label htmlFor="exampleInputEmail1"><h4>Email: </h4></label>
                 <input
                   type="email"
                   className="form-control"
@@ -65,7 +65,7 @@ import { loginUserAction } from '../actions/authAction';
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1"><h4>Password</h4></label>
+                <label htmlFor="exampleInputPassword1"><h4>Password:</h4></label>
                 <input
                   type="password"
                   className="form-control"
