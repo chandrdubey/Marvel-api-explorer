@@ -5,7 +5,7 @@
   </a>
 </p>
 <p align="center">
-  Marvel api explorer based on MERN stack 
+  Marvel API explorer based on MERN stack 
 </p>
 
 <p align="center">
