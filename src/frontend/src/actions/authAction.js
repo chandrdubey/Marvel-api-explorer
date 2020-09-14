@@ -18,6 +18,8 @@ export const registerUserAction = (data) => {
         type: "LOGIN_SUCCESS",
         payload: response.data.data.user_detail,
       });
+      // dispatch({type:'FAVOURITE_COMICS', payload:response.data.data.favcomics});
+      // dispatch({type:'FAVOURITE_CHARECTERS', payload:response.data.data.favcharecters});
       }
       
 

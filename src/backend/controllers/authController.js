@@ -91,7 +91,7 @@ module.exports = {
         message: "Email does not exist",
       });
     }
-    console.log(user.populated());
+   
     //checking password
 
     const validPassword = await bcrypt.compare(
@@ -107,8 +107,9 @@ module.exports = {
     }
     var token = jwt.sign(
       { id: user._id, email: user.email, name: user.name },
-      process.env.JWT_SECRET, {expiresIn:"1m"}
+      process.env.JWT_SECRET, {expiresIn:"2d"}
     );
+    console.log( process.env.JWT_SECRET);
     console.log("you are logged in !");
     res.status(200).json({
       token,

@@ -3,6 +3,7 @@ import marvel from '../api-config/apiConfig'
 
 export const getCharectersAction = () => {
     return (dispatch) =>{
+        console.log("Redis")
         console.log(process.env.MARVEL_API_PRIVATE_KEY);
         console.log(marvel.marvelKey)
         axios.get(`https://gateway.marvel.com:443/v1/public/characters?limit=100&${marvel.marvelKey}`)

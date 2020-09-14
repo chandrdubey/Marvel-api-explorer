@@ -10,7 +10,8 @@ import LoginComponent from "./components/LoginComponent";
 import Home from "./components/HomeComponent";
 import CharecterPage from "./components/CharcterPageComponent";
 import ComicPage from "./components/ComicPageComponent";
-import jwt from "jsonwebtoken"
+//import jwt from "jsonwebtoken"
+import jwt from "jwt-decode"
 import { authenticateUserAction } from "./actions/authAction";
 import {
   getFavCharectersAction,
@@ -22,27 +23,17 @@ import Page404 from "./components/Page404Component"
 class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem("token");
-    
+    console.log(token);
+    console.log(process.env.REACT_APP_MARVEL_API_PUBLIC_KEY);
     if (token) {
-     
-      jwt.verify(token, 'shhhhh', function(err, decoded) {
-        if (err) {
-          /*
-            err = {
-              name: 'TokenExpiredError',
-              message: 'jwt expired',
-              expiredAt: 1408621000
-            }
-          */
-         localStorage.removeItem("token");
-        
-        }
-        else{
+        const decoded = jwt(token);
+        let ts = new Date().getTime();
+        console.log(ts);
+        if (ts < decoded.exp * 1000) {
           this.props.authenticateUser(decoded);
           this.props.getFavCharecters(decoded.id);
           this.props.getFavComics(decoded.id);
-         }
-      });
+        }
     
     }
    

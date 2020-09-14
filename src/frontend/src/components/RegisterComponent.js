@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { registerUserAction } from "../actions/authAction";
 import { connect } from "react-redux";
 import { Redirect} from 'react-router-dom';
-import jwtDecode from 'jwt-decode'
+
 
  class RegisterComponent extends Component {
   constructor(props) {
@@ -37,9 +37,9 @@ import jwtDecode from 'jwt-decode'
     console.log(token);
     if(token )
     {
-       localStorage.removeItem('token');
-      const user = jwtDecode(token);
-      console.log(user);
+      //  localStorage.removeItem('token');
+      // const user = jwtDecode(token);
+      // console.log(user);
       return <Redirect to='/' />
     }
       

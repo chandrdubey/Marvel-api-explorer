@@ -29,6 +29,7 @@ class FavouriteComponet extends Component {
     const {
       match: { params },
     } = this.props;
+    console.log(`${token} working`);
     if(!token || this.props.auth.currentUser.id !== params.id )
     {
       return <Redirect to="/login" />
