@@ -5,7 +5,7 @@
   </a>
 </p>
 <p align="center">
-  Marvel api explorer based on MERN stack 
+  Marvel API explorer based on MERN stack 
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@
 [![Build Status](https://img.shields.io/badge/Build-Success-brightgreen)](success)
 
 
- A marvel api explorer based on the MERN stack. It uses official marvel api.
+ A marvel api explorer based on the MERN stack. It uses the official marvel api.
 <p align="center">
  
 <br/>
