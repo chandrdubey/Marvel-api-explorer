@@ -28,11 +28,13 @@ class App extends Component {
     if (token) {
         const decoded = jwt(token);
         let ts = new Date().getTime();
-        console.log(ts);
+        // console.log(ts < decoded.exp * 1000);
         if (ts < decoded.exp * 1000) {
           this.props.authenticateUser(decoded);
           this.props.getFavCharecters(decoded.id);
           this.props.getFavComics(decoded.id);
+        }else{
+          localStorage.removeItem("token");
         }
     
     }

@@ -15,7 +15,10 @@ const port  = process.env.PORT || 5000; //setting up our port
 app.use(cors());
 app.use(express.json()); //it used to convert the body of a requset in json format
 
-app.use('/',routes);     // it is used to handle  all routes
+app.use('/',routes);  
+// app.use('*', (req, res)=>{
+//     res.send("hello");
+// });   // it is used to handle  all routes
 
 app.listen(port , (err) =>{
     if(err)

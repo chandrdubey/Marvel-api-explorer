@@ -48,7 +48,7 @@ module.exports = {
           });
           var token = jwt.sign(
             { id: user._id, email: user.email, name: user.name },
-            process.env.JWT_SECRET,{expiresIn:"2d"}
+            process.env.JWT_SECRET,{expiresIn:"1h"}
           );
           res.status(200).json({
             token,
@@ -83,7 +83,7 @@ module.exports = {
     }
     //checkking if email exist or not
     const user = await User.findOne({ email: req.body.email }).populate('favcharecters').populate('favcomics').exec();
-    console.log(user);
+    //console.log(user);
     
     if (!user) {
       return res.json({
@@ -107,7 +107,7 @@ module.exports = {
     }
     var token = jwt.sign(
       { id: user._id, email: user.email, name: user.name },
-      process.env.JWT_SECRET, {expiresIn:"2d"}
+      process.env.JWT_SECRET, {expiresIn:"1h"}
     );
     console.log( process.env.JWT_SECRET);
     console.log("you are logged in !");

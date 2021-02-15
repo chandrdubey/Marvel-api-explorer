@@ -1,10 +1,14 @@
 const  mongoose = require('mongoose');
+require('dotenv').config();
 //Set up default mongoose connection
-const mongoDB = 'mongodb://localhost:27017/marvel-api';
+const mongoDB =  process.env.DATABASE_URL;
+
+console.log(process.env.DATABASE_URL);
+//'mongodb://localhost:27017/marvel-api';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true  });
  //Get the default connection
 var db = mongoose.connection.on('connected', () =>
- console.log('succesfully connected to database', process.env.DATABASE_NAME ) 
+ console.log('succesfully connected to database', ) 
  );
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

@@ -6,8 +6,8 @@ module.exports = {
   addFavCharecter: async (req, res) => {
     try{
    //taking user id from the req
-   console.log(req.body);
-   console.log(req.user);
+  //  console.log(req.body);
+  //  console.log(req.user);
    const charecterFound = await Charecter.findOne({charecter_id : req.body.charecter_id});
    const user = await User.findById(req.params.userId).populate('favcharecters').exec();
    if(charecterFound){

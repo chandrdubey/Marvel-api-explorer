@@ -8,7 +8,7 @@ const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey:process.env.JWT_SECRET
 };
-console.log();
+
 
 // The JWT payload is passed into the verify callback
 passport.use(new JwtStrategy(options, function(jwt_payload, done) {

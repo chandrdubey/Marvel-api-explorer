@@ -1,78 +1,85 @@
-import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import { Redirect,Link} from 'react-router-dom'
-import { loginUserAction } from '../actions/authAction';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Redirect, Link } from "react-router-dom";
+import { loginUserAction } from "../actions/authAction";
+import { GoogleLogin } from "react-google-login";
 
- class LoginComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state= {
-          password: "",
-          email :"" 
-        }
-      }
-      handleChange = (event) =>{
-        const {name , value} = event.target;
-        this.setState({
-          [name] : value
-        })
-      }
-     handleOnSubmit = (event) =>{
-       event.preventDefault();
+class LoginComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      password: "",
+      email: "",
+    };
+  }
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+  handleOnSubmit = (event) => {
+    event.preventDefault();
 
-       const data = { 
-         password: this.state.password,
-         email: this.state.email
-       }
+    const data = {
+      password: this.state.password,
+      email: this.state.email,
+    };
 
-       this.props.loginUser(data);
-      //   console.log(this.props.history);
-      //   //histry in props is used to redirect
-             
-      //   // axios.post('http://localhost:5000/login', data)
-      //   // .then(response => console.log(response))
-      //   // .catch(function (error) {
-      //   //   console.log(error);
-      //   // });
-      // //  this.props.history.push('/comics');
-    
-     }
-      
-    render() {
-      console.log(this.props.auth.isLoggedIn)
-        if(this.props.auth.isLoggedIn)
-        {
-          return( <Redirect to='/' />)
-        }
-        return (
-            <div id ="header" className="container-fluid ">
+    this.props.loginUser(data);
+    //   console.log(this.props.history);
+    //   //histry in props is used to redirect
+
+    //   // axios.post('http://localhost:5000/login', data)
+    //   // .then(response => console.log(response))
+    //   // .catch(function (error) {
+    //   //   console.log(error);
+    //   // });
+    // //  this.props.history.push('/comics');
+  };
+  onSuccess = (res) => {
+    console.log(res);
+  };
+  onFailure = (res) => {
+    console.log("error");
+  };
+  render() {
+    console.log(this.props.auth.isLoggedIn);
+    if (this.props.auth.isLoggedIn) {
+      return <Redirect to="/" />;
+    }
+    return (
+      <div id="header" className="container-fluid ">
         <div className="row">
           <div className="col-10 mx-auto  ">
-           
-            <form className="form-style mx-auto" onSubmit ={this.handleOnSubmit}>
-              <h1>Log In</h1>
+            <form className="form-style mx-auto" onSubmit={this.handleOnSubmit}>
+              <h1>Sign In</h1>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1"><h4>Email: </h4></label>
+                <label htmlFor="exampleInputEmail1">
+                  <h4>Email: </h4>
+                </label>
                 <input
                   type="email"
                   className="form-control"
                   id="exampleInputEmail1"
-                 name= "email"
-                 value={this.state.email}
+                  name="email"
+                  value={this.state.email}
                   aria-describedby="emailHelp"
                   placeholder="Email"
-                  onChange = {this.handleChange}
+                  onChange={this.handleChange}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1"><h4>Password:</h4></label>
+                <label htmlFor="exampleInputPassword1">
+                  <h4>Password:</h4>
+                </label>
                 <input
                   type="password"
                   className="form-control"
                   name="password"
                   value={this.state.password}
                   id="exampleInputPassword1"
-                  onChange = {this.handleChange}
+                  onChange={this.handleChange}
                   placeholder="Password"
                 />
               </div>
@@ -80,30 +87,47 @@ import { loginUserAction } from '../actions/authAction';
                 Submit
               </button>
               <div className="auth">
-              <p>new user ? <Link to ="/signup" >Sign up</Link></p>
-             
+              <p> or connect with</p>
+                <GoogleLogin
+                  clientId="437137936745-l6vq72pl39q4f401tsuu3vb4ksrkibjo.apps.googleusercontent.com"
+                  render={(renderProps) => (
+                    <button
+                      className="btn btn-sm"
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      <img
+                        src="https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088004_1280.png"
+                        className="g-image"
+                        alt="google icon"
+                      ></img>
+                    </button>
+                  )}
+                  buttonText=""
+                  onSuccess={this.onSuccess}
+                  onFailure={this.onFailure}
+                  cookiePolicy={"single_host_origin"}
+                />
+                <p>
+                  create account ? <Link to="/signup">Sign up</Link>
+                </p>
               </div>
-              
             </form>
-            
-           
           </div>
         </div>
       </div>
-        )
-    }
-}
-const mapDispatchToProps = (dispatch) =>{
-  return{
-    loginUser : (data) => dispatch(loginUserAction(data))
+    );
   }
 }
-const mapStateToProps = ({auth}) =>{
-  return{
-     auth
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loginUser: (data) => dispatch(loginUserAction(data)),
   };
-}
-  
-
+};
+const mapStateToProps = ({ auth }) => {
+  return {
+    auth,
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);

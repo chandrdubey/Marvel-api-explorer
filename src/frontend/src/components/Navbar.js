@@ -105,7 +105,7 @@ function Navbar(props) {
                           exact
                           to="/login"
                         >
-                          log in
+                          Sign in
                         </NavLink>
                       </li>
                       <li className="nav-item">
@@ -115,7 +115,7 @@ function Navbar(props) {
                           exact
                           to="/signup"
                         >
-                          sign up
+                          Sign up
                         </NavLink>
                       </li>
                     </>

@@ -380,7 +380,8 @@ h4 {
   background-color:#a80b0b ;
 } */
 .auth p{
-  color: #a80b0b;;
+  color: #a80b0b;
+  margin: 0;
 }
 .auth a{
   color: #a80b0b;;
@@ -520,4 +521,10 @@ height: 100%;
 .user-name{
   color:#a80b0b !important;
  
+}
+/* Google icon*/
+.g-image{
+  width :50px;
+  height: 50px;
+
 }

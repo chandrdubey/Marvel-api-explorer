@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js'
 
-const  privateKey = process.env.REACT_APP_MARVEL_API_PRIVATE_KEY ;
+const privateKey = process.env.REACT_APP_MARVEL_API_PRIVATE_KEY ;
 const publicKey =  process.env.REACT_APP_MARVEL_API_PUBLIC_KEY;
 
 
