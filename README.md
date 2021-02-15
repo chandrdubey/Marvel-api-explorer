@@ -106,7 +106,7 @@
 
 - Create .env file in root folder and add necessary credentials with varibles given below.
 ```bash
-  DATABASE_NAME = 'database name'
+  DATABASE_URL = 'database URL'
   JWT_SECRET ='jwt secret key'
   REACT_APP_MARVEL_API_PUBLIC_KEY='public key of marvel api' 
   REACT_APP_MARVEL_API_PRIVATE_KEY='private key of marvel api'
