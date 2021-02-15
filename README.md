@@ -122,12 +122,12 @@
 > Backend => http://localhost:5000
 ***
 ## Features
-* Add marvel charecters and comics to favourite list
-* Remove marvel charecters and comics from favourite list
-* Easily Search marvel charecters and comics
+* Add marvel characters and comics to favourite list
+* Remove marvel characters and comics from favourite list
+* Easily Search marvel characters and comics
 * Responsive
 * Login
-* Pagination for comics and charecters page
+* Pagination for comics and characters page
 
 ## Screenshots
 
@@ -135,7 +135,7 @@
 
 ![ScreenShot](/screenshots/homePage.png)
 
-> Marvel Charecters List
+> Marvel Characters List
 
 ![ScreenShot](/screenshots/charecterList.png)
 
@@ -143,7 +143,7 @@
 
 ![ScreenShot](/screenshots/comicsList.png)
 
-> Marvel Charecter
+> Marvel Character
 
 ![ScreenShot](/screenshots/charecterPage.png)
 
