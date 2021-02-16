@@ -3,9 +3,10 @@ import { connect} from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import { loginUserAction, googleOAuthAction } from "../actions/authAction";
 import { GoogleLogin } from "react-google-login";
+const gClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 class LoginComponent extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       password: "",
       email: "",
@@ -47,12 +48,12 @@ class LoginComponent extends Component {
       <div id="header" className="container-fluid ">
         <div className="row">
           <div className="col-10 mx-auto  ">
-            <form className="form-style mx-auto" onSubmit={this.handleOnSubmit}>
-              <h1>Sign In</h1>
+            <form className="form-style mx-auto auth1" onSubmit={this.handleOnSubmit}>
+              <h3 className="text-center">Sign In</h3>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">
+                {/* <label htmlFor="exampleInputEmail1">
                   <h4>Email: </h4>
-                </label>
+                </label> */}
                 <input
                   type="email"
                   className="form-control"
@@ -65,9 +66,9 @@ class LoginComponent extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">
+                {/* <label htmlFor="exampleInputPassword1">
                   <h4>Password:</h4>
-                </label>
+                </label> */}
                 <input
                   type="password"
                   className="form-control"
@@ -84,7 +85,7 @@ class LoginComponent extends Component {
               <div className="auth">
               <p> or connect with</p>
                 <GoogleLogin
-                  clientId="437137936745-l6vq72pl39q4f401tsuu3vb4ksrkibjo.apps.googleusercontent.com"
+                  clientId={gClientId}
                   render={(renderProps) => (
                     <button
                       className="btn btn-sm"

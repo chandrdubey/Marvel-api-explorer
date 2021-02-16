@@ -133,11 +133,11 @@ module.exports = {
   // collecting data from the react google library
   googleOAuth : async  (req, res)=>{
     try{
-      //console.log(req.body);
+     console.log(req.body);
       const user = await User.findOne({email:req.body.email}).populate('favcharecters').populate('favcomics').exec();
       //if user exist
       console.log(user);
-      if(user){
+      if(user !==  null){
         let token = jwt.sign(
          { id: user._id, email: user.email, name: user.name },
          process.env.JWT_SECRET,{expiresIn:"1h"}
@@ -155,10 +155,11 @@ module.exports = {
       }else{
         let unHashedPassword = Math.random().toString(36).slice(-8);
         const salt = await bcrypt.genSalt(10);
-        hashPassword = await bcrypt.hash(unHashedPassword, salt);
+        const hashPassword = await bcrypt.hash(unHashedPassword, salt);
+        console.log(hashPassword);
         const user = await User.create({
-          name: user.name,
-          email: user.password,
+          name: req.body.name,
+          email: req.body.email,
           password: hashPassword
         });
         let token = jwt.sign(

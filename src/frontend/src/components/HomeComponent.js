@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import marvel from "../uploads/homeData";
 import DisplayHomeData from "./DisplayHomeData";
+import {connect} from "react-redux";
+import Spinner from "./Spinner";
 
 class HomeComponent extends Component {
   
   render() {
     console.log(marvel.marvelCharecters);
-    return (
+    return this.props.isLoading ? (
+      <div className="margin-top"><Spinner /></div> 
+    ) : (
       <>
         <section id="header" className=" d-flex align-items-center">
           <div className="container-fluid nav_bg container-page">
@@ -35,5 +39,9 @@ class HomeComponent extends Component {
     );
   }
 }
-
-export default HomeComponent;
+const mapStateToProps = ({ marvelData }) => {
+  return {
+    isLoading: marvelData.isLoading,
+  };
+};
+export default connect(mapStateToProps)(HomeComponent);

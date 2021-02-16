@@ -1,32 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const DisplayHomeData = (props) => {
-  let dataUrl = "/" + props.reqParams + "/";
+import DisplayContent from "./DisplayContent";
 
+const DisplayHomeData = (props) => {
+  
   return (
     <div className="row  content-row align-items-center  ">
       {props.allData.length &&
         props.allData.map((data) => (
-          <div className="card-len " key={data.id}>
-            <Link to={dataUrl + data.id}>
-              <div className="card text-center">
-                <div className="card-img">
-                  <img src={data.image} className="card-img-top" alt="..." />
-                  {/* <div className="card-img-overlay text-right p-0">
-                  <i className="fa fa-heart"></i>
-                  </div> */}
-                </div>
-                <div className="card-body ">
-                {/* <div className="text-right p-0">
-                  <i className="fa fa-heart"></i>
-                  </div>  */}
-                  <div className="card-title">
-                    {data.name ? data.name : data.title} 
-                  </div>
-
-                </div>
-              </div>
-            </Link>
+          <div key={data.id} className ="card-len">
+                        <DisplayContent data = {data} reqParams = {props.reqParams} />
           </div>
         ))}
       <div className="btn-more">
@@ -36,5 +19,10 @@ const DisplayHomeData = (props) => {
       </div>
     </div>
   );
+};
+const mapStateToProps = ({ marvelData }) => {
+  return {
+    marvelData,
+  };
 };
 export default DisplayHomeData;

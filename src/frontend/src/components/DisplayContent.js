@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
 const DisplayContent = (props) => {
   let reqParams = props.reqParams;
   let id = props.data.id;
@@ -26,25 +26,32 @@ const DisplayContent = (props) => {
   }
   let list = (
     
-<Link to={dataUrl} >
+
 <div className="card text-center ">
     
-     
+<Link to={dataUrl} >
         <div className="card-img">
           <img src={image_src} className="card-img-top" alt="..." />
         </div>
-
+        </Link>
         <div className="card-body">
+        <div id="fav">
+        <i className="fa fa-heart-o" aria-hidden="true"></i>
+        </div>
           <div className="card-title">
             {props.data.name ? props.data.name : props.data.title}
           </div>
         </div>
         </div>
-        </Link>
+       
    
     
   );
   return <>{list}</>;
 };
-
-export default DisplayContent;
+const mapStateToProps = ({ marvelData }) => {
+  return {
+    marvelData,
+  };
+};
+export default connect(mapStateToProps)(DisplayContent);

@@ -16,6 +16,7 @@ import { authenticateUserAction } from "./actions/authAction";
 import {
   getFavCharectersAction,
   getFavComicsAction,
+  isLoadingAction,
 } from "./actions/getDataAction";
 import FavouriteComponet from "./components/FavouriteComponet";
 import Page404 from "./components/Page404Component"
@@ -30,6 +31,7 @@ class App extends Component {
         let ts = new Date().getTime();
         // console.log(ts < decoded.exp * 1000);
         if (ts < decoded.exp * 1000) {
+          this.props.Loading();
           this.props.authenticateUser(decoded);
           this.props.getFavCharecters(decoded.id);
           this.props.getFavComics(decoded.id);
@@ -58,7 +60,6 @@ class App extends Component {
           <Route path="/comics/:id" component={ComicPage} />
           <Route path="/login" component={LoginComponent} />
           <Route path="/comics" component={Comics} />
-
           {/* <Route  path ='/comics/:id'  component={ComicPage} /> */}
           <Route component={Page404} />
         </Switch>
@@ -72,6 +73,7 @@ const mapDispatchToProps = (dispatch) => {
     authenticateUser: (user) => dispatch(authenticateUserAction(user)),
     getFavCharecters: (userId) => dispatch(getFavCharectersAction(userId)),
     getFavComics: (userId) => dispatch(getFavComicsAction(userId)),
+    Loading: ()=> dispatch(isLoadingAction())
   };
 };
 

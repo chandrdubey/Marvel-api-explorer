@@ -133,6 +133,7 @@ body {
   color: #ffffff;
   transition: 0.5s;
   outline: none;
+  padding: .5rem;
 }
 .card:hover{
  background-color: #a80b0b;
@@ -246,7 +247,7 @@ body {
   border-radius: 2%;
   margin-bottom: 10px;
 }
- h3{
+ .show-page h3{
   color:#a80b0b;
   font-weight: 600;
   font-size: 1.5rem;
@@ -287,7 +288,7 @@ hr{
 /* Form */
 
 .form-style{
-  width: 20rem;
+  width: 17rem;
   justify-content: center;
   margin-top: 1rem;
   padding: 1rem;
@@ -300,10 +301,10 @@ hr{
   
 }
 /* Comic page */
-h4 {
+/* h4 {
   color:#a80b0b;
  
-}
+} */
 .home-show-page{
   background-image: url("https://c4.wallpaperflare.com/wallpaper/180/976/853/thor-2-the-dark-world-avengers-age-of-ultron-the-avengers-spider-man-wallpaper-preview.jpg");
  
@@ -379,7 +380,7 @@ h4 {
   color: #ffffff;
   background-color:#a80b0b ;
 } */
-.auth p{
+.auth1 p{
   color: #a80b0b;
   margin: 0;
 }
@@ -522,9 +523,23 @@ height: 100%;
   color:#a80b0b !important;
  
 }
+/* //LOGIN PAGE */
 /* Google icon*/
 .g-image{
   width :50px;
   height: 50px;
 
+}
+.auth1 h3{
+  color:#a80b0b ;
+  font-weight: 500;
+ 
+  
+  /* font-size: 1rem;
+  */
+}
+.auth1 h4{
+  color:#a80b0b ;
+  font-size: 1.3rem;
+  margin: 0;
 }

@@ -44,16 +44,16 @@ const dataReducer = (state = initState, action) =>{
             
             return{
                 ...state,
-              favCharecters : action.payload
-              
+              favCharecters : action.payload,
+              isLoading: false
             }
         }
         case 'FAVOURITE_COMICS' :{
             
             return{
                 ...state,
-              favComics : action.payload
-              
+              favComics : action.payload,
+              isLoading: false
             }
         }
         case 'ONE_CHARECTER' : {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { registerUserAction } from "../actions/authAction";
+import { registerUserAction ,googleOAuthAction} from "../actions/authAction";
 import { connect } from "react-redux";
 import { Redirect} from 'react-router-dom';
-
-
+import { GoogleLogin } from "react-google-login";
+const gClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
  class RegisterComponent extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +31,17 @@ import { Redirect} from 'react-router-dom';
    console.log(data);
    this.props.dispatch(registerUserAction(data));
  }
-  
+  //Google Auth
+  onSuccess = (res) => {
+    console.log(res.profileObj);
+    const data = {name:res.profileObj.name, email:res.profileObj.email};
+    console.log(data);
+    this.props.dispatch(googleOAuthAction(data));
+  };
+  onFailure = (error, details) => {
+    console.log(error, details);
+        return;
+  };
   render() {
     let token = localStorage.getItem('token');
     console.log(token);
@@ -47,10 +57,10 @@ import { Redirect} from 'react-router-dom';
       <div id ="header" className="container-fluid na v_bg ">
         <div className="row">
           <div className="col-10 mx-auto d-flex justify-content-center">
-            <form className="form-style" onSubmit ={this.handleOnSubmit}>
+            <form className="form-style auth1" onSubmit ={this.handleOnSubmit}>
               <div className="form-group">
-              <h1>Sign Up</h1>
-                <label htmlFor="exampleInputName"><h4>Name:</h4></label>
+              <h3 className="text-center">Sign Up</h3>
+                {/* <label htmlFor="exampleInputName"><h4>Name:</h4></label> */}
                 <input
                   type="text"
                   className="form-control"
@@ -62,7 +72,7 @@ import { Redirect} from 'react-router-dom';
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1"><h4>Email :</h4></label>
+                {/* <label htmlFor="exampleInputEmail1"><h4>Email :</h4></label> */}
                 <input
                   type="email"
                   className="form-control"
@@ -75,7 +85,7 @@ import { Redirect} from 'react-router-dom';
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1"><h4>Password:</h4></label>
+                {/* <label htmlFor="exampleInputPassword1"><h4>Password:</h4></label> */}
                 <input
                   type="password"
                   className="form-control"
@@ -87,7 +97,7 @@ import { Redirect} from 'react-router-dom';
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputConfirm1"><h4>Confirm password:</h4></label>
+                {/* <label htmlFor="exampleInputConfirm1"><h4>Confirm password:</h4></label> */}
                 <input
                   type="password"
                   className="form-control"
@@ -98,10 +108,34 @@ import { Redirect} from 'react-router-dom';
                   onChange = {this.handleChange}
                 />
               </div>
-              <button type="submit" className="btn btn-get-started">
+              <div className="">
+              <button type="submit" className="btn btn-get-started ">
                 Submit
               </button>
+              </div>
+              <p> or connect with</p>
+                <GoogleLogin
+                  clientId={gClientId}
+                  render={(renderProps) => (
+                    <button
+                      className="btn btn-sm"
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      <img
+                        src="https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088004_1280.png"
+                        className="g-image"
+                        alt="google icon"
+                      ></img>
+                    </button>
+                  )}
+                  buttonText=""
+                  onSuccess={this.onSuccess}
+                  onFailure={this.onFailure}
+                  cookiePolicy={"single_host_origin"}
+                />
             </form>
+            
           </div>
         </div>
       </div>
