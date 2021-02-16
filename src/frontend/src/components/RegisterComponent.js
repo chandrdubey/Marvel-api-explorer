@@ -28,7 +28,7 @@ import { Redirect} from 'react-router-dom';
      email:this.state.email,
      confirm_password: this.state.confirm_password
    }
-  
+   console.log(data);
    this.props.dispatch(registerUserAction(data));
  }
   

@@ -101,7 +101,7 @@ module.exports = {
     if (!validPassword) {
       console.log("Wrong password");
       return res.json({
-        status: 404,
+        status: 400,
         message: "Wrong password",
       });
     }
@@ -130,4 +130,56 @@ module.exports = {
     }
  
   },
+  // collecting data from the react google library
+  googleOAuth : async  (req, res)=>{
+    try{
+      //console.log(req.body);
+      const user = await User.findOne({email:req.body.email}).populate('favcharecters').populate('favcomics').exec();
+      //if user exist
+      console.log(user);
+      if(user){
+        let token = jwt.sign(
+         { id: user._id, email: user.email, name: user.name },
+         process.env.JWT_SECRET,{expiresIn:"1h"}
+       );
+         res.status(200).json({
+           token,
+           user_detail :{
+             id: user._id,
+             email: user.email,
+             name: user.name,
+           },
+           favcharecters: user.favcharecters,
+           favcomics:   user.favcomics
+         });
+      }else{
+        let unHashedPassword = Math.random().toString(36).slice(-8);
+        const salt = await bcrypt.genSalt(10);
+        hashPassword = await bcrypt.hash(unHashedPassword, salt);
+        const user = await User.create({
+          name: user.name,
+          email: user.password,
+          password: hashPassword
+        });
+        let token = jwt.sign(
+          { id: user._id, email: user.email, name: user.name },
+          process.env.JWT_SECRET, {expiresIn:"1h"});
+          res.status(200).json({
+            token,
+            user_detail :{
+              id: user._id,
+              email: user.email,
+              name: user.name,
+            },
+            favcharecters: user.favcharecters,
+            favcomics:   user.favcomics
+          });
+      }
+
+    }
+    catch(err){
+       console.log(`there some error` + err);
+    }
+     
+  }
 };

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect} from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import { loginUserAction } from "../actions/authAction";
+import { loginUserAction, googleOAuthAction } from "../actions/authAction";
 import { GoogleLogin } from "react-google-login";
-
 class LoginComponent extends Component {
   constructor(props) {
     super(props);
@@ -27,21 +26,17 @@ class LoginComponent extends Component {
     };
 
     this.props.loginUser(data);
-    //   console.log(this.props.history);
-    //   //histry in props is used to redirect
 
-    //   // axios.post('http://localhost:5000/login', data)
-    //   // .then(response => console.log(response))
-    //   // .catch(function (error) {
-    //   //   console.log(error);
-    //   // });
-    // //  this.props.history.push('/comics');
   };
   onSuccess = (res) => {
-    console.log(res);
+    console.log(res.profileObj);
+    const data = {name:res.profileObj.name, email:res.profileObj.email};
+    console.log(data);
+    this.props.gOAuth(data);
   };
-  onFailure = (res) => {
-    console.log("error");
+  onFailure = (error, details) => {
+    console.log(error, details);
+        return;
   };
   render() {
     console.log(this.props.auth.isLoggedIn);
@@ -122,6 +117,7 @@ class LoginComponent extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     loginUser: (data) => dispatch(loginUserAction(data)),
+    gOAuth : (data) => dispatch(googleOAuthAction(data))
   };
 };
 const mapStateToProps = ({ auth }) => {
