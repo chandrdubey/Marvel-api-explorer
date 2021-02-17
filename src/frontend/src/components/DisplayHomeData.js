@@ -20,9 +20,4 @@ const DisplayHomeData = (props) => {
     </div>
   );
 };
-const mapStateToProps = ({ marvelData }) => {
-  return {
-    marvelData,
-  };
-};
 export default DisplayHomeData;

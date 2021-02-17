@@ -1,57 +1,125 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-const DisplayContent = (props) => {
-  let reqParams = props.reqParams;
-  let id = props.data.id;
-  if (props.data.charecter_id) {
-    id = props.data.charecter_id;
-  }
-  if (props.data.comic_id) {
-    id = props.data.comic_id;
-  }
-  let dataUrl = "/" + reqParams + "/" + id;
-  let image_src;
-  if (props.data.image) {
-    image_src = props.data.image;
-  } else {
-    image_src =
-      props.data.thumbnail.path + "." + props.data.thumbnail.extension;
-  }
+import React, { Component } from 'react';
+import { Link, withRouter } from "react-router-dom";
+import { connect  } from "react-redux";
 
-  let image_not =
-    "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
-  if (props.data.name && image_src === image_not) {
-    image_src = "https://image.flaticon.com/icons/png/512/21/21104.png";
-  }
-  let list = (
-    
 
-<div className="card text-center ">
-    
-<Link to={dataUrl} >
-        <div className="card-img">
-          <img src={image_src} className="card-img-top" alt="..." />
-        </div>
-        </Link>
-        <div className="card-body">
-        <div id="fav">
-        <i className="fa fa-heart-o" aria-hidden="true"></i>
-        </div>
-          <div className="card-title">
-            {props.data.name ? props.data.name : props.data.title}
-          </div>
-        </div>
-        </div>
+class DisplayContent extends Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      isFav:false
+    };
+  }
+  componentDidMount= () =>{
+   // console.log(this.props.reqParams);
+   //console.log(this.state.isFav);
+    let id = this.props.data.id;
+   console.log(this.props.data);
+      if(this.props.reqParams  === 'comics'){
+        if (this.props.data.comic_id) {
+          id = this.props.data.comic_id;
+        }
+        if (this.props.marvelData.favComics) {
+          if (
+            this.props.marvelData.favComics.length > 0 &&
+            this.props.marvelData.favComics.some(
+              (comicMarvel) => comicMarvel.comic_id === id.toString()
+            )
+          ) {
+            console.log("hello indaia");
+            this.setState({
+              isFav: true,
+            });
+           
+          }
+        }                                                 
+      }else{
        
-   
-    
-  );
-  return <>{list}</>;
-};
-const mapStateToProps = ({ marvelData }) => {
+        if (this.props.data.charecter_id) {
+          id = this.props.data.charecter_id;
+        }
+        if (this.props.marvelData.favCharecters) {
+          if (
+            this.props.marvelData.favCharecters.length > 0 &&
+            this.props.marvelData.favCharecters.some(
+              (charecterMarvel) => charecterMarvel.charecter_id === id.toString()
+            )
+          ) {
+            console.log("hello indaia");
+            this.setState({
+              isFav: true,
+            });
+            console.log(this.state.isFav)
+          }
+        }       
+      }
+  }
+  render() {
+    if(this.props.reqParams === 'comics'){
+     
+    }
+    let reqParams = this.props.reqParams;
+    let id = this.props.data.id;
+    if (this.props.data.charecter_id) {
+      id = this.props.data.charecter_id;
+    }
+    if (this.props.data.comic_id) {
+      id = this.props.data.comic_id;
+    }
+    let dataUrl = "/" + reqParams + "/" + id;
+    let image_src;
+    if (this.props.data.image) {
+      image_src = this.props.data.image;
+    } else {
+      image_src =
+        this.props.data.thumbnail.path + "." + this.props.data.thumbnail.extension;
+    }
+  
+    let image_not =
+      "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
+    if (this.props.data.name && image_src === image_not) {
+      image_src = "https://image.flaticon.com/icons/png/512/21/21104.png";
+    }
+    let list = (
+      
+  
+  <div className="card text-center ">
+      
+         <Link to={dataUrl} >
+          <div className="card-img">
+            <img src={image_src} className="card-img-top" alt="..." />
+          </div>
+          </Link>
+          <div className="card-body">
+          <div id="fav">
+          { this.state.isFav ? (<button >
+          <i className="fa fa-heart" aria-hidden="true"></i>
+          </button>) : (<button >
+          <i className="fa fa-heart-o" aria-hidden="true"></i>
+          </button>)}
+          
+          </div>
+            <div className="card-title">
+              {this.props.data.name ? this.props.data.name : this.props.data.title}
+            </div>
+          </div>
+          </div>
+    );
+    return <>{list}</>;
+  }
+}
+
+// const DisplayContent = (this.props) => {
+//   let isFav = false;
+ 
+//   return 
+// };
+const mapStateToProps = ({ marvelData, auth }) => {
   return {
     marvelData,
-  };
+    auth
+  }; 
 };
-export default connect(mapStateToProps)(DisplayContent);
+export default 
+  withRouter(connect(mapStateToProps)(DisplayContent));
+; 

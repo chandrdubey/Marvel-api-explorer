@@ -22,7 +22,6 @@ class CharcterPageComponent extends Component {
   
 
   componentDidMount() {
-    console.log(process.env.MARVEL_API_PUBLIC_KEY,"hell");
     const {
       match: { params },
     } = this.props;
