@@ -54,8 +54,8 @@ class ComicPageComponent extends Component {
           "." +
           this.props.comic.thumbnail.extension,
       }
-      console.log("hil")
-      console.log(data);
+     // console.log("hil")
+      //console.log(data);
       this.props.addComicFav(userId, data);
     }
   };

@@ -118,7 +118,7 @@ const gClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
                   clientId={gClientId}
                   render={(renderProps) => (
                     <button
-                      className="btn btn-sm"
+                      className=""
                       onClick={renderProps.onClick}
                       disabled={renderProps.disabled}
                     >

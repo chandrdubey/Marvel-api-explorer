@@ -88,7 +88,7 @@ class LoginComponent extends Component {
                   clientId={gClientId}
                   render={(renderProps) => (
                     <button
-                      className="btn btn-sm"
+                      className=""
                       onClick={renderProps.onClick}
                       disabled={renderProps.disabled}
                     >
