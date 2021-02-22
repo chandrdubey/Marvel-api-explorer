@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DisplayContent from "./DisplayContent";
+import DisplayContent from "../DisplayContent";
 
 const DisplayHomeData = (props) => {
   
@@ -14,7 +14,7 @@ const DisplayHomeData = (props) => {
         ))}
       <div className="btn-more">
         <Link to={"/" + props.reqParams} className="btn btn-get-started">
-          All {props.reqParams}
+          All {props.reqParams} 
         </Link>
       </div>
     </div>

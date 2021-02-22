@@ -1,18 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect} from "react-redux";
-import { logOutUserAction} from "../actions/authAction"          
+import { logOutUserAction} from "../../actions/authAction"          
 
 function Navbar(props) {
   let handleLogOut = () =>{
      props.dispatch(logOutUserAction());
      
   }
-  //  const userName;
-  //   if(this.props.auth.isLoggedIn)
-  //   {
-  //    userName =
-  //   }
   return (
     <>
       <div className="container">

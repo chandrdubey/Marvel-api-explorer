@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect} from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import { loginUserAction, googleOAuthAction } from "../actions/authAction";
 import { GoogleLogin } from "react-google-login";
+import { loginUserAction, googleOAuthAction } from "../../actions/authAction";
 const gClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 class LoginComponent extends Component {
   constructor() {
@@ -32,7 +32,7 @@ class LoginComponent extends Component {
   onSuccess = (res) => {
     console.log(res.profileObj);
     const data = {name:res.profileObj.name, email:res.profileObj.email};
-    console.log(data);
+   
     this.props.gOAuth(data);
   };
   onFailure = (error, details) => {

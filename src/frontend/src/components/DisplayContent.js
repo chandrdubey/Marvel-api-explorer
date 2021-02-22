@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { addCharecterToFavAction, addComicToFavAction, removeCharecterToFavAction, removeComicToFavAction } from "../actions/getDataAction";
-
+import {
+  addCharecterToFavAction,
+  addComicToFavAction,
+  removeCharecterToFavAction,
+  removeComicToFavAction,
+} from "../actions/getDataAction";
 
 class DisplayContent extends Component {
   constructor(props) {
@@ -12,10 +16,8 @@ class DisplayContent extends Component {
     };
   }
   componentDidMount = () => {
-    // console.log(this.props.reqParams);
-    //console.log(this.state.isFav);
     let id = this.props.data.id;
-    console.log(this.props.data);
+
     if (this.props.reqParams === "comics") {
       if (this.props.data.comic_id) {
         id = this.props.data.comic_id;
@@ -27,7 +29,6 @@ class DisplayContent extends Component {
             (comicMarvel) => comicMarvel.comic_id === id.toString()
           )
         ) {
-          console.log("hello indaia");
           this.setState({
             isFav: true,
           });
@@ -44,11 +45,9 @@ class DisplayContent extends Component {
             (charecterMarvel) => charecterMarvel.charecter_id === id.toString()
           )
         ) {
-          console.log("hello indaia");
           this.setState({
             isFav: true,
           });
-          console.log(this.state.isFav);
         }
       }
     }
@@ -63,47 +62,47 @@ class DisplayContent extends Component {
         isFav: true,
       });
       if (this.props.reqParams === "charecters") {
-        const id = this.props.data.id ? this.props.data.id: this.props.data.charecter_id;
+        const id = this.props.data.id
+          ? this.props.data.id
+          : this.props.data.charecter_id;
         let image_src = this.props.data.image;
         if (!this.props.data.image) {
-          
-           image_src =
+          image_src =
             this.props.data.thumbnail.path +
             "." +
             this.props.data.thumbnail.extension;
-        }              
+        }
         const userId = this.props.auth.currentUser.id;
         const data = {
           charecter_id: id,
           name: this.props.data.name,
-          image: image_src
+          image: image_src,
         };
         console.log(data);
-       this.props.dispatch(addCharecterToFavAction(userId, data) );
-      }else{
-        const id = this.props.data.id ? this.props.data.id: this.props.data.charecter_id;
+        this.props.dispatch(addCharecterToFavAction(userId, data));
+      } else {
+        const id = this.props.data.id
+          ? this.props.data.id
+          : this.props.data.charecter_id;
         let image_src = this.props.data.image;
         if (!this.props.data.image) {
-          
           image_src =
-           this.props.data.thumbnail.path +
-           "." +
-           this.props.data.thumbnail.extension;
-       }
-       const userId = this.props.auth.currentUser.id;
-  
-          const data = {
-            comic_id: id,
-            title: this.props.data.title,
-            image: image_src
-          };
-          console.log(data);
-          this.props.dispatch(addComicToFavAction(userId, data));  
+            this.props.data.thumbnail.path +
+            "." +
+            this.props.data.thumbnail.extension;
+        }
+        const userId = this.props.auth.currentUser.id;
+
+        const data = {
+          comic_id: id,
+          title: this.props.data.title,
+          image: image_src,
+        };
+
+        this.props.dispatch(addComicToFavAction(userId, data));
       }
-  
     }
   };
-
 
   // Unfavourite button
   handleUnFavourite = () => {
@@ -113,15 +112,17 @@ class DisplayContent extends Component {
       isFav: false,
     });
     if (this.props.reqParams === "charecters") {
-      const id = this.props.data.id ? this.props.data.id: this.props.data.charecter_id;
+      const id = this.props.data.id
+        ? this.props.data.id
+        : this.props.data.charecter_id;
       this.props.dispatch(removeCharecterToFavAction(userId, id));
-    }else{
-      const id = this.props.data.id ? this.props.data.id: this.props.data.comic_id;
+    } else {
+      const id = this.props.data.id
+        ? this.props.data.id
+        : this.props.data.comic_id;
       this.props.dispatch(removeComicToFavAction(userId, id));
     }
   };
-
-
 
   render() {
     if (this.props.reqParams === "comics") {

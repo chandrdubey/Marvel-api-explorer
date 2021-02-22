@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Spinner from "./Spinner";
+import Spinner from "../Spinner";
 
-import { getComicByIdAction, setErrorFalseAction, isLoadingAction, addComicToFavAction, removeComicToFavAction } from "../actions/getDataAction";
-import Page404 from "./Page404Component";
-
+import {
+  getComicByIdAction,
+  setErrorFalseAction,
+  isLoadingAction,
+  addComicToFavAction,
+  removeComicToFavAction,
+} from "../../actions/getDataAction";
+import {Page404} from "..";
 
 class ComicPageComponent extends Component {
   constructor(props) {
@@ -23,20 +28,23 @@ class ComicPageComponent extends Component {
     console.log(user);
     console.log(`is ${this.props.isLoggedIn}`);
     console.log(this.props.favComics);
-    if(this.props.favComics){
-
-       if(this.props.favComics.length > 0 && this.props.favComics.some(comicMarvel=>comicMarvel.comic_id === params.id))
-        {
-          console.log("hello indaia");
-              this.setState({
-                isFavourite:true
-              });
-       }
+    if (this.props.favComics) {
+      if (
+        this.props.favComics.length > 0 &&
+        this.props.favComics.some(
+          (comicMarvel) => comicMarvel.comic_id === params.id
+        )
+      ) {
+        console.log("hello indaia");
+        this.setState({
+          isFavourite: true,
+        });
+      }
     }
   }
-  componentWillUnmount (){
+  componentWillUnmount() {
     this.props.setErrorFalse();
-   }
+  }
   handleFavourite = () => {
     if (!this.props.isLoggedIn) {
       this.props.history.push("/login");
@@ -44,7 +52,7 @@ class ComicPageComponent extends Component {
       this.setState({
         isFavourite: true,
       });
-      
+
       const userId = this.props.currentUser.id;
       const data = {
         comic_id: this.props.comic.id,
@@ -53,9 +61,7 @@ class ComicPageComponent extends Component {
           this.props.comic.thumbnail.path +
           "." +
           this.props.comic.thumbnail.extension,
-      }
-     // console.log("hil")
-      //console.log(data);
+      };
       this.props.addComicFav(userId, data);
     }
   };
@@ -72,12 +78,11 @@ class ComicPageComponent extends Component {
     this.props.removeComicToFav(userId, params.id);
   };
   render() {
-    if(this.props.pageNotFound)
-    {
-      return <Page404 />
+    if (this.props.pageNotFound) {
+      return <Page404 />;
     }
     let image, knowMorUrl;
-    let  publish, price, creators;
+    let publish, price, creators;
     if (!isEmpty(this.props.comic)) {
       const data = {
         comic_id: this.props.comic.id,
@@ -86,7 +91,7 @@ class ComicPageComponent extends Component {
           this.props.comic.thumbnail.path +
           "." +
           this.props.comic.thumbnail.extension,
-      }
+      };
       console.log(data);
       image =
         this.props.comic.thumbnail.path +
@@ -100,11 +105,11 @@ class ComicPageComponent extends Component {
       price = this.props.comic.prices[0].price;
       publish = this.props.comic.dates[0].date.substring(0, 10);
       console.log(publish);
-
-      //  console.log(knowMorUrl);
     }
     return this.props.isLoading ? (
-      <div className="margin-top"><Spinner /></div> 
+      <div className="margin-top">
+        <Spinner />
+      </div>
     ) : (
       <>
         <div id="header" className="container-fluid show-page">
@@ -141,7 +146,7 @@ class ComicPageComponent extends Component {
                       )}
                     </div>
                   </div>
-                  <hr/>
+                  <hr />
                   <p>{this.props.comic.description}</p>
                   {this.props.comic.series && (
                     <>
@@ -160,8 +165,8 @@ class ComicPageComponent extends Component {
                   <div className="row">
                     {creators &&
                       creators.map((creator) => (
-                        <div className="col-6" key={creator.name}>
-                          <h4> {creator.role} </h4>
+                        <div className="col-6 " key={creator.name}>
+                          <h4 className="color-text"> {creator.role} </h4>
                           <p>{creator.name}</p>
                         </div>
                       ))}
@@ -182,7 +187,7 @@ class ComicPageComponent extends Component {
                       <p>${price}</p>
                     </>
                   )}
-                
+
                   {knowMorUrl && (
                     <a href={knowMorUrl[0].url} className="btn btn-get-started">
                       Know more
@@ -222,17 +227,18 @@ const mapStateToProps = (state) => {
     comic: state.marvelData.comic,
     isLoading: state.marvelData.isLoading,
     isLoggedIn: state.auth.isLoggedIn,
-    favComics:state.marvelData.favComics,
-    pageNotFound:state.marvelData.pageNotFound
-  }
+    favComics: state.marvelData.favComics,
+    pageNotFound: state.marvelData.pageNotFound,
+  };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     getComicById: (id) => dispatch(getComicByIdAction(id)),
     Loading: () => dispatch(isLoadingAction()),
-    addComicFav : (userId,data)=> dispatch(addComicToFavAction(userId, data)),
-    removeComicToFav :(userId, comicId) => dispatch(removeComicToFavAction(userId, comicId)),
-    setErrorFalse : ()=>dispatch( setErrorFalseAction())
+    addComicFav: (userId, data) => dispatch(addComicToFavAction(userId, data)),
+    removeComicToFav: (userId, comicId) =>
+      dispatch(removeComicToFavAction(userId, comicId)),
+    setErrorFalse: () => dispatch(setErrorFalseAction()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ComicPageComponent);

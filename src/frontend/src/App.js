@@ -1,15 +1,16 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import React, { Component } from "react";
+//import Navbar from "./components/Navbar";
 import { Switch, Route} from "react-router-dom";
 import { connect } from "react-redux";
-import Charecters from "./components/CharectersComponet.js";
-import Comics from "./components/ComicsComponent";
-import React, { Component } from "react";
-import RegisterComponent from "./components/RegisterComponent";
-import LoginComponent from "./components/LoginComponent";
-import Home from "./components/HomeComponent";
-import CharecterPage from "./components/CharcterPageComponent";
-import ComicPage from "./components/ComicPageComponent";
+// import Charecters from "./components/CharectersComponet";
+// import Comics from "./components/ComicsComponent";
+// 
+// import RegisterComponent from "./components/Register";
+// import LoginComponent from "./components/Login";
+// import Home from "./components/Home";
+//import CharecterPage from "./components/CharcterPage";
+//import ComicPage from "./components/ComicPage";
 //import jwt from "jsonwebtoken"
 import jwt from "jwt-decode"
 import { authenticateUserAction } from "./actions/authAction";
@@ -18,8 +19,9 @@ import {
   getFavComicsAction,
   isLoadingAction,
 } from "./actions/getDataAction";
-import FavouriteComponet from "./components/FavouriteComponet";
-import Page404 from "./components/Page404Component"
+//import FavouriteComponet from "./components/FavouriteComponet";
+//import Page404 from "./components/Page404Component"
+import { CharcterPage, Charecters, ComicPage, Comics, Favourite, Home, Login, Navbar, Page404, Register } from "./components";
 
 class App extends Component {
   componentDidMount() {
@@ -53,13 +55,12 @@ class App extends Component {
           {/*Route provides the history in props so we  can redirect using props.history.push */}
           <Route path="/" exact component={Home} />
           <Route path="/charecters" exact component={Charecters} />
-         
-          <Route path="/charecters/:id" exact component={CharecterPage} />
-          <Route path="/signup" component={RegisterComponent} />
-          <Route path="/users/:id/favourites" component={FavouriteComponet} />
-          <Route path="/comics/:id" component={ComicPage} />
-          <Route path="/login" component={LoginComponent} />
-          <Route path="/comics" component={Comics} />
+          <Route path="/charecters/:id" exact component={CharcterPage} />
+          <Route path="/signup" component={Register} />
+          <Route path="/users/:id/favourites" exact component={Favourite} />
+          <Route path="/comics/:id" exact component={ComicPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/comics" exact component={Comics} />
           {/* <Route  path ='/comics/:id'  component={ComicPage} /> */}
           <Route component={Page404} />
         </Switch>

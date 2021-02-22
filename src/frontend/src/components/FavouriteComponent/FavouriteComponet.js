@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import DisplayContent from "./DisplayContent";
+import DisplayContent from "../DisplayContent";
 import { Redirect,Link} from 'react-router-dom'
 class FavouriteComponet extends Component {
   constructor(props) {
@@ -87,8 +87,8 @@ class FavouriteComponet extends Component {
                   this.props.marvelData.favCharecters.length > 0 ? (
                     <div>
                     
-                      <div className="row content-row mx-auto">
-                      <h3 className="col-12 text-center  px-0">My Favourite charecters</h3>
+                      <div className="row content-row mx-auto fav1">
+                      <h4 className="col-12 text-center  px-0">My Favourite charecters</h4>
                         {this.props.marvelData.favCharecters.map((char) => (
                           <div className="card-len"   key={char.charecter_id}>
                             <DisplayContent
@@ -102,8 +102,8 @@ class FavouriteComponet extends Component {
                     </div>
                   ) : (
                     <>
-                      <div className="text-center fav-p">
-                        <h3>Empty Charecters Favourite list</h3>
+                      <div className="text-center auth1 fav-p">
+                        <h4>Empty Charecters Favourite list</h4>
                         <p>
                           You have no items in your favourite list. Start
                           adding!
@@ -117,8 +117,8 @@ class FavouriteComponet extends Component {
                 ) : this.props.marvelData.favComics.length > 0 ? (
                   <div >
                    
-                    <div className="row mx-auto content-row">
-                    <h3 className="col-12 px-0  text-center">My Favourite comics</h3>
+                    <div className="row mx-auto content-row fav1">
+                    <h4 className="col-12 px-0  text-center">My Favourite comics</h4>
                       {this.props.marvelData.favComics.map((comic) => (
                         <div className="card-len"  key={comic.comic_id}>
                           <DisplayContent
@@ -132,8 +132,8 @@ class FavouriteComponet extends Component {
                     </div>
                 ) : (
                   <>
-                    <div className=" fav-p text-center">
-                      <h3>Empty Comics Favourite list</h3>
+                    <div className=" fav-p text-center auth1">
+                      <h4>Empty Comics Favourite list</h4>
                       <p>
                         You have no items in your favourite list. Start adding!
                       </p>
