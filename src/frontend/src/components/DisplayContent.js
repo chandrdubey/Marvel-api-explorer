@@ -78,7 +78,7 @@ class DisplayContent extends Component {
           name: this.props.data.name,
           image: image_src,
         };
-        console.log(data);
+        
         this.props.dispatch(addCharecterToFavAction(userId, data));
       } else {
         const id = this.props.data.id
@@ -107,7 +107,7 @@ class DisplayContent extends Component {
   // Unfavourite button
   handleUnFavourite = () => {
     const userId = this.props.auth.currentUser.id;
-    console.log("hello");
+   
     this.setState({
       isFav: false,
     });

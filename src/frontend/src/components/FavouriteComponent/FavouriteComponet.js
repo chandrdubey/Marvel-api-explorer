@@ -22,14 +22,14 @@ class FavouriteComponet extends Component {
       favourite: num,
       fav: data
     });
-    console.log(num);
+   
   };
   render() {
     let token = localStorage.getItem('token');
     const {
       match: { params },
     } = this.props;
-    console.log(`${token} working`);
+   
     if(!token || this.props.auth.currentUser.id !== params.id )
     {
       return <Redirect to="/login" />

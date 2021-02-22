@@ -16,7 +16,7 @@ export const getCharectersAction = () => {
         });
         // handle success
 
-        console.log(response.data.data.results);
+        
       })
       .catch(function (error) {
         // handle error
@@ -35,7 +35,7 @@ export const getComicsAction = () => {
       .then((response) => {
         dispatch({ type: "ALL_COMICS", payload: response.data.data.results });
         // handle success
-        console.log(response.data.data.results);
+      
       })
       .catch(function (error) {
         // handle error
@@ -108,7 +108,7 @@ export const getCharecterByIdAction = (id) => {
           `https://gateway.marvel.com:443/v1/public/characters/${id}?${marvel.marvelKey}`
         );
 
-        console.log(response.data.data.results[0]);
+      
         dispatch({
           type: "ONE_CHARECTER",
           payload: response.data.data.results[0],
@@ -130,7 +130,7 @@ export const getComicByIdAction = (id) => {
         `https://gateway.marvel.com:443/v1/public/comics/${id}?${marvel.marvelKey}`
       )
       .then((response) => {
-        console.log(response.data.data.results[0]);
+       
         dispatch({ type: "ONE_COMIC", payload: response.data.data.results[0] });
       })
       .catch((error) => {
@@ -156,7 +156,7 @@ export const addCharecterToFavAction = (userId, data) => {
     axios
       .post(`${API}/users/${userId}/charecters/favourite/add`, data, config)
       .then((response) => {
-        console.log(response);
+       
         dispatch({
           type: "FAVOURITE_CHARECTERS",
           payload: response.data.data.favcharecters,
@@ -186,7 +186,7 @@ export const removeCharecterToFavAction = (userId, charecterId) => {
     axios
       .post(`${API}/users/${userId}/charecters/favourite/delete`, data, config)
       .then((response) => {
-        console.log(response);
+      
         dispatch({
           type: "FAVOURITE_CHARECTERS",
           payload: response.data.data.favcharecters,
@@ -213,7 +213,6 @@ export const getFavCharectersAction = (userId) => {
     axios
       .get(`${API}/users/${userId}/charecters/favourite`, config)
       .then((response) => {
-        console.log(response);
         dispatch({
           type: "FAVOURITE_CHARECTERS",
           payload: response.data.data.favcharecters,
@@ -240,7 +239,7 @@ export const getFavComicsAction = (userId) => {
     axios
       .get(`${API}/users/${userId}/comics/favourite`, config)
       .then((response) => {
-        console.log(response);
+        
         dispatch({
           type: "FAVOURITE_COMICS",
           payload: response.data.data.favcomics,
@@ -283,7 +282,7 @@ export const removeComicToFavAction = (userId, comicId) => {
   return (dispatch) => {
     const token = localStorage.getItem("token");
     const jwttoken = "Bearer " + token;
-    console.log(jwttoken);
+    
     const config = {
       headers: {
         "Content-Type": "application/json",

@@ -28,14 +28,14 @@ class RegisterComponent extends Component {
       email: this.state.email,
       confirm_password: this.state.confirm_password,
     };
-    console.log(data);
+   
     this.props.dispatch(registerUserAction(data));
   };
   //Google Auth
   onSuccess = (res) => {
-    console.log(res.profileObj);
+  
     const data = { name: res.profileObj.name, email: res.profileObj.email };
-    console.log(data);
+   
     this.props.dispatch(googleOAuthAction(data));
   };
   onFailure = (error, details) => {

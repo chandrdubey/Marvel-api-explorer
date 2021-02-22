@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 module.exports = {
   userRegister: async (req, res) => {
-    console.log(req.body);
+   // console.log(req.body);
     //validate the user detail
     const { error } = await authValidation.registerValidation(req.body);
     if (error) {
@@ -109,8 +109,8 @@ module.exports = {
       { id: user._id, email: user.email, name: user.name },
       process.env.JWT_SECRET, {expiresIn:"1h"}
     );
-    console.log( process.env.JWT_SECRET);
-    console.log("you are logged in !");
+    // console.log( process.env.JWT_SECRET);
+    // console.log("you are logged in !");
     res.status(200).json({
       token,
       data: {
@@ -136,7 +136,7 @@ module.exports = {
      console.log(req.body);
       const user = await User.findOne({email:req.body.email}).populate('favcharecters').populate('favcomics').exec();
       //if user exist
-      console.log(user);
+    //  console.log(user);
       if(user !==  null){
         let token = jwt.sign(
          { id: user._id, email: user.email, name: user.name },
@@ -156,7 +156,7 @@ module.exports = {
         let unHashedPassword = Math.random().toString(36).slice(-8);
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(unHashedPassword, salt);
-        console.log(hashPassword);
+        //console.log(hashPassword);
         const user = await User.create({
           name: req.body.name,
           email: req.body.email,

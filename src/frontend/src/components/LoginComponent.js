@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { connect} from "react-redux";
+import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
+import { loginUserAction, googleOAuthAction } from "../actions/authAction";
 import { GoogleLogin } from "react-google-login";
-import { loginUserAction, googleOAuthAction } from "../../actions/authAction";
 const gClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 class LoginComponent extends Component {
   constructor() {
@@ -27,19 +27,19 @@ class LoginComponent extends Component {
     };
 
     this.props.loginUser(data);
-
   };
   onSuccess = (res) => {
-  
-    const data = {name:res.profileObj.name, email:res.profileObj.email};
-   
+    console.log(res.profileObj);
+    const data = { name: res.profileObj.name, email: res.profileObj.email };
+
     this.props.gOAuth(data);
   };
   onFailure = (error, details) => {
     console.log(error, details);
-        return;
+    return;
   };
   render() {
+    console.log(this.props.auth.isLoggedIn);
     if (this.props.auth.isLoggedIn) {
       return <Redirect to="/" />;
     }
@@ -47,12 +47,12 @@ class LoginComponent extends Component {
       <div id="header" className="container-fluid ">
         <div className="row">
           <div className="col-10 mx-auto  ">
-            <form className="form-style mx-auto auth1" onSubmit={this.handleOnSubmit}>
+            <form
+              className="form-style mx-auto auth1"
+              onSubmit={this.handleOnSubmit}
+            >
               <h3 className="text-center">Sign In</h3>
               <div className="form-group">
-                {/* <label htmlFor="exampleInputEmail1">
-                  <h4>Email: </h4>
-                </label> */}
                 <input
                   type="email"
                   className="form-control"
@@ -65,9 +65,6 @@ class LoginComponent extends Component {
                 />
               </div>
               <div className="form-group">
-                {/* <label htmlFor="exampleInputPassword1">
-                  <h4>Password:</h4>
-                </label> */}
                 <input
                   type="password"
                   className="form-control"
@@ -82,7 +79,7 @@ class LoginComponent extends Component {
                 Submit
               </button>
               <div className="auth">
-              <p> or connect with</p>
+                <p> or connect with</p>
                 <GoogleLogin
                   clientId={gClientId}
                   render={(renderProps) => (
@@ -117,7 +114,7 @@ class LoginComponent extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     loginUser: (data) => dispatch(loginUserAction(data)),
-    gOAuth : (data) => dispatch(googleOAuthAction(data))
+    gOAuth: (data) => dispatch(googleOAuthAction(data)),
   };
 };
 const mapStateToProps = ({ auth }) => {
