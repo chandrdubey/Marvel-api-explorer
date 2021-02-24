@@ -25,9 +25,6 @@ class ComicPageComponent extends Component {
     this.props.Loading();
     this.props.getComicById(params.id);
     let user = this.props.currentUser;
-    console.log(user);
-    console.log(`is ${this.props.isLoggedIn}`);
-    console.log(this.props.favComics);
     if (this.props.favComics) {
       if (
         this.props.favComics.length > 0 &&
@@ -84,15 +81,7 @@ class ComicPageComponent extends Component {
     let image, knowMorUrl;
     let publish, price, creators;
     if (!isEmpty(this.props.comic)) {
-      const data = {
-        comic_id: this.props.comic.id,
-        title: this.props.comic.title,
-        image:
-          this.props.comic.thumbnail.path +
-          "." +
-          this.props.comic.thumbnail.extension,
-      };
-      console.log(data);
+    
       image =
         this.props.comic.thumbnail.path +
         "." +

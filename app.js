@@ -10,8 +10,10 @@ const routes =  require('./src/backend/routes'); // getting routes
 
 const cors    = require('cors'); // express middleware which used to cross-orign requset
 
-const port  = process.env.PORT || 5000; //setting up our port
-
+const PORT  = process.env.PORT || 5000; //setting up our port
+// app.get('/', (req, res)=>{
+//     res.send("welcome to our wbesite");
+// });
 app.use(cors());
 app.use(express.json()); //it used to convert the body of a requset in json format
 
@@ -20,11 +22,11 @@ app.use('/',routes);
 //     res.send("hello");
 // });   // it is used to handle  all routes
 
-app.listen(port , (err) =>{
+app.listen(PORT , (err) =>{
     if(err)
     {
         console.log(`there is an error ${err}`);
     }
-    console.log(`the server is running on ${port}`);
+    console.log(`the server is running on ${PORT}`);
 });
 

@@ -4,9 +4,9 @@
   "description": "\"creating  marvel api explorer by using marvel api to learn mern stack\"",
   "main": "app.js",
   "scripts": {
-    "devStart": "nodemon app.js",
+    "start": "nodemon app.js",
     "frontEnd": "cd src && npm start --prefix frontEnd",
-    "app": "concurrently \"npm run devStart\" \"npm run frontEnd\"",
+    "app": "concurrently \"npm run start\" \"npm run frontEnd\"",
     "f-install": "cd src && cd frontEnd && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

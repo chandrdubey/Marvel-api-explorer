@@ -2,7 +2,8 @@ const  mongoose = require('mongoose');
 require('dotenv').config();
 //Set up default mongoose connection
 const mongoDB =  process.env.DATABASE_URL;
-
+const databaseUrl =  process.env.DATABASE_URL;
+//const databaseUrl = 'mongodb://localhost:27017/marvel-api';
 console.log(process.env.DATABASE_URL);
 //'mongodb://localhost:27017/marvel-api';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true  });
