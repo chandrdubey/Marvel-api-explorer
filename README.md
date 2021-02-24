@@ -1,6 +1,6 @@
 ## Marvel API Explorer
 <p align="center">
-  <a href="http://agrimart.tech">
+  <a href="https://marvel-api-explorer.netlify.app">
     <img alt="marvel" title="marvel" src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/marvel-logo-card-1560x876_2.jpg" width="150">
   </a>
 </p>
@@ -126,8 +126,10 @@
 * Remove marvel charecters and comics from favourite list
 * Easily Search marvel charecters and comics
 * Responsive
-* Login
-* Pagination for comics and charecters page
+* Remove characters and comics directly from the favorite list
+* Login with google and Authorization by Json web token 
+* Pagination for comics and charecters
+* 
 
 ## Screenshots
 
