@@ -129,7 +129,7 @@
 * Remove characters and comics directly from the favorite list
 * Login with google and Authorization by Json web token 
 * Pagination for comics and charecters
-* 
+
 
 ## Screenshots
 
